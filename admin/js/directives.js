@@ -3,10 +3,6 @@
 * Creator Workspace Directives will Go here
 *
 */
-window.onload = function(){
-  alert("Loaded 2");
-};
-
 (function(){
 
   var app = angular.module('adminDirectives', []);
@@ -15,6 +11,13 @@ window.onload = function(){
     return {
       restrict: 'E',
       templateUrl: './templates/navbar_template_dashboard.html'
+    };
+  });
+
+  app.directive('toolbarDashboard', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/toolbar_template_dashboard.html'
     };
   });
 
