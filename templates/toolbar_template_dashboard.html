@@ -1,12 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top toolbar" role="navigation">
   <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">[ Function 1 ]</a></li>
-      <li><a href="#">[ Function 2 ]</a></li>
-      <li><a href="#">[ Function 3 ]</a></li>
-      <li><a href="#">[ Function 4 ]</a></li>
-      <li><a href="#">[ Function 5 ]</a></li>
-    </ul>
+    <stats-toolbar ng-show="workspace.isSet(1)"></stats-toolbar>
+    <customize-toolbar ng-show="workspace.isSet(2)"></customize-toolbar>
+    <post-toolbar ng-show="workspace.isSet(3)"></post-toolbar>
+    <comment-toolbar ng-show="workspace.isSet(4)"></comment-toolbar>
+    <settings-toolbar ng-show="workspace.isSet(5)"></settings-toolbar>
   </div><!-- /.container-fluid -->
 </nav>

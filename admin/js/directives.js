@@ -20,5 +20,39 @@
       templateUrl: './templates/toolbar_template_dashboard.html'
     };
   });
+  app.directive('statsToolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/workspace_stats_toolbar.html'
+    };
+  });
+  app.directive('customizeToolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/workspace_custom_toolbar.html'
+    };
+  });
+  app.directive('postToolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/workspace_posts_toolbar.html'
+    };
+  });
+
+  app.directive('commentToolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/workspace_comments_toolbar.html'
+    };
+  });
+
+  app.directive('settingsToolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './templates/workspace_settings_toolbar.html'
+    };
+  });
+
+
 
 })();
