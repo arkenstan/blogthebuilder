@@ -39,12 +39,6 @@
     };
   });
 
-  app.directive('commentToolbar', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './templates/workspace_comments_toolbar.html'
-    };
-  });
 
   app.directive('settingsToolbar', function(){
     return {
