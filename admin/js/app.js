@@ -13,9 +13,18 @@
       return this.tab === check;
     };
 
+    this.isSetElab = function(from, to){
+      if(this.tab >= from && this.tab <= to)
+        return true;
+      else {
+        return false;
+      }
+    };
+
     this.setTab = function(setter){
       this.tab = setter;
     };
+
 
   });
 
