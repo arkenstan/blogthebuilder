@@ -1,8 +1,6 @@
-<nav class="navbar navbar-inverse navbar-fixed-top toolbar" role="navigation">
-  <div class="container-fluid">
-    <stats-toolbar ng-show="workspace.isSet(1)||workspace.isSetElab(5,9)"></stats-toolbar>
-    <customize-toolbar ng-show="workspace.isSet(2)||workspace.isSetElab(10,13)"></customize-toolbar>
-    <post-toolbar ng-show="workspace.isSet(3)||workspace.isSetElab(14,19)"></post-toolbar>
-    <settings-toolbar ng-show="workspace.isSet(4)||workspace.isSetElab(20,25)"></settings-toolbar>
-  </div><!-- /.container-fluid -->
+<nav class="navbar navbar-inverse toolbar" role="navigation">
+  <stats-toolbar ng-show="workspace.isSet(1)||workspace.isSetElab(5,9)"></stats-toolbar>
+  <customize-toolbar ng-show="workspace.isSet(2)||workspace.isSetElab(10,13)"></customize-toolbar>
+  <post-toolbar ng-show="workspace.isSet(3)||workspace.isSetElab(14,19)"></post-toolbar>
+  <settings-toolbar ng-show="workspace.isSet(4)||workspace.isSetElab(20,25)"></settings-toolbar>
 </nav>
