@@ -28,4 +28,7 @@
 
   });
 
+  app.controller('postCtrl', function(){});
+  app.controller('editorController', function(){});
+
 })();

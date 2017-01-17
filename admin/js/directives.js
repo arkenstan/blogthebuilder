@@ -191,6 +191,18 @@
     };
   });
 
-/* END VIEW DIRECTIVES */
+  /* END VIEW DIRECTIVES */
+
+
+  /* Text Editor Directives */
+
+  app.directive('textEditor',function(){
+    return {
+      restrict: 'E',
+      templateUrl: './editor/textEditor.html',
+    }
+  });
+
+  /* END TEXT EDITOR DIRECTIVES */
 
 })();
