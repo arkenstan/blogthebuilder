@@ -8,25 +8,26 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="includes/css/main.css" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-controller="workspaceCtrl as workspace">
+  <body>
 
-    <navbar-dashboard></navbar-dashboard>
-    <toolbar-dashboard></toolbar-dashboard>
-    <div class="container-fluid major">
+    <div class="wrapper">
+      <sidebar></sidebar>
       <workarea></workarea>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="admin/js/app.js"></script>
-    <script src="admin/js/directives.js"></script>
+    <script src="includes/js/app.js"></script>
+    <script src="includes/js/directives.js"></script>
+    <Script src="includes/js/general.js"></Script>
   </body>
 </html>
