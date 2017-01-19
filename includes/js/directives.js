@@ -22,7 +22,9 @@
   app.directive('sidebar', function(){
     return {
       restrict: 'E',
-      templateUrl: './includes/sidebar.html'
+      templateUrl: './includes/sidebar.html',
+      controller: 'sidebarCtrl',
+      controllerAs: 'sidebar'
     };
   });
 
@@ -62,5 +64,79 @@
   });
 
   /* END SIDEBAR DIRECTIVES */
+
+  /* workarea directives */
+
+  app.directive('activityArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/activity.html'
+    };
+  });
+
+  app.directive('trendArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/trend.html'
+    };
+  });
+
+  app.directive('postArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/post.html'
+    };
+  });
+
+  app.directive('tagArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/tag.html'
+    };
+  });
+
+  app.directive('appearanceArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/appearance.html'
+    };
+  });
+
+  app.directive('pluginArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/plugin.html'
+    };
+  });
+
+  app.directive('widgetArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/widget.html'
+    };
+  });
+
+  app.directive('blogArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/blog.html'
+    };
+  });
+
+  app.directive('accountArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/account.html'
+    };
+  });
+
+  app.directive('privacyArea', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/privacy.html'
+    };
+  });
+
+  /* END WORKAREA DIRECTIVES */
 
 })();

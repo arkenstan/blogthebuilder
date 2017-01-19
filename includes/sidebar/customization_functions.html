@@ -1,8 +1,8 @@
 <div class="container col-lg-12 col-md-12 sidebar-container">
   <h6><b>CUSTOMIZE</b></h6>
   <ul class="nav nav-pills nav-stacked">
-    <li><a href=""><i class="fa fa-paint-brush" aria-hidden="true"></i> APPEARANCE</a></li>
-    <li><a href=""><i class="fa fa-plug" aria-hidden="true"></i> PLUGINS</a></li>
-    <li><a href=""><i class="fa fa-newspaper-o" aria-hidden="true"></i> WIDGETS</a></li>
+    <li ng-class="{ active:sidebar.isSet(5) }"><a href ng-click="sidebar.setTab(5)"><i class="fa fa-paint-brush" aria-hidden="true"></i> APPEARANCE</a></li>
+    <li ng-class="{ active:sidebar.isSet(6) }"><a href ng-click="sidebar.setTab(6)"><i class="fa fa-plug" aria-hidden="true"></i> PLUGINS</a></li>
+    <li ng-class="{ active:sidebar.isSet(7) }"><a href ng-click="sidebar.setTab(7)"><i class="fa fa-newspaper-o" aria-hidden="true"></i> WIDGETS</a></li>
   </ul>
 </div>

@@ -1,6 +1,7 @@
 <div class="container col-lg-12 col-md-12 sidebar-container">
   <h6><b>STATS</b></h6>
   <ul class="nav nav-pills nav-stacked">
-    <li class="active"><a href=""><i class="fa fa-area-chart" aria-hidden="true"></i> ACTIVITY</a></li>
+    <li ng-class="{ active:sidebar.isSet(1) }"><a href ng-click="sidebar.setTab(1)"><i class="fa fa-area-chart" aria-hidden="true"></i> ACTIVITY</a></li>
+    <li ng-class="{ active:sidebar.isSet(2) }"><a href ng-click="sidebar.setTab(2)"><i class="fa fa-line-chart" aria-hidden="true"></i> TRENDS</a></li>
   </ul>
 </div>

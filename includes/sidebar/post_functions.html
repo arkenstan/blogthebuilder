@@ -1,8 +1,7 @@
 <div class="container col-lg-12 col-md-12 sidebar-container">
   <h6><b>POSTS</b></h6>
   <ul class="nav nav-pills nav-stacked">
-    <li><a href=""><i class="fa fa-clipboard" aria-hidden="true"></i> ALL POSTS</a></li>
-    <li><a href=""><i class="fa fa-tasks" aria-hidden="true"></i> CATEGORIES</a></li>
-    <li><a href=""><i class="fa fa-tags" aria-hidden="true"></i> TAGS</a></li>
+    <li ng-class="{ active:sidebar.isSet(3) }"><a href ng-click="sidebar.setTab(3)" aria-hidden="true"><i class="fa fa-clipboard" aria-hidden="true"></i> ALL POSTS</a></li>
+    <li ng-class="{ active:sidebar.isSet(4) }"><a href ng-click="sidebar.setTab(4)"><i class="fa fa-tags" aria-hidden="true"></i> TAGS</a></li>
   </ul>
 </div>
