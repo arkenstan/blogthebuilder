@@ -4,17 +4,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #000;
   font-family: 'Lato', sans-serif;
 }
 
-/* SIDE STYLES */
+/* SIDEBAR STYLES */
 
 .sidebar{
   position: absolute;
   left: 0;
   top:0;
-  width: 20%;
   background-color: #354052;
   height: 100%;
   overflow-x: hidden;
@@ -55,19 +53,68 @@
 
 /* SIDEBAR STYLES END */
 
+/* WORKARE STYLES */
+
 .workarea{
   position: absolute;;
   top: 0;
-  left: 20%;
-  width: 80%;
   padding-left: 0px;
   padding-right: 0px;
 }
 
-.collapse.width {
-    height: auto;
-    -webkit-transition: width 0.5s ease;
-    -moz-transition: width 0.5s ease;
-    -o-transition: width 0.5s ease;
-    transition: width 0.5s ease;
+/* END WORKAREA STYLES */
+
+
+/* GENERAL CLASSES */
+
+.sidebar-modified{
+  left: -10%;
+  width: 0%;
 }
+
+.workarea-modified{
+  left: 0;
+  width: 100%;
+}
+
+
+.animated{
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+}
+
+@media (min-width:300px) and (max-width:768px){
+  .workarea-unmodified{
+    left: 50%;
+    width: 50%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+  .workarea-unmodified{
+    left: 20%;
+    width: 80%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 20%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+  .workarea-unmodified{
+    left: 20%;
+    width: 80%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 20%;
+  }
+}
+
+/* END GENERAL CLASSES */
