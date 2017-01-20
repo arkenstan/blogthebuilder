@@ -137,6 +137,13 @@
     };
   });
 
+  app.directive('allPostTable', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/postsTable.html'
+    };
+  });
+
   /* END WORKAREA DIRECTIVES */
 
 })();

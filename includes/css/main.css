@@ -20,8 +20,8 @@
   color:#e4edf7;
 }
   .sidebar-container-top{
-    padding: 20px 0px;
-    margin: 20px 0px 0px 0px;
+    padding: 10px 0px;
+    margin: 10px 0px 0px 0px;
     border-bottom: 2px solid #2b3544;
   }
   .sidebar-container{
@@ -60,12 +60,54 @@
   top: 0;
   padding-left: 0px;
   padding-right: 0px;
+  font-size: 16px;
+  background-color: #F1F1F1;
+  height: 100%;
 }
+
+.custom-nav{
+  background-color: #354052;
+  border-color: #2a3341;
+  border-radius: 0px;
+  border-left: 0px;
+}
+
+  .custom-nav .navbar-nav>li>a{
+    color: #FFF;
+  }
+  .custom-nav .navbar-brand{
+    color: #FFF;
+  }
+
+  .custom-nav .navbar-nav>.active>a, .custom-nav .navbar-nav>.active>a:focus, .custom-nav .navbar-nav>.active>a:hover{
+    color: #FFF;
+    background-color: rgba(102, 120, 152, 0.24);
+  }
+
+  .custom-nav .navbar-nav>li>a:focus, .custom-nav .navbar-nav>li>a:hover{
+    color: #FFF;
+    background-color: #272f3c;
+  }
+
+  .custom-nav .navbar-brand:focus, .custom-nav .navbar-brand:hover{
+    color: #FFF;
+    background-color: #272f3c;
+  }
+
+  .managed{}
 
 /* END WORKAREA STYLES */
 
 
 /* GENERAL CLASSES */
+
+.hidden{
+  display: none;
+}
+
+.nothidden{
+  display: block;
+}
 
 .sidebar-modified{
   left: -10%;
@@ -75,6 +117,13 @@
 .workarea-modified{
   left: 0;
   width: 100%;
+}
+.panel-title{
+  font-size: 20px;
+}
+.tags{
+  background-color: #d6d9dd;
+  border: 1px solid #082b78;
 }
 
 
