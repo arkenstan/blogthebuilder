@@ -144,6 +144,27 @@
     };
   });
 
+  app.directive('bigEars', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/bigNumbers.html'
+    };
+  });
+
+  app.directive('dataGraphs', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/bigGraphs.html'
+    };
+  });
+
+  app.directive('backendTasks', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/bigTasks.html'
+    };
+  });
+
   /* END WORKAREA DIRECTIVES */
 
 })();

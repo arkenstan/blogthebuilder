@@ -96,6 +96,66 @@
 
   .managed{}
 
+  .billboard{
+    width: 100%;
+    color: #FFF;
+    border-radius: 2px;
+    text-shadow: 0 0 1px #000;
+    margin: 5px 0px;
+  }
+    .billboard-left{
+      padding: 5px;
+    }
+    .billboard-right{
+      text-align: right;
+      padding: 5px;
+    }
+    .billboard-bottom{
+      width: 100%;
+      padding: 5px 5px;
+    }
+      .billboard-bottom a{
+        color: #FFF;
+        text-shadow: 0;
+      }
+    .billboard-more{
+      width: 100%;
+      display: block;
+    }
+
+    .billboard#bill-comments{
+      background-color: #2be;
+      border: 1px solid #29d;
+    }
+    .billboard#bill-comments .billboard-bottom{
+      background-color: #29d;
+    }
+
+    .billboard#bill-views{
+      background-color: #3b8;
+      border: 1px solid #1a7;
+    }
+    .billboard#bill-views .billboard-bottom{
+      background-color: #1a7git;
+    }
+
+    .billboard#bill-popularity{
+      background-color: #83a;
+      border: 1px solid #729;
+    }
+    .billboard#bill-popularity .billboard-bottom{
+      background-color: #729;
+    }
+
+    .billboard#bill-posts{
+      background-color: #fc5;
+      border: 1px solid #e92;
+    }
+    .billboard#bill-posts .billboard-bottom{
+      background-color: #e92;
+    }
+
+
 /* END WORKAREA STYLES */
 
 
