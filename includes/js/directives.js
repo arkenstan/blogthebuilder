@@ -151,7 +151,7 @@
     };
   });
 
-  app.directive('dataGraphs', function(){
+  app.directive('graphs', function(){
     return {
       restrict: 'E',
       templateUrl: './includes/packs/bigGraphs.html'
