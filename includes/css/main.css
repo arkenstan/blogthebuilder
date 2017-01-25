@@ -1,0 +1,292 @@
+.wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+/* SIDEBAR STYLES */
+
+.sidebar{
+  position: absolute;
+  left: 0;
+  top:0;
+  background-color: #354052;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color:#e4edf7;
+}
+  .sidebar-container-top{
+    padding: 10px 0px;
+    margin: 10px 0px 0px 0px;
+    border-bottom: 2px solid #2b3544;
+  }
+  .sidebar-container{
+    padding: 10px 0px;
+    border-bottom: 2px solid #2b3544;
+  }
+
+    .sidebar-container .nav>li>a:focus, .nav>li>a:hover{
+      background-color: #272f3c;
+    }
+
+    .sidebar-container .nav>li>a{
+      padding: 5px 30px;
+      border-radius: 0px;
+      color: #FFF;
+      font-weight: bold;
+    }
+      .sidebar-container .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+        background-color: rgba(102, 120, 152, 0.24);
+        border-left: 2px solid #2173ff;
+      }
+
+  .user-image{
+    width:100px;
+    border-radius:50%;
+    height:100px;
+    box-shadow:0 0 10px #000;
+  }
+
+/* SIDEBAR STYLES END */
+
+/* WORKARE STYLES */
+
+.workarea{
+  position: absolute;;
+  top: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 16px;
+  background-color: #F1F1F1;
+  height: 100%;
+}
+
+.custom-nav{
+  background-color: #354052;
+  border-color: #2a3341;
+  border-radius: 0px;
+  border-left: 0px;
+}
+
+  .custom-nav .navbar-nav>li>a{
+    color: #FFF;
+  }
+  .custom-nav .navbar-brand{
+    color: #FFF;
+  }
+
+  .custom-nav .navbar-nav>.active>a, .custom-nav .navbar-nav>.active>a:focus, .custom-nav .navbar-nav>.active>a:hover{
+    color: #FFF;
+    background-color: rgba(102, 120, 152, 0.24);
+  }
+
+  .custom-nav .navbar-nav>li>a:focus, .custom-nav .navbar-nav>li>a:hover{
+    color: #FFF;
+    background-color: #272f3c;
+  }
+
+  .custom-nav .navbar-brand:focus, .custom-nav .navbar-brand:hover{
+    color: #FFF;
+    background-color: #272f3c;
+  }
+
+  .managed{}
+
+  .billboard{
+    width: 100%;
+    color: #FFF;
+    border-radius: 2px;
+    text-shadow: 0 0 1px #000;
+    margin: 5px 0px;
+  }
+    .billboard-left{
+      width: 38%;
+      padding: 5px;
+      display: inline-block;
+    }
+    .billboard-right{
+      width: 60%;
+      text-align: right;
+      padding: 5px;
+      display: inline-block;
+    }
+    .billboard-bottom{
+      width: 100%;
+      padding: 5px 5px;
+    }
+      .billboard-bottom a{
+        color: #FFF;
+        text-shadow: 0;
+      }
+    .billboard-more{
+      width: 100%;
+      display: block;
+    }
+
+    .billboard#bill-comments{
+      background-color: #2be;
+      border: 1px solid #29d;
+    }
+    .billboard#bill-comments .billboard-bottom{
+      background-color: #29d;
+    }
+
+    .billboard#bill-views{
+      background-color: #3b8;
+      border: 1px solid #1a7;
+    }
+    .billboard#bill-views .billboard-bottom{
+      background-color: #1a7;
+    }
+
+    .billboard#bill-popularity{
+      background-color: #83a;
+      border: 1px solid #729;
+    }
+    .billboard#bill-popularity .billboard-bottom{
+      background-color: #729;
+    }
+
+    .billboard#bill-posts{
+      background-color: #fc5;
+      border: 1px solid #e92;
+    }
+    .billboard#bill-posts .billboard-bottom{
+      background-color: #e92;
+    }
+
+    .card{
+      margin: 10px 0px 5px 0px;
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 0px;
+      width: 100%;
+    }
+      .card .card-head{
+        border-bottom: 1px solid;
+        padding: 5px 5px;
+      }
+        .card .card-head h3.card-heading{
+          font-size: 18px;
+          margin: 0px;
+        }
+      .card .card-body{
+        padding: 20px 0px 5px 0px;
+      }
+      .card .card-task{
+        margin-bottom: 0px;
+      }
+
+      .card.card-blue{
+        border-color: #0074c8;
+      }
+        .card.card-blue .card-head{
+          background-color: #0094ff;
+          color: #FFF;
+          border-color: #0074c8;
+        }
+
+        .card.card-green{
+          border-color: #1a7;
+        }
+          .card.card-green .card-head{
+            background-color: #3b8;
+            color: #FFF;
+            border-color: #1a7;
+          }
+          .card.card-pink{
+            border-color: #729;
+          }
+            .card.card-pink .card-head{
+              background-color: #83a;
+              color: #FFF;
+              border-color: #729;
+            }
+
+
+/* END WORKAREA STYLES */
+
+
+/* GENERAL CLASSES */
+
+.hidden{
+  display: none;
+}
+
+.nothidden{
+  display: block;
+}
+
+.sidebar-modified{
+  left: -10%;
+  width: 0%;
+}
+
+.workarea-modified{
+  left: 0;
+  width: 100%;
+}
+.panel-title{
+  font-size: 20px;
+}
+.tags{
+  background-color: #d6d9dd;
+  border: 1px solid #082b78;
+}
+
+
+.animated{
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+}
+
+@media (min-width:300px) and (max-width:768px){
+  .workarea-unmodified{
+    left: 50%;
+    width: 50%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+  .workarea-unmodified{
+    left: 20%;
+    width: 80%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 20%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+  .workarea-unmodified{
+    left: 20%;
+    width: 80%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 20%;
+  }
+}
+
+@media (min-width: 1200px){
+  .workarea-unmodified{
+    left: 20%;
+    width: 80%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 20%;
+  }
+}
+
+/* END GENERAL CLASSES */
