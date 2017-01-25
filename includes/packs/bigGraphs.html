@@ -1,6 +1,26 @@
-<div class="row" ng-controller="chartCtrl as chart">
-  <div class="col-lg-6 col-md-6 col-sm-12">
-    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride">
-    </canvas>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card card-blue">
+
+      <div class="card-head">
+        <h3 class="card-heading">Viewership</h3>
+      </div>
+
+      <div class="card-body">
+
+        <div class="row" ng-controller="chartCtrl as chart">
+
+          <div class="col-lg-8 col-md-8 col-sm-12">
+
+            <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride">
+            </canvas>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </div>

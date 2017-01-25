@@ -159,6 +159,54 @@
       background-color: #e92;
     }
 
+    .card{
+      margin: 10px 0px 5px 0px;
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 0px;
+      width: 100%;
+    }
+      .card .card-head{
+        border-bottom: 1px solid;
+        padding: 5px 5px;
+      }
+        .card .card-head h3.card-heading{
+          font-size: 18px;
+          margin: 0px;
+        }
+      .card .card-body{
+        padding: 20px 0px 5px 0px;
+      }
+      .card .card-task{
+        margin-bottom: 0px;
+      }
+
+      .card.card-blue{
+        border-color: #0074c8;
+      }
+        .card.card-blue .card-head{
+          background-color: #0094ff;
+          color: #FFF;
+          border-color: #0074c8;
+        }
+
+        .card.card-green{
+          border-color: #1a7;
+        }
+          .card.card-green .card-head{
+            background-color: #3b8;
+            color: #FFF;
+            border-color: #1a7;
+          }
+          .card.card-pink{
+            border-color: #729;
+          }
+            .card.card-pink .card-head{
+              background-color: #83a;
+              color: #FFF;
+              border-color: #729;
+            }
+
 
 /* END WORKAREA STYLES */
 
