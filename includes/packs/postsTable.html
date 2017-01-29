@@ -1,5 +1,5 @@
-<div class="post-panels row">
-  <div class="col-lg-4 col-md-4 col-sm-12">
+<div class="post-panels row" ng-controller="wysiwygeditor">
+  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Global Warming</h3>
@@ -30,7 +30,7 @@
         </div>
         <strong>Action:</strong>
         <div class="btn-group block">
-          <button type="button" class="btn btn-default">Edit</button>
+          <button type="button" class="btn btn-default" ng-click="showEditor=true">Edit</button>
           <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
             <span class="caret"></span>
           </button>
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="col-lg-4 col-md-4 col-sm-12">
+  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Global Warming</h3>
@@ -75,7 +75,7 @@
         </div>
         <strong>Action:</strong>
         <div class="btn-group block">
-          <button type="button" class="btn btn-default">Edit</button>
+          <button type="button" class="btn btn-default" ng-click="showEditor=true">Edit</button>
           <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
             <span class="caret"></span>
           </button>
@@ -90,7 +90,7 @@
   </div>
 
 
-  <div class="col-lg-4 col-md-4 col-sm-12">
+  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Global Warming</h3>
@@ -121,7 +121,7 @@
         </div>
         <strong>Action:</strong>
         <div class="btn-group block">
-          <button type="button" class="btn btn-default">Edit</button>
+          <button type="button" class="btn btn-default" ng-click="showEditor=true">Edit</button>
           <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
             <span class="caret"></span>
           </button>
@@ -134,4 +134,7 @@
       </div>
     </div>
   </div>
+  
+	<texteditor ng-show='showEditor'>
+	</texteditor>
 </div>

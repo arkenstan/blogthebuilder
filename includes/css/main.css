@@ -63,6 +63,7 @@
   font-size: 16px;
   background-color: #F1F1F1;
   height: 100%;
+  overflow-y:auto;
 }
 
 .custom-nav{
@@ -159,6 +160,8 @@
       background-color: #e92;
     }
 
+	/*CARD STYLES*/
+	
     .card{
       margin: 10px 0px 5px 0px;
       border: 1px solid;
@@ -206,8 +209,27 @@
               color: #FFF;
               border-color: #729;
             }
+	/*END OF CARD STYLES*/
 
+	input#postTitle
+{
+	border:0;
+	outline:0;
+	background:transparent;
+	border-bottom: 1px solid #D3D3D3;
+}
 
+input#postTitle:focus
+{
+	border-bottom: 1px solid #2c8efe;
+}
+
+div#editor {
+      width: 81%;
+      margin: auto;
+      text-align: left;
+    }
+	
 /* END WORKAREA STYLES */
 
 
