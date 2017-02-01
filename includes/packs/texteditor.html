@@ -1,8 +1,8 @@
 <div id="editor" class="control">
 <h3><input type="text" placeholder="Title" id="postTitle" value="Global Warming"/></h3>
-      <textarea id='edit' style="margin-top: 30px;" placeholder="Type some text">
+      <textarea id='edit' style="margin-top: 30px;" placeholder="Type some text" ng-bind="textValue">
         <h1>Textarea</h1>
-        <p>The editor can also be initialized on a textarea.</p>
+        <p>{{textValue}}</p>
       </textarea>
 	  <button class="btn btn-primary btn-lg" style="float:right;margin:10px;background-color:#2c8efe;border:#2c8efe;">Save</button>
 	  <button class="btn btn-success btn-lg" style="float:right;margin:10px;" ng-click="showEditor=false;">Back</button>
