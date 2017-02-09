@@ -1,40 +1,7 @@
-<div id="editor" class="control">
-<h3><input type="text" placeholder="Title" id="postTitle" value="Global Warming"/></h3>
-      <textarea id='edit' style="margin-top: 30px;" placeholder="Type some text" ng-bind="textValue">
-        <h1>Textarea</h1>
-        <p>{{textValue}}</p>
-      </textarea>
-	  <button class="btn btn-primary btn-lg" style="float:right;margin:10px;background-color:#2c8efe;border:#2c8efe;">Save</button>
-	  <button class="btn btn-success btn-lg" style="float:right;margin:10px;" ng-click="showEditor=false;">Back</button>
-  </div>
+<div class="textEditor">
+	<h3><input type="text" placeholder="Title" id="postTitle" value="Global Warming"/></h3>
+	<div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+		<button class="btn btn-success btn-lg" style="float:right;margin:10px;" ng-click="showEditor=false;">Cancel</button>
+		<button class="btn btn-primary btn-lg" style="float:right;margin:10px;background-color:#2c8efe;border:#2c8efe;">Save</button>
+</div>
   
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
-  <script type="text/javascript" src="includes/js/froala_editor.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/align.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/code_beautifier.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/code_view.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/draggable.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/image.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/image_manager.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/link.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/lists.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/paragraph_format.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/paragraph_style.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/table.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/video.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/url.min.js"></script>
-  <script type="text/javascript" src="includes/js/plugins/entities.min.js"></script>
-  
-  <script>
-      $(function(){
-        $('#edit')
-          .on('froalaEditor.initialized', function (e, editor) {
-            $('#edit').parents('form').on('submit', function () {
-              console.log($('#edit').val());
-              return false;
-            })
-          })
-          .froalaEditor({enter: $.FroalaEditor.ENTER_P, placeholderText: null})
-      });
-  </script>

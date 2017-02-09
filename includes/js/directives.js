@@ -173,6 +173,13 @@
     };
   });
   /*END EDITOR DIRECTIVE*/
+  
+  app.directive('posttoolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/navarea.html'
+    };
+  });
 
   /* END WORKAREA DIRECTIVES */
 
