@@ -161,7 +161,7 @@
     }
 
 	/*CARD STYLES*/
-	
+
     .card{
       margin: 10px 0px 5px 0px;
       border: 1px solid;
@@ -229,7 +229,7 @@ div#editor {
       margin: auto;
       text-align: left;
     }
-	
+
 /* END WORKAREA STYLES */
 
 
@@ -310,5 +310,23 @@ div#editor {
     width: 20%;
   }
 }
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
 
 /* END GENERAL CLASSES */

@@ -30,13 +30,12 @@
             }]
         }
     };
-    $scope.labels1 = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-    $scope.series1 = ['Series A', 'Series B'];
-
-    $scope.data1 = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
-    ];
+    this.callFunction = function(){
+      $scope.data = [
+          [Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1)],
+          [Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1)]
+      ];
+    };
 });
 
 
@@ -66,18 +65,6 @@
     };
 
   });
-  
-  app.controller('wysiwygeditor', function($scope){
-		$scope.hidePost = function()
-		{
-			if($scope.showEditor == true)
-				return true;
-		}
-	
-		$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-		$scope.htmlcontent = $scope.orightml;
-		$scope.disabled = false;
-	});
 
 
 })();
