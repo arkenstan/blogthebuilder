@@ -181,6 +181,9 @@
     };
   });
 
+  /*EDITOR DIRECTIVES*/
+  /*END EDITOR DIRECTIVE*/
+
   /* END WORKAREA DIRECTIVES */
 
 })();
