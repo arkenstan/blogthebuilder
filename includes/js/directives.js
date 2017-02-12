@@ -164,6 +164,22 @@
       templateUrl: './includes/packs/bigTasks.html'
     };
   });
+  
+  /*EDITOR DIRECTIVES*/
+  app.directive('texteditor', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/texteditor.html'
+    };
+  });
+  /*END EDITOR DIRECTIVE*/
+  
+  app.directive('posttoolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/navarea.html'
+    };
+  });
 
   /*EDITOR DIRECTIVES*/
   /*END EDITOR DIRECTIVE*/

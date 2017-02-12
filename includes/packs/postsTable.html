@@ -1,140 +1,132 @@
-<div class="post-panels row">
-  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Global Warming</h3>
-      </div>
-      <div class="panel-body">
-        <div class="post-author">
-          <strong>Author:</strong>
-          <span>black_viking</span>
-        </div>
-        <div class="post-comments">
-          <strong>Comments:</strong>
-          <span>5</span>
-        </div>
-        <div class="post-date">
-          <strong>Publish:</strong>
-          <span>2017/01/20</span>
-        </div>
-        <div class="post-category">
-          <strong>Category:</strong>
-          <span>Anti-Social</span>
-        </div>
-      </div>
-      <div class="panel-footer">
-        <div class="post-tag">
-          <strong>Tags:</strong>
-          <span class="tags">Environment</span>
-          <span class="tags">Baro Ki Teer</span>
-        </div>
-        <strong>Action:</strong>
-        <div class="btn-group block">
-          <button type="button" class="btn btn-default" >Edit</button>
-          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="">UnPublish</a></li>
-            <li><a href="">Delete</a></li>
-            <li><a href="">Draft</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Global Warming</h3>
-      </div>
-      <div class="panel-body">
-        <div class="post-author">
-          <strong>Author:</strong>
-          <span>black_viking</span>
-        </div>
-        <div class="post-comments">
-          <strong>Comments:</strong>
-          <span>5</span>
-        </div>
-        <div class="post-date">
-          <strong>Publish:</strong>
-          <span>2017/01/20</span>
-        </div>
-        <div class="post-category">
-          <strong>Category:</strong>
-          <span>Anti-Social</span>
-        </div>
-      </div>
-      <div class="panel-footer">
-        <div class="post-tag">
-          <strong>Tags:</strong>
-          <span class="tags">Environment</span>
-          <span class="tags">Baro Ki Teer</span>
-        </div>
-        <strong>Action:</strong>
-        <div class="btn-group block">
-          <button type="button" class="btn btn-default" >Edit</button>
-          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="">UnPublish</a></li>
-            <li><a href="">Delete</a></li>
-            <li><a href="">Draft</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="col-lg-4 col-md-4 col-sm-12" ng-hide="hidePost()">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Global Warming</h3>
-      </div>
-      <div class="panel-body">
-        <div class="post-author">
-          <strong>Author:</strong>
-          <span>black_viking</span>
-        </div>
-        <div class="post-comments">
-          <strong>Comments:</strong>
-          <span>5</span>
-        </div>
-        <div class="post-date">
-          <strong>Publish:</strong>
-          <span>2017/01/20</span>
-        </div>
-        <div class="post-category">
-          <strong>Category:</strong>
-          <span>Anti-Social</span>
-        </div>
-      </div>
-      <div class="panel-footer">
-        <div class="post-tag">
-          <strong>Tags:</strong>
-          <span class="tags">Environment</span>
-          <span class="tags">Baro Ki Teer</span>
-        </div>
-        <strong>Action:</strong>
-        <div class="btn-group block">
-          <button type="button" class="btn btn-default" >Edit</button>
-          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="">UnPublish</a></li>
-            <li><a href="">Delete</a></li>
-            <li><a href="">Draft</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div class="row" ng-controller="wysiwygeditor">
+	<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+		<div class="postCard">
+			<div class="postCard-heading">
+			<strong><span style="font-size:20px;">Global Warming<span></strong>
+			<div class="btn-group block">
+			<button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+			<ul class="postOperations dropdown-menu pull-right">
+					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="showEditor=true;">&nbsp;Edit</i></a></li>
+					<li><a href="#"><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
+					<li><a href="#"><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
+			</ul>
+			</div>
+			</div>
+				<hr class="postHr">
+				<div class="postCard-body">
+				<div class="post-author">
+				<strong>Author:</strong>
+				<span>&nbsp;Black Viking</span>
+				</div>
+				<div class="post-date">
+				<strong>Created On:</strong>
+				<span>&nbsp;01/29/2017</span>
+				</div>
+				<div class="post-tags">
+				<strong>Tags:</strong>
+				<span class="tags">&nbsp;#Environment,&nbsp;#Nature</span>
+				</div>
+				</div>
+				<hr class="postHr">
+				<div class="postCard-footer">
+				<ul class="postList">
+					<li><a href="#"><i class="fa fa-eye" aria-hidden="true"><span class="text-muted">&nbsp;10</span></i></a></li>
+					<li><a href="#"><i class="fa fa-comments" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+				</ul>
+				</div>
+		</div>
+		</div>
+		
+		<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+		<div class="postCard">
+			<div class="postCard-heading">
+			<strong><span style="font-size:20px;">Global Warming<span></strong>
+			<div class="btn-group block">
+			<button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+			<ul class="postOperations dropdown-menu pull-right">
+					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="showEditor=true;">&nbsp;Edit</i></a></li>
+					<li><a href="#"><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
+					<li><a href="#"><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
+			</ul>
+			</div>
+			</div>
+				<hr class="postHr">
+				<div class="postCard-body">
+				<div class="post-author">
+				<strong>Author:</strong>
+				<span>&nbsp;Black Viking</span>
+				</div>
+				<div class="post-date">
+				<strong>Created On:</strong>
+				<span>&nbsp;01/29/2017</span>
+				</div>
+				<div class="post-tags">
+				<strong>Tags:</strong>
+				<span class="tags">&nbsp;#Environment,&nbsp;#Nature</span>
+				</div>
+				</div>
+				<hr class="postHr">
+				<div class="postCard-footer">
+				<ul class="postList">
+					<li><a href="#"><i class="fa fa-eye" aria-hidden="true"><span class="text-muted">&nbsp;10</span></i></a></li>
+					<li><a href="#"><i class="fa fa-comments" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+				</ul>
+				</div>
+		</div>
+		</div>
+		
+		<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+		<div class="postCard">
+			<div class="postCard-heading">
+			<strong><span style="font-size:20px;">Global Warming<span></strong>
+			<div class="btn-group block">
+			<button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+				<span class="caret"></span>
+			</button>
+			<ul class="postOperations dropdown-menu pull-right">
+					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="showEditor=true;">&nbsp;Edit</i></a></li>
+					<li><a href="#"><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
+					<li><a href="#"><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
+			</ul>
+			</div>
+			</div>
+				<hr class="postHr">
+				<div class="postCard-body">
+				<div class="post-author">
+				<strong>Author:</strong>
+				<span>&nbsp;Black Viking</span>
+				</div>
+				<div class="post-date">
+				<strong>Created On:</strong>
+				<span>&nbsp;01/29/2017</span>
+				</div>
+				<div class="post-tags">
+				<strong>Tags:</strong>
+				<span class="tags">&nbsp;#Environment,&nbsp;#Nature</span>
+				</div>
+				</div>
+				<hr class="postHr">
+				<div class="postCard-footer">
+				<ul class="postList">
+					<li><a href="#"><i class="fa fa-eye" aria-hidden="true"><span class="text-muted">&nbsp;10</span></i></a></li>
+					<li><a href="#"><i class="fa fa-comments" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-thumbs-down" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+					<li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
+				</ul>
+				</div>
+		</div>
+		</div>
 	<texteditor ng-show='showEditor'>
 	</texteditor>
 </div>
