@@ -224,12 +224,6 @@ input#postTitle:focus
 	border-bottom: 1px solid #2c8efe;
 }
 
-div#editor {
-      width: 81%;
-      margin: auto;
-      text-align: left;
-    }
-
 .ta-editor {
   min-height: 300px;
   height: auto;
@@ -267,10 +261,6 @@ div#editor {
 }
 .panel-title{
   font-size: 20px;
-}
-.tags{
-  background-color: #d6d9dd;
-  border: 1px solid #082b78;
 }
 
 .animated{
@@ -430,23 +420,5 @@ div#editor {
     width: 20%;
   }
 }
-
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-}
-
 
 /* END GENERAL CLASSES */
