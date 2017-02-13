@@ -167,6 +167,16 @@
 
   /*EDITOR DIRECTIVES*/
   /*END EDITOR DIRECTIVE*/
+  
+  app.directive('posttoolbar', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/workarea/navarea.html'
+    };
+  });
+
+  /*EDITOR DIRECTIVES*/
+  /*END EDITOR DIRECTIVE*/
 
   /* END WORKAREA DIRECTIVES */
 
