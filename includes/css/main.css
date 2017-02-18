@@ -224,6 +224,12 @@ input#postTitle:focus
 	border-bottom: 1px solid #2c8efe;
 }
 
+div#editor {
+      width: 81%;
+      margin: auto;
+      text-align: left;
+    }
+
 .ta-editor {
   min-height: 300px;
   height: auto;
@@ -236,7 +242,6 @@ input#postTitle:focus
 	margin-left:10px;
 	margin-right:10px;
 }
-	
 /* END WORKAREA STYLES */
 
 
@@ -283,46 +288,46 @@ input#postTitle:focus
 	padding-right: 20px;
 	margin-left:0px;
 	}
-		
+
 	hr.postHr
 	{
 		border:1px solid #2c8efe;
 	}
-	
+
 	.dropdown-toggle, .dropdown-toggle:hover, .dropdown-toggle:focus{
 		background-color:transparent;
 		border:none;
 		right:0;
 		color:#2c8efe;
 	}
-	
+
 	.block{
 		float:right;
 	}
-	
+
 	.fa-comments{
 		color:black;
 	}
-	
+
 	.fa-thumbs-down{
 		color: red;
 	}
-	
+
 	.fa-share-alt{
 		color: gray;
 	}
-	
+
 	.fa-eye
 	{
 		color: #AB47BC;
 	}
-	
+
 	.tags{
 		color: #2c8efe;
 		background-color:transparent;
 		border: none;
 	}
-	
+
 	.postCard-heading{
 		color:#2c8efe;
 	}
@@ -331,12 +336,12 @@ input#postTitle:focus
     width: 15px;
 	background-color:white;
 }
- 
+
 	::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
     border-radius: 10px;
 }
- 
+
 	::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
@@ -420,5 +425,23 @@ input#postTitle:focus
     width: 20%;
   }
 }
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
 
 /* END GENERAL CLASSES */
