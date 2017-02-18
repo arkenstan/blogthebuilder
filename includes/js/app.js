@@ -54,7 +54,7 @@
   });
 
   app.controller('sidebarCtrl', function(){
-    this.tab = 1;
+    this.tab = 8;
 
     this.setTab = function(val){
       this.tab = val;
