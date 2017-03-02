@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="userApplication">
+<html lang="en" ng-app="editUserApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="theme/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="includes/css/editor.css" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
@@ -19,17 +19,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script src="includes/js/factories.js"></script>
-    <script src="theme/js/theme.js"></script>
-    <script src="theme/js/user.js"></script>
+    <script src="includes/js/edition.js"></script>
   </head>
-  <body ng-controller="themeCtrl as theme">
-    <theme-wrapper>
-      <theme-navbar></theme-navbar>
-      <theme-banner></theme-banner>
-      <ng-view></ng-view>
-      <theme-footer></theme-footer>
-    </theme-wrapper>
+  <body>
+    <div class="container-fluid editor-wrapper ">
+      <content-bar></content-bar>
+      <template-view></template-view>
+    </div>
   </body>
 </html>
