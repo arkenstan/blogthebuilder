@@ -167,7 +167,7 @@
 
   /*EDITOR DIRECTIVES*/
   /*END EDITOR DIRECTIVE*/
-  
+
   app.directive('posttoolbar', function(){
     return {
       restrict: 'E',
@@ -177,6 +177,30 @@
 
   /*EDITOR DIRECTIVES*/
   /*END EDITOR DIRECTIVE*/
+
+  /*APPEARANCE DIRECTIVE*/
+  app.directive('invertCard', function(){
+    return {
+      restrict:'E',
+      transclude:true,
+      template: "<div class='invertcard' ng-transclude></div>"
+    };
+  });
+  app.directive('cardbanner', function(){
+    return {
+      restrict:'E',
+      transclude:true,
+      template: "<div class='cardbanner' ng-transclude></div>"
+    };
+  });
+  app.directive('cardtitle', function(){
+    return {
+      restrict:'E',
+      transclude:true,
+      template: "<div class='cardtitle' ng-transclude></div>"
+    };
+  });
+  /*END APPEARANCE DIRECTIVE*/
 
   /* END WORKAREA DIRECTIVES */
 
