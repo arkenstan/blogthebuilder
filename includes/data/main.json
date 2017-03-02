@@ -1,0 +1,8 @@
+{
+  "navigation":{
+    "Home":"/home",
+    "About Us":"/about",
+    "Contact Us":"/contact",
+    "Blog":"/blog"
+  }
+}
