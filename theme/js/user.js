@@ -4,9 +4,27 @@
   app.config(function($routeProvider){
     $routeProvider.when("/",{
       templateUrl: './theme/templates/home.html',
+      controller: 'themeCtrl',
+      controllerAs: 'theme',
+      resolve:{
+        load:function(jData){
+          return jData.loadData('home');
+        }
+      },
       data: {
         title: 'Default-e-Home',
         tab: 1
+      }
+    }).when("/:name",{
+      templateUrl: function(urlattr){
+        return './theme/templates/'+urlattr.name+'.html';
+      },
+      controller: 'themeCtrl',
+      controllerAs: 'theme',
+      resolve:{
+        load:function(jData, urlattr){
+          return jData.loadData(urlattr.name);
+        }
       }
     }).when("/about",{
       templateUrl: './theme/templates/about.html',
@@ -46,9 +64,8 @@
       return check === temp.tab;
     };
 
-    jData.pData().success(function(data){
-      temp.homeData = data;
-    });
+    temp.pageData = jData.getData();
+
 
   }]);
 })();

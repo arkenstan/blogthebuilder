@@ -14,6 +14,12 @@
           });
       };
   });
+  app.directive('themeGoesHere', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './theme/templates/structure.html'
+    };
+  });
   app.directive('themeWrapper', function(){
     return {
       restrict: 'E',
