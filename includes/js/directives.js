@@ -166,6 +166,14 @@
   });
 
   /*EDITOR DIRECTIVES*/
+  
+   app.directive('texteditor', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/texteditor.html'
+    };
+  });
+  
   /*END EDITOR DIRECTIVE*/
 
   app.directive('posttoolbar', function(){
