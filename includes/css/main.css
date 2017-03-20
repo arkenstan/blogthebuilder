@@ -20,12 +20,12 @@
   color:#e4edf7;
 }
   .sidebar-container-top{
-    padding: 10px 0px;
-    margin: 10px 0px 0px 0px;
+    padding: 10px 0;
+    margin: 10px 0 0 0;
     border-bottom: 2px solid #2b3544;
   }
   .sidebar-container{
-    padding: 10px 0px;
+    padding: 10px 0;
     border-bottom: 2px solid #2b3544;
   }
 
@@ -35,11 +35,12 @@
 
     .sidebar-container .nav>li>a{
       padding: 5px 30px;
-      border-radius: 0px;
+      border-radius: 0;
       color: #FFF;
       font-weight: bold;
     }
       .sidebar-container .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+        background-color: rgb(102, 120, 152);
         background-color: rgba(102, 120, 152, 0.24);
         border-left: 2px solid #2173ff;
       }
@@ -58,8 +59,8 @@
 .workarea{
   position: absolute;;
   top: 0;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
   font-size: 16px;
   background-color: #F1F1F1;
   height: 100%;
@@ -69,8 +70,8 @@
 .custom-nav{
   background-color: #354052;
   border-color: #2a3341;
-  border-radius: 0px;
-  border-left: 0px;
+  border-radius: 0;
+  border-left: 0;
 }
 
   .custom-nav .navbar-nav>li>a{
@@ -82,6 +83,7 @@
 
   .custom-nav .navbar-nav>.active>a, .custom-nav .navbar-nav>.active>a:focus, .custom-nav .navbar-nav>.active>a:hover{
     color: #FFF;
+    background-color: rgb(102, 120, 152);
     background-color: rgba(102, 120, 152, 0.24);
   }
 
@@ -95,14 +97,13 @@
     background-color: #272f3c;
   }
 
-  .managed{}
 
   .billboard{
     width: 100%;
     color: #FFF;
     border-radius: 2px;
     text-shadow: 0 0 1px #000;
-    margin: 5px 0px;
+    margin: 5px 0;
   }
     .billboard-left{
       width: 38%;
@@ -211,6 +212,25 @@
             }
 	/*END OF CARD STYLES*/
 
+  /*INVERT CARD STYLES*/
+  .invertcard{
+    border:1px solid #959595;
+    background-color: #f2ebeb;
+  }
+    .invertcard .cardtitle{
+      padding: 0 5px 5px 5px;
+    }
+    .invertcard .cardbanner{
+      height: 200px;
+      overflow: hidden;
+    }
+      .invertcard .cardbanner img{
+        width: 100%;
+        height: 100%;
+      }
+  /*END INVERT CARD STYLES*/
+
+
 	input#postTitle
 {
 	border:0;
@@ -285,7 +305,7 @@ div#editor {
 	ul.postOperations li, ul.postList li
 	{
 	display: inline;
-	padding-right: 20px;
+	padding-right: 10px;
 	margin-left:0px;
 	}
 
@@ -425,23 +445,5 @@ div#editor {
     width: 20%;
   }
 }
-
-::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
-}
-
-::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
-}
-
 
 /* END GENERAL CLASSES */
