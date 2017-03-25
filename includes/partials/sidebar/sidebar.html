@@ -1,0 +1,44 @@
+<div class="container-fluid col-lg-2 col-md-2 sidebar animated" ng-class="{ 'sidebar-modified':main.sidebarTogg, 'sidebar-unmodified':!main.sidebarTogg }" id="sidebar">
+
+    <div class="container col-lg-12 col-md-12 sidebar-container-top">
+        <center>
+            <img class="user-image" src="includes/images/nophoto.jpg" />
+            <h4 text-align="center"><b>Batman NA</b></h4>
+        </center>
+    </div>
+
+    <div class="container col-lg-12 col-md-12 sidebar-container">
+        <h6><b>STATS</b></h6>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a ui-sref="activity"><i class="fa fa-area-chart" aria-hidden="true"></i> ACTIVITY</a></li>
+            <li><a ui-sref="trends"><i class="fa fa-line-chart" aria-hidden="true"></i> TRENDS</a></li>
+        </ul>
+    </div>
+
+    <div class="container col-lg-12 col-md-12 sidebar-container">
+        <h6><b>POSTS</b></h6>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a ui-sref="addpost"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> NEW POST</a></li>
+            <li><a ui-sref="posts"><i class="fa fa-clipboard" aria-hidden="true"></i> POSTS</a></li>
+        </ul>
+    </div>
+
+    <div class="container col-lg-12 col-md-12 sidebar-container">
+        <h6><b>CUSTOMIZE</b></h6>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a ui-sref="appearance"><i class="fa fa-paint-brush" aria-hidden="true"></i> APPEARANCE</a></li>
+            <li><a ui-sref="plugins"><i class="fa fa-plug" aria-hidden="true"></i> PLUGINS</a></li>
+            <li><a ui-sref="widgets"><i class="fa fa-newspaper-o" aria-hidden="true"></i> WIDGETS</a></li>
+        </ul>
+    </div>
+
+    <div class="container col-lg-12 col-md-12 sidebar-container">
+        <h6><b>SETTINGS</b></h6>
+        <ul class="nav nav-pills nav-stacked">
+            <li><a ui-sref="blog"><i class="fa fa-th-large" aria-hidden="true"></i> BLOG</a></li>
+            <li><a ui-sref="privacy"><i class="fa fa-user-secret" aria-hidden="true"></i> PRIVACY</a></li>
+            <li><a ui-sref="account"><i class="fa fa-anchor" aria-hidden="true"></i> ACCOUNT</a></li>
+        </ul>
+    </div>
+
+</div>
