@@ -44,3 +44,10 @@ app.directive('cardtitle', function(){
     template: "<div class='cardtitle' ng-transclude></div>"
   };
 });
+
+app.directive('texteditor', function(){
+ return {
+   restrict: 'E',
+   templateUrl: './includes/partials/posts/texteditor.html'
+ };
+});

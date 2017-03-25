@@ -1,19 +1,45 @@
 <div class="container col-lg-12 col-md-12 col-sm-12 managed">
-<h1>New Post</h1>
-<form name="newPostForm" ng-submit="newPostForm.$valid && newPostForm.addPost()">
+<uib-tabset active="active">
+  <uib-tab index="0" heading="New Post">
+    <h1>New Post</h1>
+  </uib-tab>
+  <uib-tab index="1" heading="Drafts">
+    <h1>Drafts</h1>
+  </uib-tab>
+  <uib-tab index="2" heading="Unpublished">
+    <h1>Unpublished</h1>
+  </uib-tab>
+</uib-tabset>
+<!--form name="newPostForm" ng-submit="newPostForm.$valid && newPostForm.addPost()">
 
   <div class="row">
 
     <div class="col-md-8">
+      <div class="beautify">
+        <fieldset class="form-group">
+          <input class="form-control" placeholder="Post Title" />
+        </fieldset>
 
-      <fieldset class="form-group">
-        <input class="form-control" placeholder="Post Title" />
-      </fieldset>
-      <text-editor></text-editor>
-
+        <fieldset class="form-group">
+          <textarea class="form-control" placeholder="Your Post"></textarea>
+        </fieldset>
+      </div>
     </div>
+
+    <div class="col-md-4">
+      <div class="beautify">
+        <fieldset class="form-group">
+          <input class="form-control" placeholder="Post Title" />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <textarea class="form-control" placeholder="You Post"></textarea>
+        </fieldset>
+      </div>
+    </div>
+
   </div>
 
 
-</form>
+</form-->
 </div>
