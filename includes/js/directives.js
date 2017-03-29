@@ -81,6 +81,13 @@
     };
   });
 
+    app.directive('newPost', function(){
+      return {
+        restrict: 'E',
+        templateUrl: './includes/packs/texteditor.html'
+      };
+    });
+
   app.directive('postArea', function(){
     return {
       restrict: 'E',
@@ -164,7 +171,7 @@
       templateUrl: './includes/packs/bigTasks.html'
     };
   });
-  
+
   /*EDITOR DIRECTIVES*/
   app.directive('texteditor', function(){
     return {
@@ -173,7 +180,7 @@
     };
   });
   /*END EDITOR DIRECTIVE*/
-  
+
   app.directive('posttoolbar', function(){
     return {
       restrict: 'E',
