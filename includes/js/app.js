@@ -37,62 +37,91 @@ var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'n
 });
 
 app.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/activity');
+  $urlRouterProvider.otherwise('/login');
 
-  $stateProvider.state('activity', {
+  $stateProvider.state('workspace.activity', {
     url: '/activity',
-    templateUrl:'./includes/partials/workarea/activity.tpl.html',
+    templateUrl:'./includes/partials/workarea/activity.tpl.html'
   });
 
-  $stateProvider.state('trends', {
+  $stateProvider.state('workspace.trends', {
     url: '/trends',
-    templateUrl:'./includes/partials/workarea/trend.tpl.html',
+    templateUrl:'./includes/partials/workarea/trend.tpl.html'
   });
 
-  $stateProvider.state('addpost', {
+  $stateProvider.state('workspace.addpost', {
     url: '/newpost',
-    templateUrl:'./includes/partials/workarea/addpost.tpl.html',
+    templateUrl:'./includes/partials/workarea/addpost.tpl.html'
   });
 
-  $stateProvider.state('posts', {
+  $stateProvider.state('workspace.posts', {
     url: '/posts',
-    templateUrl:'./includes/partials/workarea/post.tpl.html',
+    templateUrl:'./includes/partials/workarea/post.tpl.html'
   });
 
-  $stateProvider.state('appearance', {
+  $stateProvider.state('workspace.appearance', {
     url: '/appearance',
-    templateUrl:'./includes/partials/workarea/appearance.tpl.html',
+    templateUrl:'./includes/partials/workarea/appearance.tpl.html'
   });
 
-  $stateProvider.state('plugins', {
+  $stateProvider.state('workspace.plugins', {
     url: '/plugins',
-    templateUrl:'./includes/partials/workarea/plugin.tpl.html',
+    templateUrl:'./includes/partials/workarea/plugin.tpl.html'
   });
 
-  $stateProvider.state('widgets', {
+  $stateProvider.state('workspace.widgets', {
     url: '/widgets',
-    templateUrl:'./includes/partials/workarea/widget.tpl.html',
+    templateUrl:'./includes/partials/workarea/widget.tpl.html'
   });
 
-  $stateProvider.state('blog', {
+  $stateProvider.state('workspace.blog', {
     url: '/blog',
-    templateUrl:'./includes/partials/workarea/blog.tpl.html',
+    templateUrl:'./includes/partials/workarea/blog.tpl.html'
   });
 
-  $stateProvider.state('privacy', {
+  $stateProvider.state('workspace.privacy', {
     url: '/privacy',
-    templateUrl:'./includes/partials/workarea/privacy.tpl.html',
+    templateUrl:'./includes/partials/workarea/privacy.tpl.html'
   });
 
-  $stateProvider.state('account', {
+  $stateProvider.state('workspace.account', {
     url: '/account',
-    templateUrl:'./includes/partials/workarea/account.tpl.html',
+    templateUrl:'./includes/partials/workarea/account.tpl.html'
+  });
+
+  $stateProvider.state('workspace',{
+    url:'/workspace',
+    templateUrl:'./includes/partials/main.tpl.html'
+  });
+
+  $stateProvider.state('login',{
+    url:'/login',
+    templateUrl:'./includes/partials/login.tpl.html',
+    controller:'loginCtrl as loginc'
   });
 
 });
 
+app.run(function($rootScope,$location,loginService,$window){
+  var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post'];
+  var unauthenticatedRoutes=['/login'];
+  $rootScope.$on('$stateChangeStart', function(){
+    if(authenticatedRoutes.indexOf($location.path()) != -1){
+      var temp = loginService.isLogged();
+      temp.then(function(darth){
+        if(!darth.data) $location.path('/login');
+      });
+    }else if(unauthenticatedRoutes.indexOf($location.path()) != -1){
+      var temp2 = loginService.isLogged();
+      temp2.then(function(darth){
+        if(darth.data) $location.path('/workspace/activity');
+      });
+    }
+  });
+});
 
-app.controller('mainCtrl', function(){
+
+app.controller('mainCtrl', function(loginService){
 
   this.sidebarTogg = false;
 
@@ -102,6 +131,10 @@ app.controller('mainCtrl', function(){
     } else {
       this.sidebarTogg = true;
     }
+  };
+
+  this.logout = function(){
+    loginService.logout();
   };
 
 });

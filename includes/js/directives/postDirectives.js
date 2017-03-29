@@ -13,3 +13,11 @@ app.directive('allPostTable', function(){
     templateUrl: './includes/partials/posts/postsTable.html'
   };
 });
+
+app.directive('addPost',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './includes/partials/posts/addPost.tpl.html',
+    controller: 'postAddCtrl as pac'
+  };
+});

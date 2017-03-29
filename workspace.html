@@ -17,9 +17,14 @@
     <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.16/textAngular.min.js"></script>
     <script src="includes/js/app.js"></script>
+    <script src="includes/js/controllers/postCtrl.js"></script>
+    <script src="includes/js/controllers/loginCtrl.js"></script>
     <script src="includes/js/directives/generalDirectives.js"></script>
     <script src="includes/js/directives/activityDirectives.js"></script>
     <script src="includes/js/directives/postDirectives.js"></script>
+    <script src="includes/js/services/postServices.js"></script>
+    <script src="includes/js/services/loginService.js"></script>
+    <script src="includes/js/services/sessionService.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,8 +43,7 @@
   <body ng-controller="mainCtrl as main">
 
     <div class="wrapper">
-      <sidebar></sidebar><!-- End Sidebar -->
-      <workarea></workarea><!-- End Workarea -->
+      <div ui-view></div>
     </div><!-- Wrapper End  -->
 
   </body>
