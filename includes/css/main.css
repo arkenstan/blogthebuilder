@@ -414,12 +414,16 @@ div#editor {
 
 @media (min-width:300px) and (max-width:768px){
   .workarea-unmodified{
-    left: 50%;
-    width: 50%;
-  }
-  .sidebar-unmodified{
-    left: 0;
-    width: 50%;
+  left: 50%;
+  width: 50%;
+}
+.sidebar-unmodified{
+  left: 0;
+  width: 50%;
+}
+
+.dropdown-toggle {
+      width: 100px;
   }
 }
 
@@ -454,6 +458,255 @@ div#editor {
     left: 0;
     width: 20%;
   }
+}
+
+@media (max-width: 600px) {
+	.workarea-unmodified{
+    left: 85%;
+    width: 15%;
+  }
+  .sidebar-unmodified{
+    left: 0;
+    width: 85%;
+  }
+}
+
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+
+.input-group-addon, .setBtn
+{
+	background-color:#2c8efe;
+	color:white;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 0;
+  padding: 7px 0 0 13px;
+  pointer-events: none;
+  color: #aaa;
+  transition: all 200ms;
+}
+
+.form-control:focus + .form-control-placeholder {
+  color: #000;
+  font-size: 75%;
+  top: -25px;
+}
+
+.selectDrop option
+{
+	color: #2c8efe;
+	width: 150px;
+}
+
+select.selectDrop
+{
+	text-align:left;
+	width: 200px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.selectDrop option:hover
+{
+	background-color: #2c8efe;
+	color: #fff;
+}
+
+ul.commentList li{
+  color: #000000;
+  display: inline;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 40px;
+}
+
+ul.commentList li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul.commentList li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  padding: 0px 0px 20px 40px;
+  margin: 5px auto;
+  height: 10px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+/*
+ul.commentList li:hover label{
+	color: #000000;
+}*/
+
+ul.commentList li .check{
+  display: block;
+  position: absolute;
+  border: 3px solid #000000;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 5px;
+  left: 0px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+/*
+ul.commentList li:hover .check {
+  border: 5px solid #000000;
+}*/
+
+ul.commentList li .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 4px;
+	left: 4px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 3px solid #2c8efe;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #2c8efe;
+}
+
+input[type=radio]:checked ~ label{
+  color: #2c8efe;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	margin-top:7px;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider
+{
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 40px;
+	right: -40px;
+	bottom: 0;
+	background-color: #AAAAAA;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before
+{
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider
+{
+	background-color: #2c8efe;
+}
+
+input:focus + .slider
+{
+	box-shadow: 0 0 1px #2c8efe;
+}
+
+input:checked + .slider:before
+{
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round
+{
+	border-radius: 34px;
+}
+
+.slider.round:before
+{
+	border-radius: 50%;
+}
+
+#langInput, #commentInput, #email
+{
+  margin: 11px;
+}
+
+#timeInput, #blogTg, #commentModInput, #nPass, #rPass
+{
+  padding: 10px 10px;
+}
+
+#blogTitle, #commentInput{
+  padding: 10px 18px;
+}
+
+#blogAd{
+  padding: 10px 7px;
+}
+
+#commentCapInput
+{
+  margin:25px;
+  padding: 10px 28px;
+}
+
+#commentNotInput
+{
+  padding: 10px 24px;
+}
+
+#rPass
+{
+  padding: 10px 3px;
+}
+
+#email{
+  padding: 10px 27px;
+}
+
+
+#catInput
+{
+  padding: 10px 50px;
+  margin: 20px;
+}
+
+#postTags
+{
+  padding: 20px 60px;
+  margin: 25px;
 }
 
 /* END GENERAL CLASSES */

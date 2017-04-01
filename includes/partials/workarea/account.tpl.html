@@ -1,1 +1,64 @@
-<h1>ACCOUNT AREA</h1>
+<div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1">
+	<div class="postCard">
+		<div class="postCard-heading">
+			<label>Account Settings</label>
+			<button class="block btn btn-md setBtn">Save Settings</button>
+		</div>
+		<hr class="postHr">
+		<div class="postCard-body">
+		<h4>Email Settings</h4>
+			<form method="post">
+			<div class="row">
+				<div class="col-sm-10 col-lg-10 col-md-10">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="email">Email</i></span>
+							<input type="text" class="form-control" name="regEmail" id="regEmail"  value="featheredfervour@gmail.com" style="color:#000;"/>
+									<span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true" style="cursor:pointer;" data-toggle="popover" data-trigger="hover" data-content="Edit" data-placement="bottom" id="editEmail"></i></span>
+					</div>
+				</div>
+				<hr class="postHr"/>
+        <h4>Change Password</h4>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="cPass">Current Password</i></span>
+							<input type="text" class="form-control" name="curPassword" id="curPassword"  placeholder="Current Password" style="color:#000;"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+                  <span class="input-group-addon"><i aria-hidden="true" id="nPass">New Password</i></span>
+      							<input type="text" class="form-control" name="newPassword" id="newPassword"  placeholder="New Password" style="color:#000;"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+          				<span class="input-group-addon"><i aria-hidden="true" id="rPass">Retype Password</i></span>
+            				<input type="text" class="form-control" name="rePassword" id="rePassword"  placeholder="Retype Password" style="color:#000;"/>
+					</div>
+				</div>
+      </div>
+				<div class="col-lg-2 col-sm-2">
+					<center><img class="user-image img-responsive" src="includes/images/nophoto.jpg" style="margin-bottom:10px;"/>
+					<a href="" style="color:#2c8efe;">Change</a></center>
+				</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover({animation:true});
+
+		document.getElementById("regEmail").disabled = true;
+
+		$("#editEmail").click(function()
+		{
+			document.getElementById("regEmail").disabled = false;
+		});
+	});
+	</script>

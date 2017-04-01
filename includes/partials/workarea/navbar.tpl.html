@@ -16,8 +16,16 @@
         <li class="active"><a href>Blog Name Here</a></li>
       </ul>
 
-		<posttoolbar ng-show="sidebar.isSet(3)"></posttoolbar>
+		<posttoolbar ng-show="sidebar.isSet(3) || sidebar.isSet(11)"></posttoolbar>
 
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </form>
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href ng-click="main.logout()">Logout</a></li>
