@@ -109,14 +109,10 @@ app.run(function($rootScope,$location,loginService,$window){
     var temp = loginService.isLogged();
     temp.then(function(darth){
       if(darth.data == 'authenticated'){
-        console.log("darthy1");
-        console.log(darth);
         if(unauthenticatedRoutes.indexOf($location.path()) != -1){
           $location.path('/workspace/activity');
         }
       }else if(darth.data == 'unauthenticated'){
-        console.log("darthy2");
-        console.log(darth);
         if(authenticatedRoutes.indexOf($location.path()) != -1){
           $location.path('/login');
         }
