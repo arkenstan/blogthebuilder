@@ -106,17 +106,22 @@ app.run(function($rootScope,$location,loginService,$window){
   var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post'];
   var unauthenticatedRoutes=['/login'];
   $rootScope.$on('$stateChangeStart', function(){
-    if(authenticatedRoutes.indexOf($location.path()) != -1){
-      var temp = loginService.isLogged();
-      temp.then(function(darth){
-        if(!darth.data) $location.path('/login');
-      });
-    }else if(unauthenticatedRoutes.indexOf($location.path()) != -1){
-      var temp2 = loginService.isLogged();
-      temp2.then(function(darth){
-        if(darth.data) $location.path('/workspace/activity');
-      });
-    }
+    var temp = loginService.isLogged();
+    temp.then(function(darth){
+      if(darth.data == 'authenticated'){
+        console.log("darthy1");
+        console.log(darth);
+        if(unauthenticatedRoutes.indexOf($location.path()) != -1){
+          $location.path('/workspace/activity');
+        }
+      }else if(darth.data == 'unauthenticated'){
+        console.log("darthy2");
+        console.log(darth);
+        if(authenticatedRoutes.indexOf($location.path()) != -1){
+          $location.path('/login');
+        }
+      }
+    });
   });
 });
 

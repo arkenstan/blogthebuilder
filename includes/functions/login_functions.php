@@ -28,6 +28,8 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
     case 2:
       if(logged_in() == true){
         echo 'authenticated';
+      }else{
+        echo 'unauthenticated';
       }
       break;
 

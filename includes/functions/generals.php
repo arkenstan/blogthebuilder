@@ -6,7 +6,7 @@ function email_exists($link, $email){
 }
 
 function logged_in(){
-  return isset($_SESSION['uid'])?true:false;
+  return isset($_SESSION['vader'])?true:false;
 }
 
 function login($link, $user){
