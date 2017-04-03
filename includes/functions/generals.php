@@ -23,6 +23,7 @@ function login($link, $user){
 function sanitize($link, $item){
   $item = trim($item);
   $item = stripslashes($item);
+  $item = htmlspecialchars($item);
   return mysqli_real_escape_string($link, $item);
 }
 

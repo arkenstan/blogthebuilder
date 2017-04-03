@@ -10,12 +10,10 @@ app.factory('postService', function($http,$window){
       var $promise,id;
       switch (activity) {
         case 'draft':
-          id = post.post_id;
-          $promise = $http.post('./includes/functions/posts.php?act=2',id);
+          $promise = $http.post('./includes/functions/posts.php?act=2',post);
           break;
         case 'unpublish':
-          id = post.post_id;
-          $promise = $http.post('./includes/functions/posts.php?act=3',id);
+          $promise = $http.post('./includes/functions/posts.php?act=3',post);
           break;
         default:
           $promise = $http.post('./includes/functions/posts.php?act=4',post);
@@ -23,7 +21,7 @@ app.factory('postService', function($http,$window){
       }
       return $promise;
     },
-    deletePost:function(postID){
+    deletePost:function(post){
       var $promise = $http.post('./includes/functions/posts.php?act=5',postID);
       return $promise;
     },
