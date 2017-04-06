@@ -710,7 +710,7 @@ input:checked + .slider:before
 }
 
 
-#saveDraft, #publishPost, #previewPost, #deletePost
+.postBtn
 {
   border: none;
   background-color: transparent;

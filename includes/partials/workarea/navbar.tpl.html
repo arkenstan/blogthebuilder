@@ -15,8 +15,19 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href>Blog Name Here</a></li>
       </ul>
+      <ul ng-show="main.urlStat('/workspace/newpost')" class="nav navbar-nav">
+          <li><button type="submit" id="saveDraft" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Save as Draft" data-placement="bottom"><i class="glyphicon glyphicon-ok"></i></button></li>
+          <li><button type="submit" id="deletePost" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Delete" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></button></li>
+          <li><button type="submit" id="publishPost" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Publish" data-placement="bottom"><i class="glyphicon glyphicon-saved"></i></button></li>
+          <li><button type="submit" id="previewPost" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Preview" data-placement="bottom"><i class="glyphicon glyphicon-new-window"></i></button></li>
+      </ul>
+      <ul ng-show="main.editorStatus() && main.urlStat('/workspace/posts')" class="nav navbar-nav">
+          <li><button type="submit" id="saveDraft2" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Save as Draft" data-placement="bottom"><i class="glyphicon glyphicon-ok"></i></button></li>
+          <li><button type="submit" id="deletePost2" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Delete" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></button></li>
+          <li><button type="submit" id="publishPost2" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Publish" data-placement="bottom"><i class="glyphicon glyphicon-saved"></i></button></li>
+          <li><button type="submit" id="previewPost2" class="postBtn" data-toggle="popover" data-trigger="hover" data-content="Preview" data-placement="bottom"><i class="glyphicon glyphicon-new-window"></i></button></li>
+      </ul>
 
-      <posttoolbar ng-show="main.editorStatus()"></posttoolbar>
 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">

@@ -9,3 +9,9 @@ app.service('showEditor',function(){
     return this.editorBool === 1;
   };
 });
+
+app.service('urlStatus',function($location,$window){
+  this.currentUrlStatus = function(val){
+    return $location.path() === val;
+  };
+});

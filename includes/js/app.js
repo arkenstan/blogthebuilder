@@ -72,7 +72,7 @@ app.config(function($stateProvider, $urlRouterProvider){
     views: {
       nav:
       {
-        templateUrl:'./includes/partials/posts/navarea.html'
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
       },
       content:
       {
@@ -212,13 +212,16 @@ app.run(function($rootScope,$location,loginService,$window){
 });
 
 
-app.controller('mainCtrl', function(loginService,showEditor, $window){
+app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
 
   this.editorSet = function(val){
     showEditor.set(val);
   };
   this.editorStatus = function(){
     return showEditor.getBool();
+  };
+  this.urlStat = function(val){
+    return urlStatus.currentUrlStatus(val);
   };
   this.sidebarTogg = false;
 
@@ -244,8 +247,11 @@ app.controller('mainCtrl', function(loginService,showEditor, $window){
   }*/
 });
 
-app.controller('sidebarCtrl', function(showEditor,$window){
-//  var $temp = this;
+app.controller('sideCtrl',function(urlStatus){
+  var $temp = this;
+  $temp.urlStat = function(val){
+    return urlStatus.currentUrlStatus(val);
+  };
 });
 
 app.controller('wysiwygeditor', function($scope, showEditor){
@@ -268,14 +274,12 @@ app.controller('wysiwygeditor', function($scope, showEditor){
   $scope.head={selected:null};
 });
 
-  app.controller('privacyCtrl', function($scope)
-  {
-    $scope.notifyVal = false;
-    $scope.notifyFunc = function()
-    {
-      if(document.getElementById("notify").checked === true)
-        return $scope.notifyVal === true;
-      else
-        return $scope.notifyVal === false;
-    };
-  });
+app.controller('privacyCtrl', function($scope){
+  $scope.notifyVal = false;
+  $scope.notifyFunc = function(){
+    if(document.getElementById("notify").checked === true)
+      return $scope.notifyVal === true;
+    else
+      return $scope.notifyVal === false;
+  };
+});
