@@ -1,7 +1,7 @@
 <?php
 
 function email_exists($link, $email){
-  $res = mysqli_num_rows(mysqli_query($link, "SELECT email FROM users WHERE email='$email' LIMIT 1"));
+  $res = mysqli_num_rows(mysqli_query($link, "SELECT user_email FROM users WHERE user_email='$email' LIMIT 1"));
   return $res == 1 ? true:false;
 }
 
@@ -13,7 +13,7 @@ function login($link, $user){
   $email = $user->email;
   $password = sha1($user->password);
 
-  $res = mysqli_query($link, "SELECT user_id FROM users WHERE email='$email' AND password='$password' LIMIT 1");
+  $res = mysqli_query($link, "SELECT user_id FROM users WHERE user_email='$email' AND user_password='$password' LIMIT 1");
   $num = mysqli_num_rows($res);
   $res = mysqli_fetch_assoc($res);
   return ($num == 1)?$res['user_id']:false;

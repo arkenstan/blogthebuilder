@@ -172,7 +172,7 @@
       templateUrl: './includes/packs/texteditor.html'
     };
   });
-  
+
   app.directive('texteditor', function(){
     return {
       restrict: 'E',
@@ -184,7 +184,7 @@
   app.directive('posttoolbar', function(){
     return {
       restrict: 'E',
-      templateUrl: './includes/workarea/navarea.html'
+      templateUrl: './includes/partials/posts/navarea.html'
     };
   });
 

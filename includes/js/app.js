@@ -41,52 +41,142 @@ app.config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider.state('workspace.activity', {
     url: '/activity',
-    templateUrl:'./includes/partials/workarea/activity.tpl.html'
-  });
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/activity.tpl.html'
+      }
+    }
+});
 
   $stateProvider.state('workspace.trends', {
     url: '/trends',
-    templateUrl:'./includes/partials/workarea/trend.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/trend.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.addpost', {
     url: '/newpost',
-    templateUrl:'./includes/partials/workarea/addpost.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/posts/navarea.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/addpost.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.posts', {
     url: '/posts',
-    templateUrl:'./includes/partials/workarea/post.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/post.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.appearance', {
     url: '/appearance',
-    templateUrl:'./includes/partials/workarea/appearance.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/appearance.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.plugins', {
     url: '/plugins',
-    templateUrl:'./includes/partials/workarea/plugin.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/plugin.tpl.html'
+    }
+  }
   });
 
   $stateProvider.state('workspace.widgets', {
     url: '/widgets',
-    templateUrl:'./includes/partials/workarea/widget.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/widget.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.blog', {
     url: '/blog',
-    templateUrl:'./includes/partials/workarea/blog.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/blog.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.privacy', {
     url: '/privacy',
-    templateUrl:'./includes/partials/workarea/privacy.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/privacy.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.account', {
     url: '/account',
-    templateUrl:'./includes/partials/workarea/account.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/account.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace',{
@@ -100,6 +190,29 @@ app.config(function($stateProvider, $urlRouterProvider){
     controller:'loginCtrl as loginc'
   });
 
+/*
+  $stateProvider.state('workspace.posts.edit', {
+    url: '/editPost'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/posts/navarea.html'
+      }
+    }
+  });*/
+});
+
+app.service('showEditor', function($window){
+  var $temp = this;
+  $temp.showEditorBool = 0;
+  $temp.set = function(val){
+    $temp.showEditorBool = val;
+    $window.alert("f1");
+  };
+  $temp.get = function(val){
+    $window.alert("f2");
+    return $temp.showEditorBool === val;
+  };
 });
 
 app.run(function($rootScope,$location,loginService,$window){
@@ -137,23 +250,44 @@ app.controller('mainCtrl', function(loginService){
   this.logout = function(){
     loginService.logout();
   };
-
+/*
+  if($state.includes('workspace.addpost'))
+  {
+    this.showNav = true;
+  }
+  else
+  {
+    this.showNav = false;
+  }*/
 });
 
-app.controller('sidebarCtrl', function(){
-  this.tab = 5;
-
-  this.setTab = function(val){
-    this.tab = val;
+app.controller('sidebarCtrl', function(showEditor){
+  var $temp = this;
+  this.showNav = function(val){
+    return showEditor.get(val);
   };
-
-  this.isSet = function(check){
-    return this.tab === check;
-  };
-
+$temp.setEditor = function(){
+  showEditor.set(0);
+};
 });
 
-  app.controller('wysiwygeditor', function($scope){
+  app.controller('wysiwygeditor', function($scope, showEditor){
+
+  $scope.showEditorNav = function()
+  {
+    showEditor.set(1);
+  };
+
+  $scope.status = function()
+  {
+    return showEditor.get();
+  };
+    $scope.hidePost = function()
+		{
+			if($scope.showEditor == true)
+				return true;
+		}
+
 		$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
 		$scope.htmlcontent = $scope.orightml;
 		$scope.disabled = false;

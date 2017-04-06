@@ -709,4 +709,16 @@ input:checked + .slider:before
   margin: 25px;
 }
 
+
+#saveDraft, #publishPost, #previewPost, #deletePost
+{
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  margin-top: 10px;
+  padding:5px 10px;
+}
 /* END GENERAL CLASSES */
