@@ -106,17 +106,18 @@ app.run(function($rootScope,$location,loginService,$window){
   var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post'];
   var unauthenticatedRoutes=['/login'];
   $rootScope.$on('$stateChangeStart', function(){
-    if(authenticatedRoutes.indexOf($location.path()) != -1){
-      var temp = loginService.isLogged();
-      temp.then(function(darth){
-        if(!darth.data) $location.path('/login');
-      });
-    }else if(unauthenticatedRoutes.indexOf($location.path()) != -1){
-      var temp2 = loginService.isLogged();
-      temp2.then(function(darth){
-        if(darth.data) $location.path('/workspace/activity');
-      });
-    }
+    var temp = loginService.isLogged();
+    temp.then(function(darth){
+      if(darth.data == 'authenticated'){
+        if(unauthenticatedRoutes.indexOf($location.path()) != -1){
+          $location.path('/workspace/activity');
+        }
+      }else if(darth.data == 'unauthenticated'){
+        if(authenticatedRoutes.indexOf($location.path()) != -1){
+          $location.path('/login');
+        }
+      }
+    });
   });
 });
 
@@ -152,16 +153,22 @@ app.controller('sidebarCtrl', function(){
 
 });
 
-app.controller('wysiwygeditor', function($scope){
-	$scope.hidePost = function()
-	{
-		return $scope.showEditor === true;
-	};
-	$scope.textValue = "Sample Text for binding";
+  app.controller('wysiwygeditor', function($scope){
+		$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
+		$scope.htmlcontent = $scope.orightml;
+		$scope.disabled = false;
 
-	$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-	$scope.htmlcontent = $scope.orightml;
-	$scope.disabled = false;
+		$scope.head={selected:null};
+	});
 
-	$scope.head={selected:null};
-});
+  app.controller('privacyCtrl', function($scope)
+  {
+    $scope.notifyVal = false;
+    $scope.notifyFunc = function()
+    {
+      if(document.getElementById("notify").checked === true)
+        return $scope.notifyVal === true;
+      else
+        return $scope.notifyVal === false;
+    };
+  });

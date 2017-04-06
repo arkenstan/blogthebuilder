@@ -1,6 +1,32 @@
 <div class="textEditor">
 	<h3><input type="text" placeholder="Title" id="postTitle" value="Global Warming"/></h3>
-	<div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled="disabled"></div>
-		<button class="btn btn-success btn-lg" style="float:right;margin:10px;" ng-click="showEditor=false;">Cancel</button>
-		<button class="btn btn-primary btn-lg" style="float:right;margin:10px;background-color:#2c8efe;border:#2c8efe;">Save</button>
+	<div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+		<div class="col-sm-6 col-lg-6">
+			<div class="postCard" style="margin-top:10px">
+				<div class="form-group" style="padding: 5px">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="catInput">Category</i></span>
+								<select class="dropdown-toggle postOperations selectDrop block" id="catSelect" style="color:#000;">
+								<option>Arts</option>
+								<option>Food & Travel</option>
+								<option>Music</option>
+								</select>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-lg-6">
+			<div class="postCard" style="margin-top:10px">
+				<div class="form-group" style="padding: 8px">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="postTags">Tags</i></span>
+							<input type="text" class="form-control" name="tags" id="tags" placeholder="Separate tags by using comma"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-primary btn-lg" style="float:right;margin:10px;" ng-click="!sidebar.isSet(11)" ng-if="sidebar.isSet(11)">Cancel</button>
+</div>
+		<button class="btn btn-success btn-lg" style="float:right;margin:10px;" ng-click="!sidebar.isSet(11)" ng-if="sidebar.isSet(11)">Cancel</button>
 </div>
