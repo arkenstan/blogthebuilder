@@ -190,29 +190,6 @@ app.config(function($stateProvider, $urlRouterProvider){
     controller:'loginCtrl as loginc'
   });
 
-/*
-  $stateProvider.state('workspace.posts.edit', {
-    url: '/editPost'
-    views: {
-      nav:
-      {
-        templateUrl:'./includes/partials/posts/navarea.html'
-      }
-    }
-  });*/
-});
-
-app.service('showEditor', function($window){
-  var $temp = this;
-  $temp.showEditorBool = 0;
-  $temp.set = function(val){
-    $temp.showEditorBool = val;
-    $window.alert("f1");
-  };
-  $temp.get = function(val){
-    $window.alert("f2");
-    return $temp.showEditorBool === val;
-  };
 });
 
 app.run(function($rootScope,$location,loginService,$window){
@@ -235,8 +212,14 @@ app.run(function($rootScope,$location,loginService,$window){
 });
 
 
-app.controller('mainCtrl', function(loginService){
+app.controller('mainCtrl', function(loginService,showEditor, $window){
 
+  this.editorSet = function(val){
+    showEditor.set(val);
+  };
+  this.editorStatus = function(){
+    return showEditor.getBool();
+  };
   this.sidebarTogg = false;
 
   this.toggleSidebar = function(){
@@ -261,39 +244,29 @@ app.controller('mainCtrl', function(loginService){
   }*/
 });
 
-app.controller('sidebarCtrl', function(showEditor){
-  var $temp = this;
-  this.showNav = function(val){
-    return showEditor.get(val);
-  };
-$temp.setEditor = function(){
-  showEditor.set(0);
-};
+app.controller('sidebarCtrl', function(showEditor,$window){
+//  var $temp = this;
 });
 
-  app.controller('wysiwygeditor', function($scope, showEditor){
+app.controller('wysiwygeditor', function($scope, showEditor){
 
-  $scope.showEditorNav = function()
-  {
-    showEditor.set(1);
+  $scope.editorSet = function(val){
+    showEditor.set(val);
+  };
+  $scope.editorStatus = function(){
+    return showEditor.getBool();
   };
 
-  $scope.status = function()
-  {
-    return showEditor.get();
+  $scope.hidePost = function(){
+    return $scope.showEditor === true;
   };
-    $scope.hidePost = function()
-		{
-			if($scope.showEditor == true)
-				return true;
-		}
 
-		$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-		$scope.htmlcontent = $scope.orightml;
-		$scope.disabled = false;
+  $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
+  $scope.htmlcontent = $scope.orightml;
+  $scope.disabled = false;
 
-		$scope.head={selected:null};
-	});
+  $scope.head={selected:null};
+});
 
   app.controller('privacyCtrl', function($scope)
   {

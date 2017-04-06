@@ -1,5 +1,5 @@
 <div class="row" ng-controller="wysiwygeditor">
-	<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+	<div class="col-sm-12 col-lg-4" ng-hide="editorStatus()">
 		<div class="postCard">
 			<div class="postCard-heading">
 			<strong><span style="font-size:20px;">Global Warming</span></strong>
@@ -8,7 +8,7 @@
 				<span class="caret"></span>
 			</button>
 			<ul class="postOperations dropdown-menu pull-right">
-					<li><a href="" ng-click="showEditorNav()"><i class="fa fa-pencil" aria-hidden="true">&nbsp;Edit</i></a></li>
+					<li><a href="" ng-click="editorSet(1)"><i class="fa fa-pencil" aria-hidden="true">&nbsp;Edit</i></a></li>
 					<li><a href=""><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
 					<li><a href=""><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
 			</ul>
@@ -44,7 +44,7 @@
 		</div>
 		</div>
 
-		<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+		<div class="col-sm-12 col-lg-4" ng-hide="editorStatus()">
 		<div class="postCard">
 			<div class="postCard-heading">
 			<strong><span style="font-size:20px;">Global Warming</span></strong>
@@ -53,7 +53,7 @@
 				<span class="caret"></span>
 			</button>
 			<ul class="postOperations dropdown-menu pull-right">
-					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="showEditor=true;">&nbsp;Edit</i></a></li>
+					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="editorStatus(1)">&nbsp;Edit</i></a></li>
 					<li><a href="#"><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
 					<li><a href="#"><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
 			</ul>
@@ -89,7 +89,7 @@
 		</div>
 		</div>
 
-		<div class="col-sm-12 col-lg-4" ng-hide="hidePost()">
+		<div class="col-sm-12 col-lg-4" ng-hide="editorStatus()">
 		<div class="postCard">
 			<div class="postCard-heading">
 			<strong><span style="font-size:20px;">Global Warming</span></strong>
@@ -98,7 +98,7 @@
 				<span class="caret"></span>
 			</button>
 			<ul class="postOperations dropdown-menu pull-right">
-					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="showEditor=true">&nbsp;Edit</i></a></li>
+					<li><a href="#"><i class="fa fa-pencil" aria-hidden="true" ng-click="editorSet(1)">&nbsp;Edit</i></a></li>
 					<li><a href="#"><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
 					<li><a href="#"><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
 			</ul>
@@ -133,6 +133,6 @@
 				</div>
 		</div>
 		</div>
-	<texteditor ng-show="status()">
+	<texteditor ng-show="editorStatus()">
 	</texteditor>
 </div>
