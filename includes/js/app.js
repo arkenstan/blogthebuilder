@@ -41,52 +41,142 @@ app.config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider.state('workspace.activity', {
     url: '/activity',
-    templateUrl:'./includes/partials/workarea/activity.tpl.html'
-  });
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/activity.tpl.html'
+      }
+    }
+});
 
   $stateProvider.state('workspace.trends', {
     url: '/trends',
-    templateUrl:'./includes/partials/workarea/trend.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/trend.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.addpost', {
     url: '/newpost',
-    templateUrl:'./includes/partials/workarea/addpost.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/addpost.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.posts', {
     url: '/posts',
-    templateUrl:'./includes/partials/workarea/post.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/post.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.appearance', {
     url: '/appearance',
-    templateUrl:'./includes/partials/workarea/appearance.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/appearance.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.plugins', {
     url: '/plugins',
-    templateUrl:'./includes/partials/workarea/plugin.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/plugin.tpl.html'
+    }
+  }
   });
 
   $stateProvider.state('workspace.widgets', {
     url: '/widgets',
-    templateUrl:'./includes/partials/workarea/widget.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/widget.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.blog', {
     url: '/blog',
-    templateUrl:'./includes/partials/workarea/blog.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/blog.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.privacy', {
     url: '/privacy',
-    templateUrl:'./includes/partials/workarea/privacy.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/privacy.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace.account', {
     url: '/account',
-    templateUrl:'./includes/partials/workarea/account.tpl.html'
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/workarea/account.tpl.html'
+      }
+    }
   });
 
   $stateProvider.state('workspace',{
@@ -122,8 +212,17 @@ app.run(function($rootScope,$location,loginService,$window){
 });
 
 
-app.controller('mainCtrl', function(loginService){
+app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
 
+  this.editorSet = function(val){
+    showEditor.set(val);
+  };
+  this.editorStatus = function(){
+    return showEditor.getBool();
+  };
+  this.urlStat = function(val){
+    return urlStatus.currentUrlStatus(val);
+  };
   this.sidebarTogg = false;
 
   this.toggleSidebar = function(){
@@ -137,38 +236,50 @@ app.controller('mainCtrl', function(loginService){
   this.logout = function(){
     loginService.logout();
   };
-
-});
-
-app.controller('sidebarCtrl', function(){
-  this.tab = 5;
-
-  this.setTab = function(val){
-    this.tab = val;
-  };
-
-  this.isSet = function(check){
-    return this.tab === check;
-  };
-
-});
-
-  app.controller('wysiwygeditor', function($scope){
-		$scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-		$scope.htmlcontent = $scope.orightml;
-		$scope.disabled = false;
-
-		$scope.head={selected:null};
-	});
-
-  app.controller('privacyCtrl', function($scope)
+/*
+  if($state.includes('workspace.addpost'))
   {
-    $scope.notifyVal = false;
-    $scope.notifyFunc = function()
-    {
-      if(document.getElementById("notify").checked === true)
-        return $scope.notifyVal === true;
-      else
-        return $scope.notifyVal === false;
-    };
-  });
+    this.showNav = true;
+  }
+  else
+  {
+    this.showNav = false;
+  }*/
+});
+
+app.controller('sideCtrl',function(urlStatus){
+  var $temp = this;
+  $temp.urlStat = function(val){
+    return urlStatus.currentUrlStatus(val);
+  };
+});
+
+app.controller('wysiwygeditor', function($scope, showEditor){
+
+  $scope.editorSet = function(val){
+    showEditor.set(val);
+  };
+  $scope.editorStatus = function(){
+    return showEditor.getBool();
+  };
+
+  $scope.hidePost = function(){
+    return $scope.showEditor === true;
+  };
+
+  $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
+  $scope.htmlcontent = $scope.orightml;
+  $scope.disabled = false;
+
+  $scope.head={selected:null};
+});
+
+app.controller('privacyCtrl', function($scope){
+  $scope.notifyVal = false;
+  $scope.notifyFunc = function(){
+    if(document.getElementById("notify").checked === true)
+      return $scope.notifyVal === true;
+    else
+      return $scope.notifyVal === false;
+  };
+});
