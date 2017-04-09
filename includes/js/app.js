@@ -76,7 +76,8 @@ app.config(function($stateProvider, $urlRouterProvider){
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/addpost.tpl.html'
+        templateUrl:'./includes/partials/workarea/addpost.tpl.html',
+        controller:'postAddCtrl as PA'
       }
     }
   });

@@ -2,9 +2,15 @@
 
 app.factory('postService', function($http,$window){
   return {
-    addPost:function(post){
+    publish:function(post){
       var $promise = $http.post('./includes/functions/posts.php?act=1',post);
       return $promise;
+    },
+    draft:function(post){
+      var $promise = $http.post('./includes/functions/posts.php?act=6',post,{
+        transformRequest: angular.identity,
+        headers:{'Content-type':undefined}
+      });
     },
     updatePost:function(activity,id){
       var $promise;
@@ -26,6 +32,20 @@ app.factory('postService', function($http,$window){
         default:
           break;
       }
+      return $promise;
+    }
+  };
+});
+
+app.factory('categoryService',function($http){
+  return {
+    get:function(val){
+      var fd = new FormData();
+      fd.append('cate',val);
+      var $promise = $http.post('./includes/functions/categories.php?act=1',fd,{
+        transformRequest: angular.identity,
+        headers:{'Content-type':undefined}
+      });
       return $promise;
     }
   };
