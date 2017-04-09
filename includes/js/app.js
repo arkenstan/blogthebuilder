@@ -232,6 +232,9 @@ app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
       this.sidebarTogg = true;
     }
   };
+  this.sidebarStat = function(){
+    return this.sidebarTogg;
+  };
 
   this.logout = function(){
     loginService.logout();
