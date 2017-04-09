@@ -26,7 +26,7 @@
   color:#e4edf7;
 }
   .sidebar-container-top{
-    padding: 10px 0;
+    padding: 9px 0;
     margin: 10px 0 0 0;
     border-bottom: 2px solid #2b3544;
   }
@@ -241,7 +241,7 @@
   /*END INVERT CARD STYLES*/
 
 
-	input#postTitle
+	input#postTitle, input#postUrl
 {
 	border:0;
 	outline:0;
@@ -249,7 +249,7 @@
 	border-bottom: 1px solid #D3D3D3;
 }
 
-input#postTitle:focus
+input#postTitle:focus, input#postUrl:focus
 {
 	border-bottom: 1px solid #2c8efe;
 }
@@ -699,14 +699,43 @@ input:checked + .slider:before
 
 #catInput
 {
-  padding: 10px 50px;
-  margin: 20px;
+  padding: 5px 5px;
+  margin: 14px;
 }
 
 #postTags
 {
-  padding: 20px 60px;
-  margin: 25px;
+  padding: 5px 15px;
+  margin: 20px;
+}
+
+
+.postBtn
+{
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  margin-top: 10px;
+  padding:5px 10px;
+}
+
+.postOptions
+{
+  background-color:#fff;
+  border-radius:100%;
+  border:2px solid #2c8efe;
+  margin:3px;
+  padding:11px 11px;
+  font-weight: bold;
+  display:inline;
+  color: #2c8efe;
+}
+
+.postOptions:hover{
+  border-color:#2c8efe;
 }
 
 /* END GENERAL CLASSES */
