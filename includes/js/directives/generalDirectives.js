@@ -3,7 +3,8 @@
 app.directive('sidebar', function(){
   return {
     restrict: 'E',
-    templateUrl: './includes/partials/sidebar/sidebar.html'
+    templateUrl: './includes/partials/sidebar/sidebar.html',
+    controller:'sideCtrl as side'
   };
 });
 

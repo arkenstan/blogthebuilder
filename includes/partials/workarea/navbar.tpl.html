@@ -7,16 +7,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ng-click="main.toggleSidebar()" href><span class="glyphicon glyphicon-th-list"></span></a>
+      <a class="navbar-brand" ng-click="main.toggleSidebar()" href>
+        <span class="glyphicon glyphicon-chevron-left" ng-show="!main.sidebarStat()"></span>
+        <span class="glyphicon glyphicon-th-list"></span>
+        <span class="glyphicon glyphicon-chevron-right" ng-show="main.sidebarStat()"></span>
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href>Blog Name Here</a></li>
+      <ul ng-show="main.urlStat('/workspace/newpost')" class="nav navbar-nav">
+        <li>
+          <a role="button" data-toggle="popover" data-trigger="hover" data-content="Preview" data-placement="bottom"><i class="glyphicon glyphicon-new-window"></i></a>
+        </li>
+        <li>
+          <a role="button" data-toggle="popover" data-trigger="hover" data-content="Clutter Free View" data-placement="bottom"><i class="glyphicon glyphicon-modal-window"></i></a>
+        </li>
+      </ul>
+      <ul ng-show="main.editorStatus() && main.urlStat('/workspace/posts')" class="nav navbar-nav">
+        <li>
+          <a role="button" data-toggle="popover" data-trigger="hover" data-content="Preview" data-placement="bottom"><i class="glyphicon glyphicon-new-window"></i></a>
+        </li>
       </ul>
 
-      <posttoolbar ng-show="sidebar.showNav(1)"></posttoolbar>
 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
@@ -33,3 +46,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<script>
+  $(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+</script>
