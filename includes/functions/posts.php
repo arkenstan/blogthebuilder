@@ -5,13 +5,14 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
   switch ((int)$_GET['act']) {
     case 1:
       $posts_data = get_post_input($db_conx);
-      $fields = array_implode(', ', array_keys($post_data));
+      $fields = array_implode(', ', 'post_'.array_keys($post_data));
       $values = '\'' . array_implode('\', \'', $post_data) . '\'';
-      if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
+      echo $fields . '<br />' . $values;
+/*      if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
         echo 'E|Failed to connect to database';
       }else{
         echo 'S|Post successfully Posted and added to draft';
-      }
+      }*/
       break;
     case 2:
       $postID = ''; ///// CALL THE POST FUNCTION FOR SINGLE VALUE

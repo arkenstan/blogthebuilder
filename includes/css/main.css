@@ -27,7 +27,6 @@
 }
   .sidebar-container-top{
     padding: 9px 0;
-    margin: 10px 0 0 0;
     border-bottom: 2px solid #2b3544;
   }
   .sidebar-container{
@@ -429,23 +428,23 @@ div#editor {
 
 @media (min-width: 769px) and (max-width: 992px){
   .workarea-unmodified{
-    left: 20%;
-    width: 80%;
+    left: 40%;
+    width: 70%;
   }
   .sidebar-unmodified{
     left: 0;
-    width: 20%;
+    width: 40%;
   }
 }
 
 @media (min-width: 993px) and (max-width: 1200px){
   .workarea-unmodified{
-    left: 20%;
-    width: 80%;
+    left: 25%;
+    width: 75%;
   }
   .sidebar-unmodified{
     left: 0;
-    width: 20%;
+    width: 25%;
   }
 }
 
@@ -462,12 +461,12 @@ div#editor {
 
 @media (max-width: 600px) {
 	.workarea-unmodified{
-    left: 85%;
-    width: 15%;
+    left: 100%;
+    width: 0;
   }
   .sidebar-unmodified{
     left: 0;
-    width: 85%;
+    width: 100%;
   }
 }
 
@@ -709,32 +708,21 @@ input:checked + .slider:before
   margin: 20px;
 }
 
-
-.postBtn
-{
-  border: none;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  outline: none;
-  color: white;
-  margin-top: 10px;
-  padding:5px 10px;
-}
-
 .postOptions
 {
-  background-color:#fff;
-  border-radius:100%;
-  border:2px solid #2c8efe;
-  margin:3px;
-  padding:11px 11px;
-  font-weight: bold;
   display:inline;
-  color: #2c8efe;
 }
+/*  .postOptions>button{
+    background-color: #FFF;
+    font-weight: bold;
+    border-radius:100%;
+    border:2px solid #2c8efe;
+    margin:3px;
+    padding:11px 11px;
+    color: #2c8efe;
+  }
 
-.postOptions:hover{
+.postOptions>a:hover{
   border-color:#2c8efe;
 }
 
