@@ -17,7 +17,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
         if($login == false){
           $error .= "Password is wrong|";
         }else{
-          $_SESSION['vader'] = uniqid("btb_$login");
+          $_SESSION['vader'] = uniqid("btb_$login-_");
         }
       }
 

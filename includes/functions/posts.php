@@ -4,15 +4,27 @@ include 'init.php';
 if(isset($_GET['act']) && !empty($_GET['act'])){
   switch ((int)$_GET['act']) {
     case 1:
-      $posts_data = get_post_input($db_conx);
-      $fields = array_implode(', ', 'post_'.array_keys($post_data));
-      $values = '\'' . array_implode('\', \'', $post_data) . '\'';
-      echo $fields . '<br />' . $values;
-/*      if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
+      $post_data = get_post_input($db_conx);
+      date_default_timezone_set('UTC');
+      $post_data['post_date_gmt'] = date('Y-m-d H:i:s');
+      $post_data['post_modified_gmt'] = date('Y-m-d H:i:s');
+      $post_data['post_status'] = 'publish';
+      $post_data['post_name'] = $post_data['post_url'];
+      unset($post_data['post_url']);
+      $post_data['post_user'] = $user_data['user_id'];
+      if(category_exists($db_conx, $post_data['post_category']) == false){
+        mysqli_query($db_conx,"INSERT INTO categories(category_name) VALUES('".$post_data['post_category']."')");
+      }else{
+        mysqli_query($db_conx,"UPDATE categories SET category_popularity = category_popularity+1 WHERE category_name = '".$post_data['post_category']."'");
+      }
+      $fields = implode(', ', array_keys($post_data));
+      $values = '\'' . implode('\', \'', $post_data) . '\'';
+
+      if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
         echo 'E|Failed to connect to database';
       }else{
-        echo 'S|Post successfully Posted and added to draft';
-      }*/
+        echo 'S|Post successfully Published';
+      }
       break;
     case 2:
       $postID = ''; ///// CALL THE POST FUNCTION FOR SINGLE VALUE

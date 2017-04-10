@@ -5,6 +5,16 @@ function email_exists($link, $email){
   return $res == 1 ? true:false;
 }
 
+function user_data($link,$user_id){
+  $res = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM users WHERE user_id = $user_id LIMIT 1"));
+  return $res;
+}
+
+function category_exists($link,$cate){
+  $num = mysqli_num_rows(mysqli_query($link, "SELECT category_id FROM categories WHERE category_name = '$cate' LIMIT 1"));
+  return $num == 1 ? true : false;
+};
+
 function logged_in(){
   return isset($_SESSION['vader'])?true:false;
 }
