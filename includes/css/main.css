@@ -712,7 +712,7 @@ input:checked + .slider:before
 {
   display:inline;
 }
-/*  .postOptions>button{
+/*  .postOptions>a{
     background-color: #FFF;
     font-weight: bold;
     border-radius:100%;
