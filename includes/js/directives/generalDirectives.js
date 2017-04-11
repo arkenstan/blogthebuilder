@@ -49,6 +49,16 @@ app.directive('cardtitle', function(){
 app.directive('texteditor', function(){
  return {
    restrict: 'E',
+   scope:{
+     editing:'=',
+     postupdate:'&',
+     postdraft:'&',
+     postunpublish:'&'
+   },
+   controller:function($scope, $element, $attrs, $location,$window) {
+     $window.alert('something');
+   },
+   controllerAs:'text',
    templateUrl: './includes/partials/posts/texteditor.html'
  };
 });

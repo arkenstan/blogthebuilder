@@ -1,5 +1,10 @@
 <?php
 
+function postUrlExists($link, $url){
+  $num = mysqli_num_rows(mysqli_query($link, "SELECT post_id FROM posts WHERE post_name='$url' LIMIT 1"));
+  return $num == 1 ? true : false;
+}
+
 function email_exists($link, $email){
   $res = mysqli_num_rows(mysqli_query($link, "SELECT user_email FROM users WHERE user_email='$email' LIMIT 1"));
   return $res == 1 ? true:false;

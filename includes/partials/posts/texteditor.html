@@ -1,7 +1,8 @@
+{{ "Hello:"+text.editing }}
 <div class="textEditor">
 <form>
 	<div class="col-lg-4">
-		<h4><input type="text" placeholder="Title" id="postTitle" value="Global Warming" style="width:100%;"/></h4>
+		<h4><input type="text" placeholder="Title" id="postTitle" ng-model="text.editing.post_title" style="width:100%;"/></h4>
 	</div>
 	<div class="col-lg-4"></div>
 	<div class="col-lg-4">
@@ -22,14 +23,14 @@
 	</div>
 	<div class="col-lg-12">
 	<textarea contenteditable="true" style="width:100%; background-color:white;margin-bottom:5px;" placeholder="Description"></textarea>
-	<div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></div>
+	<div text-angular="text-angular" name="htmlcontent" ng-model="text.editing.post_content" ta-disabled='disabled'></div>
 </div>
 		<div class="col-sm-6 col-lg-6">
 			<div class="postCard" style="margin-top:10px">
 				<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i aria-hidden="true" id="catInput">Category</i></span>
-								<input type="text" class="form-control" name="tags" id="category"/>
+								<input type="text" class="form-control" name="tags" ng-model="text.editing.post_category" id="category"/>
 						</div>
 				</div>
 			</div>
@@ -40,7 +41,7 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i aria-hidden="true" id="postTags">Tags</i></span>
-							<input type="text" class="form-control" name="tags" id="tags" placeholder="Separate tags by using comma"/>
+							<input type="text" class="form-control" ng-model="text.editing.post_tags" name="tags" id="tags" placeholder="Separate tags by using comma"/>
 					</div>
 				</div>
 			</div>
