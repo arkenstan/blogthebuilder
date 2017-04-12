@@ -16,16 +16,9 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       $post_data['post_name'] = $post_data['post_url'];
       unset($post_data['post_url']);
       $post_data['post_user'] = $user_data['user_id'];
-      if(category_exists($db_conx, $post_data['post_category']) == false){
-        if(!mysqli_query($db_conx,"INSERT INTO categories(category_name) VALUES('".$post_data['post_category']."')")){
-          echo 'E|A|Failed to set Category. Please check your network connection';
-          break;
-        }
-      }else{
-        if(!mysqli_query($db_conx,"UPDATE categories SET category_popularity = category_popularity+1 WHERE category_name = '".$post_data['post_category']."'")){
-          echo 'E|A|Failed to update Category. Please check your network connection';
-          break;
-        }
+      if(makeCategory($db_conx, $post_data['post_category'],1) == false){
+        echo 'E|A|Failed to set Category. Please check your network connection';
+        break;
       }
       $fields = implode(', ', array_keys($post_data));
       $values = '\'' . implode('\', \'', $post_data) . '\'';
@@ -49,16 +42,9 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       $post_data['post_name'] = $post_data['post_url'];
       unset($post_data['post_url']);
       $post_data['post_user'] = $user_data['user_id'];
-      if(category_exists($db_conx, $post_data['post_category']) == false){
-        if(!mysqli_query($db_conx,"INSERT INTO categories(category_name) VALUES('".$post_data['post_category']."')")){
-          echo 'E|A|Failed to set Category. Please check your network connection';
-          break;
-        }
-      }else{
-        if(!mysqli_query($db_conx,"UPDATE categories SET category_popularity = category_popularity+1 WHERE category_name = '".$post_data['post_category']."'")){
-          echo 'E|A|Failed to update Category. Please check your network connection';
-          break;
-        }
+      if(makeCategory($db_conx, $post_data['post_category'],0) == false){
+        echo 'E|A|Failed to set Category. Please check your network connection';
+        break;
       }
       $fields = implode(', ', array_keys($post_data));
       $values = '\'' . implode('\', \'', $post_data) . '\'';
@@ -92,6 +78,29 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
         }
         header('Content-type: application/json');
         echo "{ $ret }";
+      }
+      break;
+    case 4:
+      $post = get_post_input($db_conx);
+      $postID = $post['post_id'];
+      if(makeCategory($db_conx,$post['post_category'],0) == false){
+        echo 'E|A|Unable to connect to Database 1';
+        break;
+      }
+      date_default_timezone_set('UTC');
+      $post['post_modified_gmt'] = date('Y-m-d H:i:s');
+      $dontUpdate = array('post_id','post_date_gmt','post_name','post_view_count','post_comment_count','post_share_count','post_user','post_content_original');
+      foreach ($post as $key => $value) {
+        if(!in_array($key, $dontUpdate)){
+          $value = "'$value'";
+          $updates[] = "$key=$value";
+        }
+      }
+      $updates = implode(', ',$updates);
+      if(!mysqli_query($db_conx, "UPDATE posts SET $updates WHERE post_id=$postID")){
+        echo 'E|A|Unable to Connect to Database';
+      }else{
+        echo 'S|A|successfully updated post';
       }
       break;
     default:

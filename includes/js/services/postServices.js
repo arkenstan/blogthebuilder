@@ -19,6 +19,10 @@ app.factory('postService', function($http,$window){
       });
       return $promise;
     },
+    updatePublish:function(data){
+      var $promise = $http.post('./includes/functions/posts.php?act=4',data);
+      return $promise;
+    },
     updatePost:function(activity,id){
       var $promise;
       var fd = new FormData();

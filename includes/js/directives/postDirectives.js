@@ -32,7 +32,8 @@ app.directive('allPublishedPostTable',function(){
 app.directive('allDraftPostTable',function(){
   return {
     restrict: 'E',
-    templateUrl: './includes/partials/posts/draftPost.tpl.html'
+    templateUrl: './includes/partials/posts/draftPost.tpl.html',
+    controller: 'draftedPostCtrl as drafted'
   };
 });
 
@@ -53,6 +54,6 @@ app.directive('textEditorPublished',function(){
 app.directive('textEditorDrafted',function(){
   return {
     restrict: 'E',
-    templateUrl: './includes/partials/post/textEditorDrafted.html'
+    templateUrl: './includes/partials/posts/texteditorDraft.html'
   };
 });

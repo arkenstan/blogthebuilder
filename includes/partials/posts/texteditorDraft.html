@@ -3,34 +3,36 @@
 	<div class="col-lg-4">
 		<h4><input type="text" placeholder="Title" id="postTitle" ng-model="drafted.editing.post_title" style="width:100%;"/></h4>
 	</div>
-	<div class="col-lg-4"></div>
-	<div class="col-lg-4">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-md-offset-2 col-lg-offset-2">
 		<ul class="pull-right">
 			<li class="postOptions">
-				<a role="button" data-toggle="popover" data-trigger="hover" data-content="Save as Draft" data-placement="bottom"><i class="glyphicon glyphicon-ok"></i></a>
+				<button class="btn btn-success" ng-click="drafted.updatePost('publish')">Save and Publish</button>
 			</li>
 			<li class="postOptions">
-				<a role="button" data-toggle="popover" data-trigger="hover" data-content="Publish" data-placement="bottom"><i class="glyphicon glyphicon-saved"></i></a>
+				<button class="btn btn-primary" ng-click="drafted.updatePost('draft')">Save to Draft</button>
 			</li>
 			<li class="postOptions">
-				<a role="button" data-toggle="popover" data-trigger="hover" data-content="Cancel" data-placement="bottom" ng-click="editorSet(0)"><i class="glyphicon glyphicon-remove"></i></a>
-			</li>
-			<li class="postOptions">
-				<a role="button" data-toggle="popover" data-trigger="hover" data-content="Delete" data-placement="bottom"><i class="glyphicon glyphicon-trash"></i></a>
+				<button class="btn btn-danger" ng-click="drafted.editorSetStatus(0)">Cancel</button>
 			</li>
 		</ul>
 	</div>
 	<div class="col-lg-12">
-	<textarea contenteditable="true" style="width:100%; background-color:white;margin-bottom:5px;" placeholder="Description"></textarea>
 	<div text-angular="text-angular" name="htmlcontent" ng-model="drafted.editing.post_content" ta-disabled='disabled'></div>
+	<textarea contenteditable="true" style="width:100%; background-color:white;margin-bottom:5px;" ng-model="drafted.editing.post_excerpt" placeholder="Description"></textarea>
 </div>
 		<div class="col-sm-6 col-lg-6">
 			<div class="postCard" style="margin-top:10px">
 				<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-addon"><i aria-hidden="true" id="catInput">Category</i></span>
-								<input type="text" class="form-control" name="tags" ng-model="drafted.editing.post_category" id="category"/>
-						</div>
+
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="catInput">Category</i></span>
+						<input type="text" ng-model="drafted.editing.post_category"
+						 uib-typeahead="categories for categories in drafted.getCategory($viewValue)"
+						 class="form-control"
+						 required
+						 placeholder="Enter categorization for this post"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -20,6 +20,22 @@ function category_exists($link,$cate){
   return $num == 1 ? true : false;
 };
 
+function makeCategory($link,$category,$num){
+  if(category_exists($link, $category) == false){
+    if(!mysqli_query($link,"INSERT INTO categories(category_name) VALUES('$category')")){
+      return false;
+    }else{
+      return true;
+    }
+  }else{
+    if(!mysqli_query($link,"UPDATE categories SET category_popularity = category_popularity+$num WHERE category_name = '$category'")){
+      return false;
+    }else{
+      return true;
+    }
+  }
+}
+
 function logged_in(){
   return isset($_SESSION['vader'])?true:false;
 }
