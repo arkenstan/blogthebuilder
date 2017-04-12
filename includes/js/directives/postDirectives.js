@@ -42,3 +42,17 @@ app.directive('allUnpublishedPostTable',function(){
     templateUrl: './includes/partials/posts/unpublishedPost.tpl.html'
   };
 });
+
+app.directive('textEditorPublished',function(){
+  return {
+    restrict: 'E',
+    templateUrl:'./includes/partials/posts/texteditorPublish.html'
+  };
+});
+
+app.directive('textEditorDrafted',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './includes/partials/post/textEditorDrafted.html'
+  };
+});

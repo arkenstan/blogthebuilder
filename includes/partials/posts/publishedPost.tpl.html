@@ -1,62 +1,66 @@
-<div class="container">
-  <br />
-  <div class="row" ng-show="published.editorStatus(0)">
-    <div class="col-md-3 col-lg-3 col-sm-12" ng-repeat="post in published.postList.posts">
+<div class="row toolbar-sub">
+  <ul>
+    <li class="postOptions">Display:</li>
+    <li class="postOptions"><a href><span class="glyphicon glyphicon-th"></span></a> </li>
+    <li class="postOptions"><a href><span class="glyphicon glyphicon-th-list"></span></a> </li>
+    <li class="postOptions"><a href ng-click="published.getPosts()">Refresh List</a></li>
+  </ul>
+</div>
+<div class="row" ng-show="published.editorStatus(0)">
+  <div class="col-md-3 col-lg-3 col-sm-12" ng-repeat="post in published.postList.posts">
 
-      <div class="postCard">
+    <div class="postCard">
 
-        <div class="postCard-heading">
+      <div class="postCard-heading">
 
-          <strong><span style="font-size:20px;" ng-bind-html="post.post_title"></span></strong>
+        <strong><span style="font-size:20px;" ng-bind-html="post.post_title"></span></strong>
 
-          <div class="btn-group block">
+        <div class="btn-group block">
 
-            <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-              <span class="caret"></span>
-            </button>
+          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+            <span class="caret"></span>
+          </button>
 
-            <ul class="dropdown-menu pull-right">
-                <li><a href="" ng-click="published.editPost(post)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a></li>
-                <li><a href=""><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Revert to Draft</a></li>
-                <li><a href=""><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete</a></li>
-            </ul>
-
-          </div>
+          <ul class="dropdown-menu pull-right">
+              <li><a href="" ng-click="published.editPost(post)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a></li>
+              <li><a href=""><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Revert to Draft</a></li>
+              <li><a href=""><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete</a></li>
+          </ul>
 
         </div>
 
-        <hr class="postHr">
-
-        <div class="postCard-body">
-          <div class="post-data">
-            <strong>Created On:&nbsp;</strong>
-            <span>{{post.post_date_gmt|postDate}}</span>
-          </div>
-          <div class="post-data">
-            <strong>Category:&nbsp;</strong>
-            <span>{{post.post_category}}</span>
-          </div>
-          <div class="post-data">
-            <strong>Tags:</strong>
-            <span ng-bind-html="post.post_tags|postTags"></span>
-          </div>
-        </div>
-        <hr class="postHr">
-        <div class="postCard-footer">
-          <center>
-            <ul class="postList">
-              <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i><span class="text-muted">&nbsp;10</span></a></li>
-              <li><a href=""><i class="fa fa-comments" aria-hidden="true"></i><span class="text-muted">&nbsp;5</span></a></li>
-              <li><a href=""><i class="fa fa-share-alt" aria-hidden="true"></i><span class="text-muted">&nbsp;5</span></a></li>
-            </ul>
-          </center>
-        </div>
       </div>
 
+      <hr class="postHr">
+
+      <div class="postCard-body">
+        <div class="post-data">
+          <strong>Created On:&nbsp;</strong>
+          <span>{{post.post_date_gmt|postDate}}</span>
+        </div>
+        <div class="post-data">
+          <strong>Category:&nbsp;</strong>
+          <span>{{post.post_category}}</span>
+        </div>
+        <div class="post-data">
+          <strong>Tags:</strong>
+          <span ng-bind-html="post.post_tags|postTags"></span>
+        </div>
+      </div>
+      <hr class="postHr">
+      <div class="postCard-footer">
+        <center>
+          <ul class="postList">
+            <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i><span class="text-muted">&nbsp;10</span></a></li>
+            <li><a href=""><i class="fa fa-comments" aria-hidden="true"></i><span class="text-muted">&nbsp;5</span></a></li>
+            <li><a href=""><i class="fa fa-share-alt" aria-hidden="true"></i><span class="text-muted">&nbsp;5</span></a></li>
+          </ul>
+        </center>
+      </div>
     </div>
+
   </div>
-
-
 </div>
 <div class="row" ng-show="published.editorStatus(1)" id="textEditorContainer">
+  <text-editor-published></text-editor-published>
 </div>

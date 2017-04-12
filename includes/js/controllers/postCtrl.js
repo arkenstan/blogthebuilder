@@ -26,7 +26,6 @@ app.controller('postAddCtrl',function(postService,categoryService,$window){
   };
 });
 
-app.controller('textEditor',function($element, $attrs,$location){});
 
 
 app.controller('publishedPostCtrl',function(postService,$window){
@@ -51,13 +50,8 @@ app.controller('publishedPostCtrl',function(postService,$window){
 
   $temp.editPost = function(post){
     $temp.editorSetStatus(1);
+    $temp.editing = post;
     $temp.editing.post_content_original = post.post_content;
-    $temp.editing.post_content = post.post_content;
-    $temp.editing.post_title = post.post_title;
-    $temp.editing.post_category = post.category;
-    $temp.editing.post_tags = post.post_tags;
-    $temp.editing.post_id = post.post_id;
-    angular.element(document.getElementById('textEditorContainer').append('<texteditor editing="'+$temp.editing+'" postupdate="$temp.updatePost()" postdraft="$temp.revertPost()" postunpublish="published.unPublish()" ></texteditor>'));
   };
 
 
