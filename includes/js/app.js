@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular'])
+var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular', "ds.clock"])
 .controller("chartCtrl", function($scope) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -286,4 +286,53 @@ app.controller('privacyCtrl', function($scope){
     else
       return $scope.notifyVal === false;
   };
+});
+
+app.controller('pluginCtrl', function($window){
+  /*this.addPlugin = function(){
+  this.pluginHtml = '<h4>Clock<a role="button"><i class="fa fa-minus-circle fa-lg pull-right" aria-hidden="true" ng-click="PC.activatePlugin = false;"></i></a></h4>';
+  this.pluginContent = this.pluginHtml;
+  //this.disabled = false;
+};
+
+    this.removePlugin = function(){
+      this.activatePlugin = false;
+      this.deactivatePlugin = false;
+    };*/
+
+    var $temp = this;
+    $temp.pluginList = [];
+
+    $temp.list = [
+      {pluginName: 'Clock'}
+    ];
+
+    $temp.addPlugin = function(value) {
+      if($temp.selected === true) {
+        $temp.pluginList.push({pluginName: value});
+      }
+      else if ($temp.selected === false){
+        $temp.list.push({pluginName: value});
+      }
+    };
+
+    $temp.removePlugin = function(index){
+      if($temp.selected === true) {
+        $temp.list.splice(index, 1);
+
+      }
+      else if ($temp.selected === false) {
+        $temp.pluginList.splice(index, 1);
+      }
+    };
+
+    $temp.getValue = function(value) {
+      $temp.selectedPlug = value;
+    }
+
+    /*
+    $temp.selectPlugin = function() {
+    $tem.pluginList =
+  };*/
+
 });
