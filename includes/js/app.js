@@ -307,6 +307,7 @@ app.controller('pluginCtrl', function($window){
       {pluginName: 'Clock'}
     ];
 
+
     $temp.addPlugin = function(value) {
       if($temp.selected === true) {
         $temp.pluginList.push({pluginName: value});
@@ -319,7 +320,6 @@ app.controller('pluginCtrl', function($window){
     $temp.removePlugin = function(index){
       if($temp.selected === true) {
         $temp.list.splice(index, 1);
-
       }
       else if ($temp.selected === false) {
         $temp.pluginList.splice(index, 1);
