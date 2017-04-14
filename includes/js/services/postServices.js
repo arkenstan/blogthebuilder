@@ -7,10 +7,21 @@ app.factory('postService', function($http,$window){
       return $promise;
     },
     draft:function(post){
-      var $promise = $http.post('./includes/functions/posts.php?act=6',post,{
+      var $promise = $http.post('./includes/functions/posts.php?act=2',post);
+      return $promise;
+    },
+    get:function(cate){
+      var fd = new FormData();
+      fd.append('category',cate);
+      var $promise = $http.post('./includes/functions/posts.php?act=3',fd,{
         transformRequest: angular.identity,
         headers:{'Content-type':undefined}
       });
+      return $promise;
+    },
+    updatePublish:function(data){
+      var $promise = $http.post('./includes/functions/posts.php?act=4',data);
+      return $promise;
     },
     updatePost:function(activity,id){
       var $promise;

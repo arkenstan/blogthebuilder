@@ -1,0 +1,58 @@
+<div class="textEditor">
+<form>
+	<div class="col-lg-4">
+		<h4><input type="text" placeholder="Title" id="postTitle" ng-model="drafted.editing.post_title" style="width:100%;"/></h4>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-md-offset-2 col-lg-offset-2">
+		<ul class="pull-right">
+			<li class="postOptions">
+				<button class="btn btn-success" ng-click="drafted.updatePost('publish')">Save and Publish</button>
+			</li>
+			<li class="postOptions">
+				<button class="btn btn-primary" ng-click="drafted.updatePost('draft')">Save to Draft</button>
+			</li>
+			<li class="postOptions">
+				<button class="btn btn-danger" ng-click="drafted.editorSetStatus(0)">Cancel</button>
+			</li>
+		</ul>
+	</div>
+	<div class="col-lg-12">
+	<div text-angular="text-angular" name="htmlcontent" ng-model="drafted.editing.post_content" ta-disabled='disabled'></div>
+	<textarea contenteditable="true" style="width:100%; background-color:white;margin-bottom:5px;" ng-model="drafted.editing.post_excerpt" placeholder="Description"></textarea>
+</div>
+		<div class="col-sm-6 col-lg-6">
+			<div class="postCard" style="margin-top:10px">
+				<div class="form-group">
+
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="catInput">Category</i></span>
+						<input type="text" ng-model="drafted.editing.post_category"
+						 uib-typeahead="categories for categories in drafted.getCategory($viewValue)"
+						 class="form-control"
+						 required
+						 placeholder="Enter categorization for this post"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-lg-6">
+			<div class="postCard" style="margin-top:10px">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="postTags">Tags</i></span>
+							<input type="text" class="form-control" ng-model="drafted.editing.post_tags" name="tags" id="tags" placeholder="Separate tags by using comma"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+<script>
+  $(function(){
+    $('[data-toggle="popover"]').popover();
+  });
+</script>

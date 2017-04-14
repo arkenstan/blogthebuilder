@@ -1,46 +1,8 @@
-<div class="row" ng-controller="wysiwygeditor">
-	<div class="col-sm-12 col-lg-4" ng-hide="editorStatus()">
-		<div class="postCard">
-			<div class="postCard-heading">
-			<strong><span style="font-size:20px;">Global Warming</span></strong>
-			<div class="btn-group block">
-			<button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
-				<span class="caret"></span>
-			</button>
-			<ul class="postOperations dropdown-menu pull-right">
-					<li><a href="" ng-click="editorSet(1)"><i class="fa fa-pencil" aria-hidden="true">&nbsp;Edit</i></a></li>
-					<li><a href=""><i class="fa fa-undo" aria-hidden="true">&nbsp;Revert to Draft</i></a></li>
-					<li><a href=""><i class="fa fa-times" aria-hidden="true">&nbsp;Delete</i></a></li>
-			</ul>
-			</div>
-			</div>
-				<hr class="postHr">
-				<div class="postCard-body">
-				<div class="post-author">
-				<strong>Author:</strong>
-				<span>&nbsp;Black Viking</span>
-				</div>
-				<div class="post-date">
-				<strong>Created On:</strong>
-				<span>&nbsp;01/29/2017</span>
-				</div>
-				<div class="post-tags">
-				<strong>Tags:</strong>
-				<label class="tags">&nbsp;#Environment</label><span>,&nbsp;</span><label class='tags'>#Nature</label>
-				</div>
-				</div>
-				<hr class="postHr">
-				<div class="postCard-footer">
-				<center>
-				<ul class="postList">
-					<li><a href=""><i class="fa fa-eye" aria-hidden="true"><span class="text-muted">&nbsp;10</span></i></a></li>
-					<li><a href=""><i class="fa fa-comments" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
-					<li><a href=""><i class="fa fa-share-alt" aria-hidden="true"><span class="text-muted">&nbsp;5</span></i></a></li>
-				</ul>
-				</center>
-				</div>
-		</div>
-		</div>
-	<texteditor ng-show="editorStatus()">
-	</texteditor>
-</div>
+<uib-tabset active="active">
+	<uib-tab index="0" heading="Published">
+		<all-published-post-table></all-published-post-table>
+	</uib-tab>
+	<uib-tab index="1" heading="Drafts">
+		<all-draft-post-table></all-draft-post-table>
+	</uib-tab>
+</uib-tabset>
