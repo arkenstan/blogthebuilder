@@ -175,7 +175,8 @@ app.config(function($stateProvider, $urlRouterProvider){
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/account.tpl.html'
+        templateUrl:'./includes/partials/workarea/account.tpl.html',
+        controller:'accountSettingsCtrl as acc'
       }
     }
   });
@@ -251,8 +252,12 @@ app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
   }*/
 });
 
-app.controller('sideCtrl',function(urlStatus){
+app.controller('sideCtrl',function(urlStatus,userService){
   var $temp = this;
+  $temp.userDetails = {};
+  userService.getDetails().then(function(msg){
+    $temp.userDetails = msg.data;
+  });
   $temp.urlStat = function(val){
     return urlStatus.currentUrlStatus(val);
   };
