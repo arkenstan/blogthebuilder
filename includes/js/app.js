@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular', "ds.clock"])
+var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular', 'ds.clock'])
 .controller("chartCtrl", function($scope) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -37,7 +37,7 @@ var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'n
 });
 
 app.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/login');
+$urlRouterProvider.otherwise('/login');
 
   $stateProvider.state('workspace.activity', {
     url: '/activity',
@@ -213,7 +213,6 @@ app.run(function($rootScope,$location,loginService,$window){
   });
 });
 
-
 app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
 
   this.editorSet = function(val){
@@ -273,25 +272,14 @@ app.controller('privacyCtrl', function($scope){
   };
 });
 
+
 app.controller('pluginCtrl', function($window){
-  /*this.addPlugin = function(){
-  this.pluginHtml = '<h4>Clock<a role="button"><i class="fa fa-minus-circle fa-lg pull-right" aria-hidden="true" ng-click="PC.activatePlugin = false;"></i></a></h4>';
-  this.pluginContent = this.pluginHtml;
-  //this.disabled = false;
-};
-
-    this.removePlugin = function(){
-      this.activatePlugin = false;
-      this.deactivatePlugin = false;
-    };*/
-
     var $temp = this;
     $temp.pluginList = [];
 
     $temp.list = [
       {pluginName: 'Clock'}
     ];
-
 
     $temp.addPlugin = function(value) {
       if($temp.selected === true) {
@@ -305,6 +293,7 @@ app.controller('pluginCtrl', function($window){
     $temp.removePlugin = function(index){
       if($temp.selected === true) {
         $temp.list.splice(index, 1);
+
       }
       else if ($temp.selected === false) {
         $temp.pluginList.splice(index, 1);
@@ -313,11 +302,6 @@ app.controller('pluginCtrl', function($window){
 
     $temp.getValue = function(value) {
       $temp.selectedPlug = value;
-    }
-
-    /*
-    $temp.selectPlugin = function() {
-    $tem.pluginList =
-  };*/
+    };
 
 });
