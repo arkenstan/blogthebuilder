@@ -13,8 +13,8 @@ app.factory('userService',function($http){
     },
     changePassword:function(passwordData){
       var fd = new FormData();
-      fd.append('password',passwordData.pass);
-      fd.append('newpassword',passwordData.newpass);
+      fd.append('password',passwordData.current);
+      fd.append('newpassword',passwordData.new);
       var $promise = $http.post('./includes/functions/user.php?act=3',fd,{
         transformRequest:angular.identity,
         headers:{'Content-type':undefined}

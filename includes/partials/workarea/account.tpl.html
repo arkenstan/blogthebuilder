@@ -6,58 +6,72 @@
 		<hr class="postHr">
 		<div class="postCard-body">
 		<h4>Account Settings</h4>
-			<form name="userSettingsForm" ng-submit="userSettingsForm.$valid && acc.updateSettings()">
 			<div class="row">
 
 				<div class="col-sm-10 col-lg-10 col-md-10">
 
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i aria-hidden="true" id="name">Display Name</i>
-							</span>
-							<input type="text" class="form-control" name="regName" id="regName" ng-model="acc.accountSettings.user_name" style="color:#000;"/>
+					<form name="userSettingsForm" ng-submit="userSettingsForm.$valid && acc.updateSettings()">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i aria-hidden="true" id="name">Display Name</i>
+								</span>
+								<input type="text" class="form-control" required name="regName" id="regName" ng-model="acc.accountSettings.user_name" style="color:#000;"/>
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i aria-hidden="true" id="email">Email</i>
-							</span>
-							<input type="text" class="form-control" name="regEmail" id="regEmail" ng-model="acc.accountSettings.user_email" style="color:#000;"/>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i aria-hidden="true" id="email">Email</i>
+								</span>
+								<input type="text" class="form-control" name="regEmail" id="regEmail" ng-model="acc.accountSettings.user_email" required style="color:#000;"/>
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<div class="input-group">
-							<button class="btn btn-primary" type="submit" ng-show="userSettingsForm.$dirty">Save Changes</button>
+						<div class="form-group">
+							<div class="input-group">
+								<button class="btn btn-primary" type="submit" ng-show="userSettingsForm.$dirty">Save Changes</button>
+							</div>
 						</div>
-					</div>
+					</form>
+
 				<hr class="postHr"/>
+
         <h4>Change Password</h4>
-				<form name="changePassword" ng-submit="">
 
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="cPass">Current Password</i></span>
-							<input type="text" class="form-control" name="curPassword" id="curPassword"  placeholder="Current Password" style="color:#000;"/>
-					</div>
-				</div>
+				<form name="changePasswordForm" ng-submit="changePasswordForm.$valid && acc.changePassword()">
 
-				<div class="form-group">
-					<div class="input-group">
-                  <span class="input-group-addon"><i aria-hidden="true" id="nPass">New Password</i></span>
-      							<input type="text" class="form-control" name="newPassword" id="newPassword"  placeholder="New Password" style="color:#000;"/>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="cPass">Current Password</i></span>
+							<input type="password" class="form-control" name="curPassword" id="curPassword" ng-model="acc.passwordData.current" placeholder="Current Password" required style="color:#000;"/>
+						</div>
 					</div>
-				</div>
 
-				<div class="form-group">
-					<div class="input-group">
-          				<span class="input-group-addon"><i aria-hidden="true" id="rPass">Retype Password</i></span>
-            				<input type="text" class="form-control" name="rePassword" id="rePassword"  placeholder="Retype Password" style="color:#000;"/>
+					<div class="form-group">
+						<div class="input-group">
+	            <span class="input-group-addon"><i aria-hidden="true" id="nPass">New Password</i></span>
+							<input type="password" class="form-control" name="newPassword" id="newPassword" ng-model="acc.passwordData.new" placeholder="New Password" required style="color:#000;"/>
+						</div>
 					</div>
-				</div>
+
+					<div class="form-group">
+						<div class="input-group">
+      				<span class="input-group-addon"><i aria-hidden="true" id="rPass">Retype Password</i></span>
+      				<input type="password" class="form-control" name="rePassword" id="rePassword" ng-model="acc.passwordData.renew" placeholder="Retype Password" required style="color:#000;"/>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="input-group">
+							<button class="btn btn-primary" type="submit" ng-show="changePasswordForm.$dirty">change Password</button>
+						</div>
+					</div>
+
+				</form>
+
       </div>
 				<div class="col-lg-2 col-sm-2">
 					<center><img class="user-image img-responsive" src="includes/images/nophoto.jpg" style="margin-bottom:10px;"/>

@@ -1,0 +1,17 @@
+{
+
+  "blog_title":"Testing Blog",
+  "blog_tagline":"This is a sample Tagline",
+  "blog_language":"en-English",
+  "blog_timezone":"UTC+5:30",
+  "blog_comment_settings":"public",
+  "blog_comment_moderation":"never",
+  "blog_allow_captcha":"yes",
+  "blog_email_notification":"yes",
+  "blog_ftp_host":"",
+  "blog_ftp_user":"",
+  "blog_ftp_password":"",
+  "blog_email_host":"",
+  "blog_email_user":"",
+  "blog_email_password":"",
+}
