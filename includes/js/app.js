@@ -175,7 +175,8 @@ app.config(function($stateProvider, $urlRouterProvider){
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/account.tpl.html'
+        templateUrl:'./includes/partials/workarea/account.tpl.html',
+        controller:'accountSettingsCtrl as acc'
       }
     }
   });
@@ -251,31 +252,15 @@ app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
   }*/
 });
 
-app.controller('sideCtrl',function(urlStatus){
+app.controller('sideCtrl',function(urlStatus,userService){
   var $temp = this;
+  $temp.userDetails = {};
+  userService.getDetails().then(function(msg){
+    $temp.userDetails = msg.data;
+  });
   $temp.urlStat = function(val){
     return urlStatus.currentUrlStatus(val);
   };
-});
-
-app.controller('wysiwygeditor', function($scope, showEditor){
-
-  $scope.editorSet = function(val){
-    showEditor.set(val);
-  };
-  $scope.editorStatus = function(){
-    return showEditor.getBool();
-  };
-
-  $scope.hidePost = function(){
-    return $scope.showEditor === true;
-  };
-
-  $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
-  $scope.htmlcontent = $scope.orightml;
-  $scope.disabled = false;
-
-  $scope.head={selected:null};
 });
 
 app.controller('privacyCtrl', function($scope){
