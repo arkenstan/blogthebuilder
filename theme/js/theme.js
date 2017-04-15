@@ -1,79 +1,43 @@
-(function(){
-  var app = angular.module('theme_struct',[]);
+'use strict';
+app.directive('themeGoesHere',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/structure.tpl.html',
+    controller: 'mainCtrl as main'
+  };
+});
 
-/* GENERAL BLOCKS */
-  app.directive("scroll", function ($window) {
-      return function(scope, element, attrs) {
-          angular.element($window).bind("scroll", function() {
-               if (this.pageYOffset >= 1) {
-                   scope.boolChangeClass = true;
-               } else {
-                   scope.boolChangeClass = false;
-               }
-              scope.$apply();
-          });
-      };
-  });
-  app.factory('jData', ['$http',function($http){
-    var dataRepository = {
-      data: null,
-      pData: function(){
-        return $http.get('./includes/data/home.json');
-      }
-    };
+app.directive('home',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/home.tpl.html'
+  };
+});
 
-/*    $http.get('./includes/data/home.json').success(function(response){
-      console.log(response);
-      dataRepository.data = response;
-      console.log(dataRepository.data);
-    });*/
+app.directive('aboutus',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/aboutus.tpl.html'
+  };
+});
 
-    return dataRepository;
+app.directive('contact',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/contact.tpl.html'
+  };
+});
 
-  }]);
-  app.directive('themeGoesHere', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './theme/templates/structure.html'
-    };
-  });
-  app.directive('themeWrapper', function(){
-    return {
-      restrict: 'E',
-      transclude: 'true',
-      template: '<div class="theme-wrapper" ng-transclude></div>'
-    };
-  });
+app.directive('blog',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/blog.tpl.html'
+  };
+});
 
-  app.directive('themeNavbar', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './theme/templates/navbar.html'
-    };
-  });
-
-  app.directive('themeFooter', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './theme/templates/footer.html'
-    };
-  });
-
-  app.directive('themeBanner', function(){
-    return {
-      restrict: 'E',
-      templateUrl: './theme/templates/banner.html'
-    };
-  });
-
-  app.directive('themeBody', function(){
-    return {
-      restrict: 'E',
-      transclude: 'true',
-      template: '<div class="container" ng-transclude></div>'
-    };
-  });
-
-  /* END GENERAL BLOCKS */
-
-})();
+app.directive('plugins',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/plugins.tpl.html'
+  };
+});

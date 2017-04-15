@@ -1,71 +1,23 @@
-(function(){
-  var app = angular.module('userApplication', ['ngRoute','theme_struct']);
+'use strict';
 
-  app.config(function($routeProvider){
-    $routeProvider.when("/",{
-      templateUrl: './theme/templates/home.html',
-      controller: 'themeCtrl',
-      controllerAs: 'theme',
-      resolve:{
-        load:function(jData){
-          return jData.loadData('home');
-        }
-      },
-      data: {
-        title: 'Default-e-Home',
-        tab: 1
-      }
-    }).when("/:name",{
-      templateUrl: function(urlattr){
-        return './theme/templates/'+urlattr.name+'.html';
-      },
-      controller: 'themeCtrl',
-      controllerAs: 'theme',
-      resolve:{
-        load:function(jData, urlattr){
-          return jData.loadData(urlattr.name);
-        }
-      }
-    }).when("/about",{
-      templateUrl: './theme/templates/about.html',
-      data: {
-        title: 'Default-e-About',
-        tab: 2
-      }
-    }).when("/contact",{
-      templateUrl: './theme/templates/contact.html',
-      data: {
-        title: 'Default-e-Contact',
-        tab: 3
-      }
-    }).when("/blog",{
-      templateUrl: './theme/templates/blog.html',
-      data: {
-        title: 'Default-e-Blog',
-        tab: 4
-      }
+app.controller('mainCtrl',function(blogService,postService){
+  var $temp = this;
+
+  $temp.blogContent = {};
+  $temp.blogPosts = {};
+  $temp.getData = function(){
+    blogService.getBlogData().then(function(msg){
+      console.log(msg);
+      $temp.blogContent = msg.data;
     });
-  });
+  };
 
-  app.run(['$rootScope', '$route', function($rootScope, $route){
-    $rootScope.$on('$routeChangeSuccess', function(){
-      document.title = $route.current.data.title;
+  $temp.getPosts = function(){
+    postService.get('publish').then(function(msg){
+      console.log(msg.data);
+      $temp.blogPosts = msg.data;
     });
-  }]);
-
-  app.controller('themeCtrl', ['$rootScope','$route','jData',function($rootScope, $route, jData){
-
-    var temp = this;
-    $rootScope.$on('$routeChangeSuccess', function(){
-      temp.tab = $route.current.data.tab;
-    });
-
-    temp.isTab = function(check){
-      return check === temp.tab;
-    };
-
-    temp.pageData = jData.getData();
-
-
-  }]);
-})();
+  }
+  $temp.getData();
+  $temp.getPosts();
+});
