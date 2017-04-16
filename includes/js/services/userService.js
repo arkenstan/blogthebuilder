@@ -31,7 +31,7 @@ app.factory('blogSettingService',function($http){
       var $promise = $http.post('./includes/functions/blog.php?act=1');
       return $promise;
     },
-    setSettings:function(data){
+    updateSettings:function(data){
       var $promise = $http.post('./includes/functions/blog.php?act=2',data);
       return $promise;
     },

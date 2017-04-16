@@ -19,6 +19,14 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       echo "{ $ret }";
       break;
     case 2:
+      $settings = json_decode(file_get_contents('php://input'));
+      foreach ($settings as $key => $value) {
+        $settingsData[$key] = sanitize($db_conx, $value);
+      }
+      foreach ($settings as $key => $value) {
+        $sql = "UPDATE settings SET settings_value='$value' WHERE settings_name='$key'";
+        mysqli_query($db_conx, $sql) or die(mysqli_error($db_conx));
+      }
       break;
     case 3:
       $ret = '';
@@ -28,7 +36,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       }
       $num = mysqli_num_rows($res);
       while($row = mysqli_fetch_assoc($res)){
-        $ret = '{"TZ_offset":"'.$row['time_zone_offset'].'", "TZ_represent":"'.$row['time_zone_resprestation'].'", "TZ_name":"'.$row['time_zone_name'].'"}';
+        $ret .= '{"TZ_offset":"'.$row['time_zone_offset'].'", "TZ_represent":"'.$row['time_zone_representation'].'", "TZ_name":"'.$row['time_zone_name'].'"}';
         if(--$num > 0) $ret .= ',';
       }
       $ret = '"timezones":[ '.$ret.' ]';
@@ -43,7 +51,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       }
       $num = mysqli_num_rows($res);
       while($row = mysqli_fetch_assoc($res)){
-        $ret = '{"locale_name":"'.$row['locale_name'].'", "locale_code":"'.$row['locale_code'].'"}';
+        $ret .= '{"locale_name":"'.$row['locale_name'].'", "locale_code":"'.$row['locale_code'].'"}';
         if(--$num > 0) $ret .= ',';
       }
       $ret = '"locales":[ '.$ret.' ]';

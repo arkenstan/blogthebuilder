@@ -49,17 +49,35 @@ app.controller('accountSettingsCtrl',function(userService,$window){
 });
 
 
-app.controller('blogSettingsCtrl',function(blogSettingService){
+app.controller('blogSettingsCtrl',function(blogSettingService,$window){
   var $temp = this;
+  $temp.default = 'Default';
   $temp.blogSettingsData = {};
+  $temp.timezones = {};
+  $temp.locales = {};
+  $temp.testing = function(){
+    $window.alert('Callsed');
+  }
   $temp.getBlogSettings = function(){
     blogSettingService.getSettings().then(function(msg){
-      console.log(msg.data);
       $temp.blogSettingsData = msg.data;
     });
   };
-  $temp.setBlogSettings = function(){};
-  $temp.getTimezones = function(){};
-  $temp.getLocales = function(){};
+  $temp.updateBlogSettings = function(){
+    blogSettingService.updateSettings($temp.blogSettingsData).then(function(msg){
+      console.log(msg.data);
+      $temp.getBlogSettings();
+    });
+  };
+  $temp.getTimezones = function(){
+    blogSettingService.getTimezones().then(function(msg){
+      $temp.timezones = msg.data.timezones;
+    });
+  };
+  $temp.getLocales = function(){
+    blogSettingService.getLocale().then(function(msg){
+      $temp.locales = msg.data.locales;
+    });
+  };
   $temp.getBlogSettings();
 });

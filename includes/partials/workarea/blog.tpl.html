@@ -1,13 +1,13 @@
 <div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1">
+	<form name="blogSettingsForm" ng-submit="blogSettingsForm.$valid && bset.updateBlogSettings()">
 	<div class="postCard">
 		<div class="postCard-heading">
 			<label>Blog Settings</label>
-			<button class="block btn btn-md setBtn">Save Settings</button>
+			<button type="submit" ng-show="blogSettingsForm.$dirty" class="block btn btn-md setBtn">Save Settings</button>
 		</div>
 		<hr class="postHr">
 		<div class="postCard-body">
 		<h4>General Settings</h4>
-			<form method="post">
 			<div class="row">
 				<div class="col-sm-10 col-lg-10 col-md-10">
 					<div class="form-group">
@@ -25,102 +25,58 @@
 				</div>
 			</div>
 			<hr class="postHr">
-			<h4>Global Settings</h4>
 			<div class="row">
-			<div class="col-sm-3 col-lg-3">
-			<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="langInput">Language</i></span>
-							<select class="dropdown-toggle postOperations selectDrop" id="langSelect" style="color:#000;">
-							<option>en-English</option>
-							<option>de-Deutsch</option>
-							<option>nl-Nederlands</option>
-							</select>
-					</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="timeInput">Timezone</i></span>
-							<select class="dropdown-toggle postOperations selectDrop" id="timeSelect" style="color:#000;">
-							<option>Kolkata</option>
-							<option>Istanbul</option>
-							<option>UTC+0</option>
-							</select>
+				<div class="col-sm-6 col-lg-6 col-md-6">
+					<h4>Global Settings</h4>
+					<h5>
+						<b>Language Locale</b>
+						<md-select placeholder="{{bset.blogSettingsData.blog_locale}}" ng-model="bset.blogSettingsData.blog_locale" md-on-open="bset.getLocales()" aria-label="locales">
+							<md-option ng-repeat="zone in bset.locales" ng-value="zone.locale_name" ng-disabled="zone.locale_name === bset.blogSettingsData.blog_locale">
+								{{zone.locale_name}}
+							</md-option>
+						</md-select>
+					</h5>
+					<h5>
+						<b>Timezone</b>
+						<md-select placeholder="{{bset.blogSettingsData.blog_timezone_name}}" ng-model="bset.blogSettingsData.blog_timezone_name" md-on-open="bset.getTimezones()" aria-label="timezones">
+							<md-option ng-repeat="zone in bset.timezones" ng-value="zone.TZ_name" ng-disabled="zone.TZ_name === bset.blogSettingsData.blog_timezone_name">
+								{{zone.TZ_name}}
+							</md-option>
+						</md-select>
+					</h5>
 				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true">Blog Readers</i></span>
-							<select class="dropdown-toggle postOperations selectDrop" id="readSelect" style="color:#000;">
-							<option>Public</option>
-							<option>Only Blog Authors</option>
-							</select>
-				</div>
-			</div>
-			</div>
-			</div>
-			<hr class ="postHr"/>
-			<h4>Comment Settings</h4>
-			<div class="row">
-				<div class="col-sm-12 col-lg-10">
-					<h4>
-						Who can comment :
-						<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
-						<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
-					</h4>
-					<h4>
-						Comment Moderation:
+				<div class="col-sm-12 col-lg-6 col-md-6">
+					<h4>Comment Settings</h4>
+					<h5>
+						<b>Who can comment :</b><br /><br />
+							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
+							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
+					</h5>
+					<h5>
+						<b>Comment Moderation:</b><br /><br />
 						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
 						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'sometime'">Sometimes</label>
 						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
-					</h4>
-					<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" id="commentModInput">Comment Moderation &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Review comments before posting." data-placement="bottom" style="color:#ffffff;"/></i></span>
-									<ul class="commentList">
-										<li>
-											<input type="radio" name="commentMod" value="always" id="always"/>
-											<label for="always">Always</label>
-											<div class="check"></div>
-										</li>
-										<li>
-											<input type="radio" name="commentMod" value="sometimes" id="sometimes"/>
-											<label for="sometimes">Sometimes</label>
-											<div class="check"></div>
-										</li>
-										<li>
-											<input type="radio" name="commentMod" value="never" id="never"/>
-											<label for="never">Never</label>
-											<div class="check"></div>
-										</li>
-									</ul>
-								</div>
-					</div>
-					<div class="form-group">
-							<div class="input-group captchaDiv">
-								<span class="input-group-addon"><i aria-hidden="true" id="commentCapInput">Captcha &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Activate captcha for comments." data-placement="bottom" style="color:#ffffff;"/></i></span>
-								<label class="switch">
-									<input type="checkbox" id="captcha">
-										<div class="slider round"></div>
-								</label>
-					</div>
-				</div>
-				<div class="form-group">
-						<div class="input-group captchaDiv">
-							<span class="input-group-addon"><i aria-hidden="true" id="commentNotInput">Email Notification</i> &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Receive mail for new comments." data-placement="bottom" style="color:#ffffff;"/></span>
-							<label class="switch">
-								<input type="checkbox" id="notify" ng-click="notifyFunc()">
-								<div class="slider round"></div>
-							</label>
-							<input class="form-control" type="text" id="email" placeholder="Enter Email Address" required ng-show="notifyVal"/>
-				</div>
-			</div>
-		</div>
-			</div>
+					</h5>
 
-			</form>
+					<h5>
+						<b>Captcha</b>
+						<md-switch md-invert ng-model="bset.blogSettingsData.blog_allow_captcha" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						</md-switch>
+					</h5>
+
+					<h5>
+						<b>Email Notification</b>
+						<md-switch md-invert ng-model="bset.blogSettingsData.blog_email_notification" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						</md-switch>
+					</h5>
+
+				</div>
+
+
 			</div>
 		</div>
+	</form>
 	</div>
 
 <script>
