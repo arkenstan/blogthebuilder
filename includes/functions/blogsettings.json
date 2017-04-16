@@ -3,7 +3,8 @@
   "blog_title":"Testing Blog",
   "blog_tagline":"This is a sample Tagline",
   "blog_language":"en-English",
-  "blog_timezone":"UTC+5:30",
+  "blog_timezone_name":"IST",
+  "blog_timezone_offset":"UTC+5:30",
   "blog_comment_settings":"public",
   "blog_comment_moderation":"never",
   "blog_allow_captcha":"yes",
@@ -13,5 +14,5 @@
   "blog_ftp_password":"",
   "blog_email_host":"",
   "blog_email_user":"",
-  "blog_email_password":"",
+  "blog_email_password":""
 }

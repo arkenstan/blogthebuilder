@@ -10,28 +10,20 @@
 			<form method="post">
 			<div class="row">
 				<div class="col-sm-10 col-lg-10 col-md-10">
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="blogTitle">Blog Title</i></span>
-							<input type="text" class="form-control" name="blogName" id="blogName"  value="Feathered Fervour" style="color:#000;"/>
-									<span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true" style="cursor:pointer;" data-toggle="popover" data-trigger="hover" data-content="Edit" data-placement="bottom" id="editName"></i></span>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="blogTitle">Blog Title</i></span>
+							<input type="text" class="form-control" name="blogName" id="blogName" ng-model="bset.blogSettingsData.blog_title" style="color:#000;"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="blogTg">Blog Tagline</i></span>
+							<input type="text" class="form-control" name="blogTag" ng-model="bset.blogSettingsData.blog_tagline" id="blogTag"  placeholder="Tagline" style="color:#000;"/>
+						</div>
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="blogTg">Blog Tagline</i></span>
-							<input type="text" class="form-control" name="blogTag" id="blogTag"  placeholder="Tagline" style="color:#000;"/>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-addon"><i aria-hidden="true" id="blogAd">Blog Address</i></span>
-							<input type="text" class="form-control" name="blogAddress" id="blogAddress"  value="featheredfervour@example.com" style="color:#000;"/>
-									<span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true" style="cursor:pointer;" data-toggle="popover" data-trigger="hover" data-content="Edit" data-placement="bottom" id="editAdd"></i></span>
-					</div>
-				</div>
-				</div>
-				</div>
+			</div>
 			<hr class="postHr">
 			<h4>Global Settings</h4>
 			<div class="row">
@@ -71,41 +63,35 @@
 			<h4>Comment Settings</h4>
 			<div class="row">
 				<div class="col-sm-12 col-lg-10">
-					<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" id="commentInput">Who can comment?</i></span>
-									<ul class="commentList">
-										<li>
-												<input type="radio" name="commentUser" value="anyone" id="anyUser"/>
-													<label for="anyUser">Anyone (includes anonymous users)</label>
-														<div class="check"></div>
-										</li>
-										<li>
-												<input type="radio" name="commentUser" value="registered" id="regUser"/>
-													<label for="regUser">Registered Users</label>
-														<div class="check"></div>
-										</li>
-									</ul>
-								</div>
-					</div>
+					<h4>
+						Who can comment :
+						<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
+						<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
+					</h4>
+					<h4>
+						Comment Moderation:
+						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
+						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'sometime'">Sometimes</label>
+						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
+					</h4>
 					<div class="form-group">
 							<div class="input-group">
 								<span class="input-group-addon"><i aria-hidden="true" id="commentModInput">Comment Moderation &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Review comments before posting." data-placement="bottom" style="color:#ffffff;"/></i></span>
 									<ul class="commentList">
 										<li>
-												<input type="radio" name="commentMod" value="always" id="always"/>
-													<label for="always">Always</label>
-														<div class="check"></div>
+											<input type="radio" name="commentMod" value="always" id="always"/>
+											<label for="always">Always</label>
+											<div class="check"></div>
 										</li>
 										<li>
-												<input type="radio" name="commentMod" value="sometimes" id="sometimes"/>
-													<label for="sometimes">Sometimes</label>
-														<div class="check"></div>
+											<input type="radio" name="commentMod" value="sometimes" id="sometimes"/>
+											<label for="sometimes">Sometimes</label>
+											<div class="check"></div>
 										</li>
 										<li>
-												<input type="radio" name="commentMod" value="never" id="never"/>
-													<label for="never">Never</label>
-														<div class="check"></div>
+											<input type="radio" name="commentMod" value="never" id="never"/>
+											<label for="never">Never</label>
+											<div class="check"></div>
 										</li>
 									</ul>
 								</div>
@@ -124,7 +110,7 @@
 							<span class="input-group-addon"><i aria-hidden="true" id="commentNotInput">Email Notification</i> &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Receive mail for new comments." data-placement="bottom" style="color:#ffffff;"/></span>
 							<label class="switch">
 								<input type="checkbox" id="notify" ng-click="notifyFunc()">
-									<div class="slider round"></div>
+								<div class="slider round"></div>
 							</label>
 							<input class="form-control" type="text" id="email" placeholder="Enter Email Address" required ng-show="notifyVal"/>
 				</div>
@@ -136,11 +122,6 @@
 			</div>
 		</div>
 	</div>
-
-<script>
-			document.getElementById("blogName").disabled = true;
-			document.getElementById("blogAddress").disabled = true;
-</script>
 
 <script>
 	$(document).ready(function(){

@@ -23,3 +23,25 @@ app.factory('userService',function($http){
     }
   };
 });
+
+
+app.factory('blogSettingService',function($http){
+  return {
+    getSettings:function(){
+      var $promise = $http.post('./includes/functions/blog.php?act=1');
+      return $promise;
+    },
+    setSettings:function(data){
+      var $promise = $http.post('./includes/functions/blog.php?act=2',data);
+      return $promise;
+    },
+    getTimezones:function(){
+      var $promise = $http.get('./includes/functions/blog.php?act=3');
+      return $promise;
+    },
+    getLocale:function(){
+      var $promise = $http.get('./includes/functions/blog.php?act=4');
+      return $promise;
+    }
+  };
+});

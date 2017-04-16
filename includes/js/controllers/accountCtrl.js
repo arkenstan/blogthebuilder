@@ -47,3 +47,19 @@ app.controller('accountSettingsCtrl',function(userService,$window){
   $temp.getSettings();
 
 });
+
+
+app.controller('blogSettingsCtrl',function(blogSettingService){
+  var $temp = this;
+  $temp.blogSettingsData = {};
+  $temp.getBlogSettings = function(){
+    blogSettingService.getSettings().then(function(msg){
+      console.log(msg.data);
+      $temp.blogSettingsData = msg.data;
+    });
+  };
+  $temp.setBlogSettings = function(){};
+  $temp.getTimezones = function(){};
+  $temp.getLocales = function(){};
+  $temp.getBlogSettings();
+});

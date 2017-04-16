@@ -147,7 +147,8 @@ app.config(function($stateProvider, $urlRouterProvider){
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/blog.tpl.html'
+        templateUrl:'./includes/partials/workarea/blog.tpl.html',
+        controller:'blogSettingsCtrl as bset'
       }
     }
   });
