@@ -1,4 +1,21 @@
 'use strict';
+
+app.config(function($stateProvider, $urlRouterProvider){
+  $urlRouterProvider.otherwise('/home');
+
+  $stateProvider.state('home',{
+    url:'/home',
+    templateUrl:'./theme/partials/main.tpl.html',
+    controller: 'mainCtrl as main'
+  });
+
+  $stateProvider.state('post',{
+    url:'/post/:postName',
+    templateUrl:'./theme/partials/post.tpl.html',
+    controller:'postCtrl as post'
+  });
+});
+
 app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',

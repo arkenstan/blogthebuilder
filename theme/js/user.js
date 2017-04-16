@@ -1,23 +1,37 @@
 'use strict';
 
-app.controller('mainCtrl',function(blogService,postService){
+
+app.controller('mainCtrl',function(blogContent){
   var $temp = this;
 
-  $temp.blogContent = {};
-  $temp.blogPosts = {};
+  $temp.content = {};
+
   $temp.getData = function(){
-    blogService.getBlogData().then(function(msg){
+    blogContent.getBlogDataAll().then(function(msg){
       console.log(msg);
-      $temp.blogContent = msg.data;
+      $temp.content = msg.data;
     });
   };
 
-  $temp.getPosts = function(){
-    postService.get('publish').then(function(msg){
-      console.log(msg.data);
-      $temp.blogPosts = msg.data;
-    });
-  }
   $temp.getData();
-  $temp.getPosts();
+});
+
+app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
+  var $temp = this;
+  $temp.post = {};
+
+  $temp.getSpecificPost = function(){
+    blogContent.getSpecificPost($stateParams.postName).then(function(msg){
+      console.log(msg);
+      if(msg.data == 'E'){
+        $location.path('/home');
+      }else{
+        $temp.post = msg.data;
+      }
+    });
+  };
+
+  $temp.getSpecificPost();
+
+
 });
