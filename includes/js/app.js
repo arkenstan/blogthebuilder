@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular','ngMaterial','ngMessages','material.svgAssetsCache'])
+var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular','ngMaterial','ngMessages','material.svgAssetsCache','ds.clock'])
 .controller("chartCtrl", function($scope) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -37,7 +37,7 @@ var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'n
 });
 
 app.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/login');
+$urlRouterProvider.otherwise('/login');
 
   $stateProvider.state('workspace.activity', {
     url: '/activity',
@@ -221,7 +221,6 @@ app.run(function($rootScope,$location,loginService,$window){
   });
 });
 
-
 app.controller('mainCtrl', function(loginService,showEditor,urlStatus, $window){
 
   this.editorSet = function(val){
@@ -279,4 +278,38 @@ app.controller('privacyCtrl', function($scope){
     else
       return $scope.notifyVal === false;
   };
+});
+
+
+app.controller('pluginCtrl', function($window){
+    var $temp = this;
+    $temp.pluginList = [];
+
+    $temp.list = [
+      {pluginName: 'Clock'}
+    ];
+
+    $temp.addPlugin = function(value) {
+      if($temp.selected === true) {
+        $temp.pluginList.push({pluginName: value});
+      }
+      else if ($temp.selected === false){
+        $temp.list.push({pluginName: value});
+      }
+    };
+
+    $temp.removePlugin = function(index){
+      if($temp.selected === true) {
+        $temp.list.splice(index, 1);
+
+      }
+      else if ($temp.selected === false) {
+        $temp.pluginList.splice(index, 1);
+      }
+    };
+
+    $temp.getValue = function(value) {
+      $temp.selectedPlug = value;
+    };
+
 });
