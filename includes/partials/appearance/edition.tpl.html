@@ -1,0 +1,112 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 website-editor">
+  <form name="blogSettings" ng-submit="blogSettings.$valid && edit.saveBlogSettings()">
+    <button class="btn btn-success" type="submit" ng-show="blogSettings.$dirty">Save Changes</button>
+
+    <div class="form-containers">
+      <md-input-container class="md-block">
+        <label>Home Title</label>
+        <input required md-no-asterisk name="home_title" ng-model="edit.blogData.home_title"  />
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Home Content</label>
+        <textarea required md-no-asterisk name="home_content" ng-model="edit.blogData.home_content"></textarea>
+      </md-input-container>
+    </div>
+
+    <div class="form-containers">
+
+      <md-input-container class="md-block">
+        <label>About Title</label>
+        <input required md-no-asterisk name="about_title" ng-model="edit.blogData.about_title"  />
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>About Content</label>
+        <textarea required md-no-asterisk name="about_content" ng-model="edit.blogData.about_content"></textarea>
+      </md-input-container>
+    </div>
+
+
+    <div class="form-containers">
+      <md-input-container class="md-block">
+        <label>Contact Title</label>
+        <input md-no-asterisk name="contact_title" ng-model="edit.blogData.contact_title"  />
+      </md-input-container>
+
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>Contact Email</label>
+            <input ng-model="edit.blogData.contact_content_email" type="email" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>Contact Number</label>
+            <input ng-model="edit.blogData.contact_content_number" type="text" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>Contact Address</label>
+            <input ng-model="edit.blogData.contact_content_address" type="text" />
+          </md-input-container>
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>City</label>
+            <input ng-model="edit.blogData.contact_content_city" type="text" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>State/Province</label>
+            <input ng-model="edit.blogData.contact_content_state" type="text" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-input-container class="md-block">
+            <label>Country</label>
+            <input ng-model="edit.blogData.contact_content_country" type="text" />
+          </md-input-container>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+          <md-switch ng-model="edit.blogData.contact_on_sidebar" araia-label="On Sidebar" ng-true-value="'true'" ng-false-value="'false'">
+            Show Contact on sidebar(If available)
+          </md-switch>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="form-containers">
+      <md-input-container class="md-block">
+        <label>Post Page Title</label>
+        <input required md-no-asterisk name="post_title" ng-model="edit.blogData.post_title"  />
+      </md-input-container>
+      <label>Post Orientation</label>
+      <md-radio-group ng-model="edit.blogData.posts_organisation">
+        <md-radio-button value="list"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List</md-radio-button>
+        <md-radio-button value="card"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Card</md-radio-button>
+        <md-radio-button value="grid"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid</md-radio-button>
+      </md-radio-group>
+    </div>
+
+    <div class="form-containers">
+      <md-input-container class="md-block">
+          <label>Plugin Title</label>
+        <input required md-no-asterisk name="plugin_title" ng-model="edit.blogData.plugin_title"  />
+      </md-input-container>
+
+    </div>
+
+
+  </form>
+
+</div>

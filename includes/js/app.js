@@ -110,6 +110,13 @@ app.config(function($stateProvider, $urlRouterProvider){
     }
   });
 
+  $stateProvider.state('workspace.appearance.edit', {
+    url: '/edit',
+    templateUrl:'./includes/partials/appearance/edition.tpl.html',
+    controller:'editCtrl as edit'
+  });
+
+
   $stateProvider.state('workspace.plugins', {
     url: '/plugins',
     views: {

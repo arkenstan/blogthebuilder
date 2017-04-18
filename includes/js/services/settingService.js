@@ -15,3 +15,16 @@ app.service('urlStatus',function($location,$window){
     return $location.path() === val;
   };
 });
+
+app.factory('blogService',function($http){
+  return {
+    getData:function(){
+      var $promise = $http.get('./includes/functions/blog.php?act=5');
+      return $promise;
+    },
+    saveSettings:function(data){
+      var $promise = $http.post('./includes/functions/blog.php?act=6',data);
+      return $promise;
+    }
+  };
+});

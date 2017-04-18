@@ -58,6 +58,29 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       header('Content-type: application/json');
       echo "{ $ret }";
       break;
+    case 5:
+      $ret = '';
+      $res = mysqli_query($db_conx, "SELECT * FROM template_cache");
+      $num = mysqli_num_rows($res);
+      while ($row = mysqli_fetch_assoc($res)) {
+        $ret .= '"'.$row['template_cache_name'].'":"'.$row['template_cache_value'].'"';
+        if(--$num > 0) $ret .= ',';
+      }
+      header('Content-type: application/json');
+      echo "{ $ret }";
+      break;
+    case 6:
+      $data = json_decode(file_get_contents('php://input'));
+      foreach($data as $key => $value){
+        $key = sanitize($db_conx, $key);
+        $value = sanitize($db_conx, $value);
+        if(!mysqli_query($db_conx, "UPDATE template_cache SET template_cache_value='$value' WHERE template_cache_name='$key'")){
+          echo 'E|Can\'t Make Updates';
+          break;
+        }
+      }
+      echo 'S|All Changes Successfully Made';
+      break;
     default:
       break;
   }

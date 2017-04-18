@@ -708,6 +708,18 @@ input:checked + .slider:before
   margin: 20px;
 }
 
+.website-editor{
+  margin-top: 50px;
+  padding: 15px 10px;
+}
+  .website-editor .form-containers{
+    padding-top: 15px;
+    border-bottom: 1px solid #2b7af1;
+  }
+  .website-editor hr{
+    border: 1px solid #2b7af1;
+  }
+
 .postOptions
 {
   display:inline;
