@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular','ngMaterial','ngMessages','material.svgAssetsCache','ds.clock'])
+var app = angular.module('btbApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngSanitize', "chart.js", 'textAngular','ngMaterial','ngMessages','material.svgAssetsCache'])
 .controller("chartCtrl", function($scope) {
 
   $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
