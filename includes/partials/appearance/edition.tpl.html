@@ -3,35 +3,52 @@
     <button class="btn btn-success" type="submit" ng-show="blogSettings.$dirty">Save Changes</button>
 
     <div class="form-containers">
+      <h2>
+        <md-switch ng-model="edit.blogData.home_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Home page disabled">
+          Home Page
+        </md-switch>
+      </h2>
+      <br />
       <md-input-container class="md-block">
         <label>Home Title</label>
-        <input required md-no-asterisk name="home_title" ng-model="edit.blogData.home_title"  />
+        <input required md-no-asterisk ng-disabled="edit.blogData.home_page_disabled === 'true'" name="home_title" ng-model="edit.blogData.home_title"  />
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>Home Content</label>
-        <textarea required md-no-asterisk name="home_content" ng-model="edit.blogData.home_content"></textarea>
+        <textarea required md-no-asterisk name="home_content" ng-disabled="edit.blogData.home_page_disabled === 'true'" ng-model="edit.blogData.home_content"></textarea>
       </md-input-container>
     </div>
 
     <div class="form-containers">
-
+      <h2>
+        <md-switch ng-model="edit.blogData.about_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="About page disabled">
+          About us Page
+        </md-switch>
+      </h2>
+      <br />
       <md-input-container class="md-block">
         <label>About Title</label>
-        <input required md-no-asterisk name="about_title" ng-model="edit.blogData.about_title"  />
+        <input required md-no-asterisk name="about_title" ng-disabled="edit.blogData.about_page_disabled === 'true'" ng-model="edit.blogData.about_title"  />
       </md-input-container>
 
       <md-input-container class="md-block">
         <label>About Content</label>
-        <textarea required md-no-asterisk name="about_content" ng-model="edit.blogData.about_content"></textarea>
+        <textarea required md-no-asterisk name="about_content" ng-disabled="edit.blogData.about_page_disabled === 'true'" ng-model="edit.blogData.about_content"></textarea>
       </md-input-container>
     </div>
 
 
     <div class="form-containers">
+      <h2>
+        <md-switch ng-model="edit.blogData.contact_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Contact page disabled">
+          Contact us Page
+        </md-switch>
+      </h2>
+      <br />
       <md-input-container class="md-block">
         <label>Contact Title</label>
-        <input md-no-asterisk name="contact_title" ng-model="edit.blogData.contact_title"  />
+        <input md-no-asterisk name="contact_title" ng-disabled="edit.blogData.home_page_disabled === 'true'" ng-model="edit.blogData.contact_title"  />
       </md-input-container>
 
       <div class="row">
@@ -99,9 +116,14 @@
     </div>
 
     <div class="form-containers">
+      <h2>
+        <md-switch ng-model="edit.blogData.plugins_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="home page disabled">
+          Plugins
+        </md-switch>
+      </h2>
       <md-input-container class="md-block">
           <label>Plugin Title</label>
-        <input required md-no-asterisk name="plugin_title" ng-model="edit.blogData.plugin_title"  />
+        <input required md-no-asterisk name="plugin_title" ng-disabled="edit.blogData.plugins_disabled === 'true'" ng-model="edit.blogData.plugin_title"  />
       </md-input-container>
 
     </div>

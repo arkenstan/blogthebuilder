@@ -58,3 +58,10 @@ app.directive('plugins',function(){
     templateUrl: './theme/partials/plugins.tpl.html'
   };
 });
+
+app.directive('pageFooter',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/footer.tpl.html'
+  };
+});
