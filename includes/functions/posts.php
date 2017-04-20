@@ -20,6 +20,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
         echo 'E|A|Failed to set Category. Please check your network connection';
         break;
       }
+      $post_data['accessHash'] = sha1("POST ".microtime());
       $fields = implode(', ', array_keys($post_data));
       $values = '\'' . implode('\', \'', $post_data) . '\'';
 
@@ -46,6 +47,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
         echo 'E|A|Failed to set Category. Please check your network connection';
         break;
       }
+      $post_data['accessHash'] = sha1("POST ".microtime());
       $fields = implode(', ', array_keys($post_data));
       $values = '\'' . implode('\', \'', $post_data) . '\'';
 
