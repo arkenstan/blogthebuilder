@@ -27,6 +27,21 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
 function setNewTheme($link, $themeID){
   $res = mysqli_fetch_assoc(mysqli_query($link, "SELECT template_cache_location FROM template_catalog WHERE theme_id='$themeID' LIMIT 1"));
 
+  // DELETE CURRENT FILES
+
+  // DELETE CSS
+  $folders = array('css','js','partials','resource');
+  for ($i=0; $i < count($folders) ; $i++) {
+    $files = glob('../../theme/'.$folders[$i].'/*');
+    foreach ($files as $file) {
+      if(is_file($file))
+        unlink($file);
+    }
+  }
+
+
+  // COPY NEW FILES
+
 
 }
 
