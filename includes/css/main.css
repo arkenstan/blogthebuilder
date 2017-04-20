@@ -709,7 +709,7 @@ input:checked + .slider:before
 }
 
 .website-editor{
-  margin-top: 50px;
+  margin-top: 10px;
   padding: 15px 10px;
 }
   .website-editor .form-containers{
@@ -719,6 +719,28 @@ input:checked + .slider:before
   .website-editor hr{
     border: 1px solid #2b7af1;
   }
+
+.theme-container{
+  border-radius:5px;
+  border:1px solid;
+  border-color:#000;
+  overflow: hidden;
+}
+  .theme-container .content{
+    padding: 5px;
+  }
+  .theme-container img{
+    width: 100%;
+    height:300px;
+    box-shadow: inset 0 0 10px #000;
+  }
+  .theme-container .footer{
+    padding: 5px;
+  }
+.theme-active{
+  border-color: #45d4ad;
+  box-shadow: 0 0 5px #45d4ad;
+}
 
 .postOptions
 {

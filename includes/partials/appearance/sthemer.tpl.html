@@ -1,0 +1,28 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 website-editor" >
+  <h2>Installed Themes</h2>
+
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-sm-12" ng-repeat="th in theme.data.themes">
+
+      <div class="theme-container" ng-class="{'theme-active':th.template_active==='yes'}">
+
+        <div class="header">
+          <img ng-src="./includes/theme_cache/{{th.template_cache_location+th.theme_display}}" />
+        </div>
+
+        <div class="content">
+          <h3>{{th.template_name}}</h3>
+          <h5><strong>Create By:</strong>&nbsp;{{th.template_creator}}</h5>
+        </div>
+
+        <div class="footer">
+          <button class="btn btn-primary btn-block" ng-click="theme.setActive(th.template_id)" ng-show="th.template_active === 'no'">Set as Active</button>
+          <button class="btn btn-success btn-block" ng-show="th.template_active === 'yes'">Active</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -115,6 +115,11 @@ $urlRouterProvider.otherwise('/login');
     templateUrl:'./includes/partials/appearance/edition.tpl.html',
     controller:'editCtrl as edit'
   });
+  $stateProvider.state('workspace.appearance.theme', {
+    url: '/theme',
+    templateUrl:'./includes/partials/appearance/sthemer.tpl.html',
+    controller:'themeCtrl as theme'
+  });
 
 
   $stateProvider.state('workspace.plugins', {

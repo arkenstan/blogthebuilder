@@ -3,6 +3,10 @@
 app.factory('blogContent',function($http){
 
   return {
+    getTheme:function(){
+      var $promise = $http.get('./api/v1/blogDomain.php?pleaseThrow=theme');
+      return $promise;
+    },
     getBlogDataAll:function(){
       var $promise = $http.get('./api/v1/blogDomain.php?pleaseThrow=blogcontentall');
       return $promise;

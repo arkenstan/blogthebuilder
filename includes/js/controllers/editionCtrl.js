@@ -19,3 +19,24 @@ app.controller('editCtrl',function(blogService,$window){
   };
   $temp.getBlogData();
 });
+
+app.controller('themeCtrl',function(themeData){
+  var $temp = this;
+
+  $temp.data = {};
+
+  $temp.setActive = function(themeId){
+    themeData.setThemeActive(themeId).then(function(msg){
+      console.log(msg.data);
+    });
+  };
+
+  $temp.getThemeData = function(){
+    themeData.getCatalog().then(function(msg){
+      $temp.data = msg.data;
+    });
+  };
+
+  $temp.getThemeData();
+
+});

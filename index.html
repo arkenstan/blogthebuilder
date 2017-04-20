@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="userApplication">
+<html lang="en" ng-app="userApplication" ng-controller="mainCtrl as main" ng-init="main.getThemeData()">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{title}}</title>
+    <title>{{main.title}}</title>
 
     <link rel="stylesheet" href="CDN/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="CDN/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="theme/css/theme.css" />
     <!--link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"-->
 
     <!--[if lt IE 9]>
@@ -21,7 +22,7 @@
     <script src="CDN/uiRouter.min.js"></script>
     <script src="CDN/ui-bootstrap-template.js"></script>
 
-    <script src="theme/js/app.js"></script>
+    <script src="theme/app.js"></script>
     <script src="theme/js/theme.js"></script>
     <script src="theme/js/user.js"></script>
     <script src="api/v1/blogService.js"></script>
