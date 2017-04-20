@@ -12,7 +12,7 @@ app.factory('themeData',function($http){
       fd.append('theme_id',id);
       var $promise = $http.post('./includes/functions/theme.php?act=2',fd,{
         transformRequest: angular.identity,
-        header:{'Content-type':undefined}
+        headers:{'Content-type':undefined}
       });
       return $promise;
     },

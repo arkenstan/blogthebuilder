@@ -27,7 +27,8 @@ app.controller('themeCtrl',function(themeData){
 
   $temp.setActive = function(themeId){
     themeData.setThemeActive(themeId).then(function(msg){
-      console.log(msg.data);
+      console.log(msg);
+      $temp.getThemeData();
     });
   };
 

@@ -25,24 +25,42 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
 }
 
 function setNewTheme($link, $themeID){
-  $res = mysqli_fetch_assoc(mysqli_query($link, "SELECT template_cache_location FROM template_catalog WHERE theme_id='$themeID' LIMIT 1"));
-
+  $res = mysqli_query($link, "SELECT template_cache_location FROM template_catalog WHERE template_id='$themeID' LIMIT 1") or die(mysqli_error($link));
+  $res = mysqli_fetch_assoc($res);
+  $cache = '../theme_cache/'.$res['template_cache_location'];
+  $current = '../../theme';
   // DELETE CURRENT FILES
-
-  // DELETE CSS
   $folders = array('css','js','partials','resource');
   for ($i=0; $i < count($folders) ; $i++) {
-    $files = glob('../../theme/'.$folders[$i].'/*');
-    foreach ($files as $file) {
-      if(is_file($file))
-        unlink($file);
+    $folder = $folders[$i];
+    $files = scandir("$current/$folder");
+    unset($files[0]);
+    unset($files[1]);
+    foreach ($files as $key => $file) {
+      unlink("$current/$folder/$file");
     }
   }
 
-
   // COPY NEW FILES
 
+  for ($i=0; $i < count($folders); $i++) {
+    $folder = $folders[$i];
+    $files = scandir("$cache/$folder");
+    unset($files[0]);
+    unset($files[1]);
+    foreach ($files as $key => $file) {
+      copy("$cache/$folder/$file","$current/$folder/$file");
+    }
+  }
 
+  if(!mysqli_query($link, "UPDATE template_catalog SET template_active='no' WHERE template_active='yes'")){
+    return false;
+  }else{
+    if(!mysqli_query($link, "UPDATE template_catalog SET template_active='yes' WHERE template_id='$themeID'")){
+      return false;
+    }
+    return true;
+  }
 }
 
 function getCatalog($link){

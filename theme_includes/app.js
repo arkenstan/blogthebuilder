@@ -12,3 +12,10 @@ app.controller('mainCtrl',function(blogContent){
   };
 
 });
+
+app.directive('includes',function(){
+  return {
+    restrict:'E',
+    temaplateUrl: './theme/includes.html',
+  };
+});
