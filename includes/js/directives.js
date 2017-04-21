@@ -80,6 +80,13 @@
       templateUrl: './includes/workarea/trend.html'
     };
   });
+  
+   app.directive('newPost', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/texteditor.html'
+    };
+  });
 
   app.directive('postArea', function(){
     return {
