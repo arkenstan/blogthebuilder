@@ -1,14 +1,23 @@
 'use strict';
 
 
-app.controller('mainCtrl',function(blogContent, $location){
+app.controller('blogCtrl',function(blogContent, $location){
   var $temp = this;
 
   $temp.content = {};
+  $temp.posts = {};
 
   $temp.getData = function(){
-    blogContent.getBlogDataAll().then(function(msg){
+    blogContent.getBlogData().then(function(msg){
+      console.log(msg.data);
       $temp.content = msg.data;
+    });
+  };
+
+  $temp.getPosts = function(num){
+    blogContent.getBlogPosts(num).then(function(msg){
+      console.log(msg.data);
+      $temp.posts = msg.data;
     });
   };
 
@@ -17,10 +26,11 @@ app.controller('mainCtrl',function(blogContent, $location){
   };
 
   $temp.getData();
+  $temp.getPosts(2);
 });
 
 app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
-  var $temp = this;
+/*  var $temp = this;
   $temp.post = {};
 
   $temp.getSpecificPost = function(postName){
@@ -34,6 +44,5 @@ app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
   };
 
   $temp.getSpecificPost($stateParams.postName);
-
-
+*/
 });

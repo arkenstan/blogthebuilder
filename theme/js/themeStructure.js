@@ -6,7 +6,7 @@ app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider.state('home',{
     url:'/home',
     templateUrl:'./theme/partials/main.tpl.html',
-    controller: 'mainCtrl as main'
+    controller: 'blogCtrl as blog'
   });
 
   $stateProvider.state('post',{
@@ -20,7 +20,6 @@ app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',
     templateUrl: './theme/partials/structure.tpl.html',
-    controller: 'mainCtrl as main'
   };
 });
 
