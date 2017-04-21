@@ -1,0 +1,65 @@
+<div ng-controller="pluginCtrl as PC">
+  <form>
+    <button class="btn btn-primary btn-md" style="margin-left:10px;">Save Changes</button>
+  <fieldset class="plugins">
+    <legend class="text-muted">Active Plugins (count)</legend>
+  <ul style="list-style-type:none;margin:0;padding:0;" class="activePluginUl">
+    <div class="col-lg-8 col-lg-offest-2">
+      <li class="activePlugins well well-md" ng-repeat="selectedPlugins in PC.pluginList">
+        <h4><a role="button" data-toggle="modal" data-target="#pluginModal">{{selectedPlugins.pluginName}}</a><a role="button" ng-click="PC.selected=false; PC.addPlugin(selectedPlugins.pluginName); PC.removePlugin($index);"><i class="fa fa-minus-circle fa-lg pull-right" aria-hodden="true"></i></a></h4>
+    </li>
+  </div>
+  </ul>
+</fieldset>
+<fieldset class="plugins">
+  <legend class="text-muted">Available Plugins (count)</legend>
+  <ul style="list-style-type:none;margin:0;padding:0;">
+  <div class="col-lg-8 col-lg-offest-2">
+    <li class="availablePlugins well well-md" ng-repeat="unselectedPlugins in PC.list">
+      <h4><a role="button" data-toggle="modal" data-target="#pluginModal" ng-click="PC.getValue(unselectedPlugins.pluginName);">{{unselectedPlugins.pluginName}}</a><a role="button" ng-click="PC.selected=true; PC.addPlugin(unselectedPlugins.pluginName); PC.removePlugin($index);"><i class="fa fa-plus-circle fa-lg pull-right" aria-hodden="true"></i></a></h4>
+    </li>
+</div>
+</ul>
+</fieldset>
+
+<div class="modal fade" id="pluginModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{PC.selectedPlug}} Widget</h4></h4>
+        </div>
+        <form>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <ul class="pluginType">
+                  <li>
+                      <input type="radio" name="clockPlugin" value="analog" id="analog"/>
+                        <label for="analog"><ds-widget-clock show-analog theme="blue-light"></ds-widget-clock></label>
+                          <div class="check"></div>
+                  </li>
+                  <li>
+                      <input type="radio" name="clockPlugin" value="digital" id="digital"/>
+                        <label for="digital"><ds-widget-clock show-digital theme="blue-light" digital-format="'hh:mm:ss a'"></ds-widget-clock></label>
+                          <div class="check"></div>
+                  </li>
+                </ul>
+            </div>
+            </div>
+          <!--<div class="col-lg-6">
+            <ds-widget-clock show-digital theme="blue-light" digital-format="'hh:mm:ss a'"></ds-widget-clock>
+        </div>
+-->
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-md">Save</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

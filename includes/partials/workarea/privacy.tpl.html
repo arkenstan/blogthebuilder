@@ -1,0 +1,82 @@
+<div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1" ng-controller="privacyCtrl">
+	<div class="postCard">
+		<div class="postCard-heading">
+			<label>Privacy Settings</label>
+			<button class="block btn btn-md setBtn">Save Settings</button>
+		</div>
+		<hr class="postHr">
+		<div class="postCard-body">
+		<h4>Comment Settings</h4>
+			<form method="post">
+			<div class="row">
+				<div class="col-sm-12 col-lg-10">
+					<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" id="commentInput">Who can comment?</i></span>
+									<ul class="commentList">
+										<li>
+												<input type="radio" name="commentUser" value="anyone" id="anyUser"/>
+													<label for="anyUser">Anyone (includes anonymous users)</label>
+														<div class="check"></div>
+										</li>
+										<li>
+												<input type="radio" name="commentUser" value="registered" id="regUser"/>
+													<label for="regUser">Registered Users</label>
+														<div class="check"></div>
+										</li>
+									</ul>
+								</div>
+					</div>
+					<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" id="commentModInput">Comment Moderation &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Review comments before posting." data-placement="bottom" style="color:#ffffff;"/></i></span>
+									<ul class="commentList">
+										<li>
+												<input type="radio" name="commentMod" value="always" id="always"/>
+													<label for="always">Always</label>
+														<div class="check"></div>
+										</li>
+										<li>
+												<input type="radio" name="commentMod" value="sometimes" id="sometimes"/>
+													<label for="sometimes">Sometimes</label>
+														<div class="check"></div>
+										</li>
+										<li>
+												<input type="radio" name="commentMod" value="never" id="never"/>
+													<label for="never">Never</label>
+														<div class="check"></div>
+										</li>
+									</ul>
+								</div>
+					</div>
+					<div class="form-group">
+							<div class="input-group captchaDiv">
+								<span class="input-group-addon"><i aria-hidden="true" id="commentCapInput">Captcha &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Activate captcha for comments." data-placement="bottom" style="color:#ffffff;"/></i></span>
+								<label class="switch">
+									<input type="checkbox" id="captcha">
+										<div class="slider round"></div>
+								</label>
+					</div>
+				</div>
+				<div class="form-group">
+						<div class="input-group captchaDiv">
+							<span class="input-group-addon"><i aria-hidden="true" id="commentNotInput">Email Notification</i> &nbsp;<i class="fa fa-question-circle-o fa-lg" aria-hidden="true" data-toggle="popover" data-trigger="hover" data-content="Receive mail for new comments." data-placement="bottom" style="color:#ffffff;"/></span>
+							<label class="switch">
+								<input type="checkbox" id="notify" ng-click="notifyFunc()">
+									<div class="slider round"></div>
+							</label>
+							<input class="form-control" type="text" id="email" placeholder="Enter Email Address" required ng-show="notifyVal"/>
+				</div>
+			</div>
+		</div>
+		</div>
+			</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="popover"]').popover({animation:true});
+		});
+	</script>

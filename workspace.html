@@ -6,22 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dash Board User</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
-    <script src="includes/js/app.js"></script>
-    <script src="includes/js/directives.js"></script>
-    <script src="includes/js/general.js"></script>
+    <script src="CDN/jquery.min.js"></script>
+    <script src="CDN/angular.min.js"></script>
+    <script src="CDN/uiRouter.min.js"></script>
+    <script src="CDN/ngSanitize.min.js"></script>
+    <script src="CDN/ngAnimate.min.js"></script>
+    <script src="CDN/bootstrap/js/bootstrap.min.js"></script>
+    <script src="CDN/chartjs/Chart.min.js"></script>
+    <script src="CDN/angular-chart/angular-chart.min.js"></script>
+    <script src="CDN/text-angular/textAngular-rangy.min.js"></script>
+    <script src="CDN/text-angular/textAngular-sanitize.min.js"></script>
+    <script src="CDN/ui-bootstrap-template.js"></script>
+    <script src="CDN/textAngular.min.js"></script>
+    <script src="CDN/angular-material/angular-aria.min.js"></script>
+    <script src="CDN/angular-material/angular-messages.min.js"></script>
+    <script src="CDN/angular-material/svg-asset-cache.js"></script>
+    <script src="CDN/angular-material/angular-material.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="includes/js/app.js"></script>
+    <script src="includes/js/controllers/postCtrl.js"></script>
+    <script src="includes/js/controllers/loginCtrl.js"></script>
+    <script src="includes/js/controllers/accountCtrl.js"></script>
+    <script src="includes/js/controllers/editionCtrl.js"></script>
+    <script src="includes/js/directives/generalDirectives.js"></script>
+    <script src="includes/js/directives/activityDirectives.js"></script>
+    <script src="includes/js/directives/postDirectives.js"></script>
+    <script src="includes/js/services/postServices.js"></script>
+    <script src="includes/js/services/loginService.js"></script>
+    <script src="includes/js/services/sessionService.js"></script>
+    <script src="includes/js/services/settingService.js"></script>
+    <script src="includes/js/services/userService.js"></script>
+    <script src="includes/js/services/themeService.js"></script>
+    <script src="includes/js/filters/postFilter.js"></script>
+    <!--script src="includes/js/angular-clock.js"></script>
+    <script src="includes/js/clock.js"></script-->
+
+
+    <link rel="stylesheet" href="CDN/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="CDN/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="CDN/angular-material/angular-material.css" />
+    <!--link rel="stylesheet" href="CDN/angular-material/docs.css" /-->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="includes/css/main.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js"></script>
-    <script src="includes/js/textAngular.min.js"></script>
 
 	<!--TEXT EDITOR CSS INCLUDES-->
 
@@ -34,8 +60,7 @@
   <body ng-controller="mainCtrl as main">
 
     <div class="wrapper">
-      <sidebar></sidebar><!-- End Sidebar -->
-      <workarea></workarea><!-- End Workarea -->
+      <div ui-view></div>
     </div><!-- Wrapper End  -->
 
   </body>

@@ -1,0 +1,97 @@
+<div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1">
+	<div class="postCard">
+		<div class="postCard-heading">
+			<label>Account Settings</label>
+		</div>
+		<hr class="postHr">
+		<div class="postCard-body">
+		<h4>Account Settings</h4>
+			<div class="row">
+
+				<div class="col-sm-10 col-lg-10 col-md-10">
+
+					<form name="userSettingsForm" ng-submit="userSettingsForm.$valid && acc.updateSettings()">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i aria-hidden="true" id="name">Display Name</i>
+								</span>
+								<input type="text" class="form-control" required name="regName" id="regName" ng-model="acc.accountSettings.user_name" style="color:#000;"/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">
+									<i aria-hidden="true" id="email">Email</i>
+								</span>
+								<input type="text" class="form-control" name="regEmail" id="regEmail" ng-model="acc.accountSettings.user_email" required style="color:#000;"/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<button class="btn btn-primary" type="submit" ng-show="userSettingsForm.$dirty">Save Changes</button>
+							</div>
+						</div>
+					</form>
+
+				<hr class="postHr"/>
+
+        <h4>Change Password</h4>
+
+				<form name="changePasswordForm" ng-submit="changePasswordForm.$valid && acc.changePassword()">
+
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="cPass">Current Password</i></span>
+							<input type="password" class="form-control" name="curPassword" id="curPassword" ng-model="acc.passwordData.current" placeholder="Current Password" required style="color:#000;"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+	            <span class="input-group-addon"><i aria-hidden="true" id="nPass">New Password</i></span>
+							<input type="password" class="form-control" name="newPassword" id="newPassword" ng-model="acc.passwordData.new" placeholder="New Password" required style="color:#000;"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+      				<span class="input-group-addon"><i aria-hidden="true" id="rPass">Retype Password</i></span>
+      				<input type="password" class="form-control" name="rePassword" id="rePassword" ng-model="acc.passwordData.renew" placeholder="Retype Password" required style="color:#000;"/>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="input-group">
+							<button class="btn btn-primary" type="submit" ng-show="changePasswordForm.$dirty">change Password</button>
+						</div>
+					</div>
+
+				</form>
+
+      </div>
+				<div class="col-lg-2 col-sm-2">
+					<center><img class="user-image img-responsive" src="includes/images/nophoto.jpg" style="margin-bottom:10px;"/>
+					<a href="" style="color:#2c8efe;">Change</a></center>
+				</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover({animation:true});
+
+		document.getElementById("regEmail").disabled = true;
+
+		$("#editEmail").click(function()
+		{
+			document.getElementById("regEmail").disabled = false;
+		});
+	});
+	</script>

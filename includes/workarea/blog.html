@@ -1,4 +1,94 @@
-<div class="container col-lg-12 col-md-12 col-sm-12 managed">
-  <h1>Blog Area</h1>
-  <input type="text" placeholder="Blog name" />
-</div>
+<div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1">
+	<div class="postCard">
+		<div class="postCard-heading">
+			<label>Blog Settings</label>
+			<button class="block btn btn-md setBtn">Save Settings</button>
+		</div>
+		<hr class="postHr">
+		<div class="postCard-body">
+		<h4>General Settings</h4>
+			<form method="post">
+			<div class="row">
+				<div class="col-sm-10 col-lg-10 col-md-10">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="blogTitle">Blog Title</i></span>
+							<input type="text" class="form-control" name="blogName" id="blogName"  value="Feathered Fervour" style="color:#000;"/>
+									<span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true" style="cursor:pointer;" data-toggle="popover" data-trigger="hover" data-content="Edit" data-placement="bottom" id="editName"></i></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="blogTg">Blog Tagline</i></span>
+							<input type="text" class="form-control" name="blogTag" id="blogTag"  placeholder="Tagline" style="color:#000;"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="blogAd">Blog Address</i></span>
+							<input type="text" class="form-control" name="blogAddress" id="blogAddress"  value="featheredfervour@example.com" style="color:#000;"/>
+									<span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true" style="cursor:pointer;" data-toggle="popover" data-trigger="hover" data-content="Edit" data-placement="bottom" id="editAdd"></i></span>
+					</div>
+				</div>
+				</div>
+				</div>
+			<hr class="postHr">
+			<h4>Global Settings</h4>
+			<div class="row">
+			<div class="col-sm-3 col-lg-3">
+			<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="langInput">Language</i></span>
+							<select class="dropdown-toggle postOperations selectDrop" id="langSelect" style="color:#000;">
+							<option>en-English</option>
+							<option>de-Deutsch</option>
+							<option>nl-Nederlands</option>
+							</select>
+					</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true" id="timeInput">Timezone</i></span>
+							<select class="dropdown-toggle postOperations selectDrop" id="timeSelect" style="color:#000;">
+							<option>Kolkata</option>
+							<option>Istanbul</option>
+							<option>UTC+0</option>
+							</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+						<span class="input-group-addon"><i aria-hidden="true">Blog Readers</i></span>
+							<select class="dropdown-toggle postOperations selectDrop" id="readSelect" style="color:#000;">
+							<option>Public</option>
+							<option>Only Blog Authors</option>
+							</select>
+				</div>
+			</div>
+			</div>
+			</div>
+
+			</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+			document.getElementById("blogName").disabled = true;
+			document.getElementById("blogAddress").disabled = true;
+</script>
+
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover({animation:true});
+		$("#editName").click(function()
+		{
+			document.getElementById("blogName").disabled = false;
+		});
+
+		$("#editAdd").click(function()
+		{
+			document.getElementById("blogAddress").disabled = false;
+		});
+	});
+</script>

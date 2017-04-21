@@ -1,0 +1,93 @@
+<div class="container col-lg-10 col-md-12 col-sm-12 managed col-lg-offset-1">
+	<form name="blogSettingsForm" ng-submit="blogSettingsForm.$valid && bset.updateBlogSettings()">
+	<div class="postCard">
+		<div class="postCard-heading">
+			<label>Blog Settings</label>
+			<button type="submit" ng-show="blogSettingsForm.$dirty" class="block btn btn-md setBtn">Save Settings</button>
+		</div>
+		<hr class="postHr">
+		<div class="postCard-body">
+		<h4>General Settings</h4>
+			<div class="row">
+				<div class="col-sm-10 col-lg-10 col-md-10">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="blogTitle">Blog Title</i></span>
+							<input type="text" class="form-control" name="blogName" id="blogName" ng-model="bset.blogSettingsData.blog_title" style="color:#000;"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i aria-hidden="true" id="blogTg">Blog Tagline</i></span>
+							<input type="text" class="form-control" name="blogTag" ng-model="bset.blogSettingsData.blog_tagline" id="blogTag"  placeholder="Tagline" style="color:#000;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr class="postHr">
+			<div class="row">
+				<div class="col-sm-6 col-lg-6 col-md-6">
+					<h4>Global Settings</h4>
+					<h5>
+						<b>Language Locale</b>
+						<md-select placeholder="{{bset.blogSettingsData.blog_locale}}" ng-model="bset.blogSettingsData.blog_locale" md-on-open="bset.getLocales()" aria-label="locales">
+							<md-option ng-repeat="zone in bset.locales" ng-value="zone.locale_name" ng-disabled="zone.locale_name === bset.blogSettingsData.blog_locale">
+								{{zone.locale_name}}
+							</md-option>
+						</md-select>
+					</h5>
+					<h5>
+						<b>Timezone</b>
+						<md-select placeholder="{{bset.blogSettingsData.blog_timezone_name}}" ng-model="bset.blogSettingsData.blog_timezone_name" md-on-open="bset.getTimezones()" aria-label="timezones">
+							<md-option ng-repeat="zone in bset.timezones" ng-value="zone.TZ_name" ng-disabled="zone.TZ_name === bset.blogSettingsData.blog_timezone_name">
+								{{zone.TZ_name}}
+							</md-option>
+						</md-select>
+					</h5>
+				</div>
+				<div class="col-sm-12 col-lg-6 col-md-6">
+					<h4>Comment Settings</h4>
+					<h5>
+						<b>Who can comment :</b><br /><br />
+							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
+							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
+					</h5>
+					<h5>
+						<b>Comment Moderation:</b><br /><br />
+						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
+						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
+					</h5>
+
+					<h5>
+						<b>Captcha</b>
+						<md-switch md-invert ng-model="bset.blogSettingsData.blog_allow_captcha" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						</md-switch>
+					</h5>
+
+					<h5>
+						<b>Email Notification</b>
+						<md-switch md-invert ng-model="bset.blogSettingsData.blog_email_notification" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						</md-switch>
+					</h5>
+
+				</div>
+
+
+			</div>
+		</div>
+	</form>
+	</div>
+
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover({animation:true});
+		$("#editName").click(function()
+		{
+			document.getElementById("blogName").disabled = false;
+		});
+		$("#editAdd").click(function()
+		{
+			document.getElementById("blogAddress").disabled = false;
+		});
+	});
+</script>

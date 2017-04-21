@@ -173,49 +173,30 @@
   });
 
   /*EDITOR DIRECTIVES*/
-  
-   app.directive('texteditor', function(){
+  app.directive('newPost', function(){
     return {
       restrict: 'E',
       templateUrl: './includes/packs/texteditor.html'
     };
   });
-  
+
+  app.directive('texteditor', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './includes/packs/texteditor.html'
+    };
+  });
   /*END EDITOR DIRECTIVE*/
 
   app.directive('posttoolbar', function(){
     return {
       restrict: 'E',
-      templateUrl: './includes/workarea/navarea.html'
+      templateUrl: './includes/partials/posts/navarea.html'
     };
   });
 
   /*EDITOR DIRECTIVES*/
   /*END EDITOR DIRECTIVE*/
-
-  /*APPEARANCE DIRECTIVE*/
-  app.directive('invertCard', function(){
-    return {
-      restrict:'E',
-      transclude:true,
-      template: "<div class='invertcard' ng-transclude></div>"
-    };
-  });
-  app.directive('cardbanner', function(){
-    return {
-      restrict:'E',
-      transclude:true,
-      template: "<div class='cardbanner' ng-transclude></div>"
-    };
-  });
-  app.directive('cardtitle', function(){
-    return {
-      restrict:'E',
-      transclude:true,
-      template: "<div class='cardtitle' ng-transclude></div>"
-    };
-  });
-  /*END APPEARANCE DIRECTIVE*/
 
   /* END WORKAREA DIRECTIVES */
 

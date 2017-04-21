@@ -1,0 +1,62 @@
+/* OVERRIDES */
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+
+.navbar-default{
+  transition: all 0.5s;
+}
+.navbar-default.theme-navbar{
+  background-color: transparent;
+  border: none;
+}
+  .navbar-default.theme-navbar .navbar-nav>.active>a, .navbar-default.theme-navbar .navbar-nav>.active>a:focus, .navbar-default.theme-navbar .navbar-nav>.active>a:hover{
+    color: #FFF;
+    background-color: transparent;
+    border-bottom: 2px solid #FFF;
+  }
+
+  .navbar-default.theme-navbar .navbar-nav>li>a:focus, .navbar-default.theme-navbar .navbar-nav>li>a:hover{
+    color: #908a88;
+  }
+
+  .navbar-default.theme-navbar .navbar-brand{
+    color: #FFF;
+  }
+  .navbar-default.theme-navbar .navbar-nav>li>a{
+    color: #FFF;
+  }
+
+/* END OVERRRIDES */
+
+.shift{
+  background-color: #3e4c6b !important;
+}
+.theme-wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Merriweather', serif;
+  background-color: #bc988c;
+}
+.banner{
+  position: relative;
+  background: #7c7c7c;
+  background-image: url("../resources/images/banner1.jpg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  color: #FFF;
+  box-shadow:inset 0 0 10px #000;
+}
+  .banner h1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 50px;
+  }

@@ -1,0 +1,65 @@
+<div class="row toolbar-sub">
+  <ul class="pull-right">
+    <li class="postOptions"><a href ng-click="drafted.viewing = 1"><span class="glyphicon glyphicon-th"></span></a> </li>
+    <li class="postOptions"><a href ng-click="drafted.viewing = 2"><span class="glyphicon glyphicon-th-list"></span></a> </li>
+    <li class="postOptions"><a href ng-click="drafted.getPosts()">Refresh List</a></li>
+  </ul>
+</div>
+<div class="row" ng-show="drafted.editorStatus(0)">
+  <div ng-class="{'col-md-4 col-lg-4 col-sm-12':(drafted.viewing==1),'col-md-12 col-lg-12 col-sm-12':(drafted.viewing==2)}" ng-repeat="post in drafted.postList.posts">
+
+    <div class="postCard">
+
+      <div class="postCard-heading">
+
+        <strong><span style="font-size:20px;" ng-bind-html="post.post_title"></span></strong>
+
+        <div class="btn-group block">
+
+          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+            <span class="caret"></span>
+          </button>
+
+          <ul class="dropdown-menu pull-right">
+              <li><a href="" ng-click="drafted.editPost(post)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a></li>
+              <li><a href=""><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Revert to Draft</a></li>
+              <li><a href=""><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <hr class="postHr">
+
+      <div class="postCard-body">
+        <div class="post-data">
+          <strong>Created On:&nbsp;</strong>
+          <span>{{post.post_date_gmt|postDate}}</span>
+        </div>
+        <div class="post-data">
+          <strong>Category:&nbsp;</strong>
+          <span>{{post.post_category}}</span>
+        </div>
+        <div class="post-data">
+          <strong>Tags:</strong>
+          <span ng-bind-html="post.post_tags|postTags"></span>
+        </div>
+      </div>
+      <hr class="postHr">
+      <div class="postCard-footer">
+        <center>
+          <ul class="postList">
+            <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_view_count"></span></a></li>
+            <li><a href=""><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_comment_count"></span></a></li>
+            <li><a href=""><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_share_count"></span></a></li>
+          </ul>
+        </center>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row" ng-show="drafted.editorStatus(1)" id="textEditorContainer">
+  <text-editor-drafted></text-editor-drafted>
+</div>
