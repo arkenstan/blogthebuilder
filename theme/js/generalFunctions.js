@@ -5,18 +5,16 @@ app.controller('blogCtrl',function(blogContent, $location){
   var $temp = this;
 
   $temp.content = {};
-  $temp.posts = {};
+  $temp.num = {};
 
   $temp.getData = function(){
     blogContent.getBlogData().then(function(msg){
-      console.log(msg.data);
       $temp.content = msg.data;
     });
   };
 
   $temp.getPosts = function(num){
     blogContent.getBlogPosts(num).then(function(msg){
-      console.log(msg.data);
       $temp.posts = msg.data;
     });
   };
@@ -30,19 +28,59 @@ app.controller('blogCtrl',function(blogContent, $location){
 });
 
 app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
-/*  var $temp = this;
+  var $temp = this;
   $temp.post = {};
+  $temp.settings = {};
+  $temp.comments = {};
+  $temp.comment = {};
+  $temp.reply = {};
 
-  $temp.getSpecificPost = function(postName){
-    blogContent.getSpecificPost(postName).then(function(msg){
-      if(msg.data == 'E'){
-        $location.path('/home');
-      }else{
-        $temp.post = msg.data;
+  $temp.getComments = function(hash){
+    blogContent.getCommentsOnPost(hash).then(function(msg){
+      $temp.comments = msg.data;
+    });
+  };
+
+  $temp.makeReply = function(comment_hash){
+    $temp.reply.comment_type = 'reply';
+    $temp.reply.comment_parent = comment_hash;
+    $temp.reply.post_access = $temp.post.accessHash;
+    blogContent.postComment($temp.reply).then(function(msg){
+      if(msg.data === '"Comment posted successfully"'){
+        $temp.reply = {};
+        $temp.getComments($temp.post.accessHash);
       }
     });
   };
 
-  $temp.getSpecificPost($stateParams.postName);
-*/
+  $temp.makeComment = function(){
+    $temp.comment.comment_type = 'comment';
+    $temp.comment.post_access = $temp.post.accessHash;
+    $temp.comment.comment_parent = $temp.post.accessHash;
+    blogContent.postComment($temp.comment).then(function(msg){
+      if(msg.data === '"Comment posted successfully"'){
+        $temp.comment = {};
+        $temp.getComments($temp.post.accessHash);
+      }
+    });
+  };
+
+  $temp.getPost = function(pName){
+    blogContent.getSpecificPost(pName).then(function(msg){
+      $temp.post = msg.data;
+      $temp.comment.post_access = $temp.post.accessHash;
+      $temp.comment.comment_parent = $temp.post.accessHash;
+      $temp.getComments($temp.post.accessHash);
+    });
+  };
+
+  $temp.getBlogSettings = function(){
+    blogContent.getSettings().then(function(msg){
+      $temp.settings = msg.data;
+    });
+  };
+
+  $temp.getPost($stateParams.postName);
+  $temp.getBlogSettings();
+
 });

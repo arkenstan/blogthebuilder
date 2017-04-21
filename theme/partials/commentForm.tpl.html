@@ -1,0 +1,10 @@
+<form name="postComment" ng-submit="postComment.$valid && post.makeComment()">
+
+  <input type="email" ng-required="post.settings.blog_comment_moderation !== 'never'" ng-model="post.comment.comment_author_email" placeholder="Enter your Email" ng-show="post.settings.blog_comment_moderation !== 'never'" />
+  <input type="text" ng-required="post.settings.blog_comment_moderation !== 'never'" ng-model="post.comment.comment_author_name" placeholder="Enter your Name" ng-show="post.settings.blog_comment_moderation !== 'never'" />
+  <br />
+  <textarea required placeholder="Your Comment" ng-model="post.comment.comment_content"></textarea>
+  <br />
+  <button type="submit" class="btn btn-primary" ng-disabled="postComment.$invalid">Comment</button>
+
+</form>
