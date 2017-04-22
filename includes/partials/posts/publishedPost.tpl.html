@@ -52,7 +52,7 @@
         <center>
           <ul class="postList">
             <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_view_count"></span></a></li>
-            <li><a href=""><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_comment_count"></span></a></li>
+            <li><a ui-sref="workspace.comments({postAccess:'{{post.accessHash}}'})"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_comment_count"></span></a></li>
             <li><a href=""><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp;<span class="text-muted" ng-bind-html="post.post_share_count"></span></a></li>
           </ul>
         </center>

@@ -95,6 +95,20 @@ $urlRouterProvider.otherwise('/login');
       }
     }
   });
+  $stateProvider.state('workspace.comments',{
+    url:'/comments/:postAccess',
+    views: {
+      nav:
+      {
+        templateUrl:'./includes/partials/workarea/navbar.tpl.html'
+      },
+      content:
+      {
+        templateUrl:'./includes/partials/posts/comment.tpl.html',
+        controller:'commentCtrl as comm'
+      }
+    }
+  });
 
   $stateProvider.state('workspace.appearance', {
     url: '/appearance',
@@ -208,7 +222,7 @@ $urlRouterProvider.otherwise('/login');
 });
 
 app.run(function($rootScope,$location,loginService,$window){
-  var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post'];
+  var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post','/workspace/comments'];
   var unauthenticatedRoutes=['/login'];
   $rootScope.$on('$stateChangeStart', function(){
     var temp = loginService.isLogged();

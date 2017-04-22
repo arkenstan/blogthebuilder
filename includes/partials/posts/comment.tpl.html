@@ -1,0 +1,40 @@
+<div class="container col-lg-12 col-md-12 col-sm-12">
+  <div class="row">
+    <div class="comment" ng-repeat="comment in comm.comments">
+      <p>
+        <strong>{{comment.comment_author_name}}</strong>
+        <strong>{{comment.comment_author_email}}</strong>
+        {{comment.comment_content}}
+      </p>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-target="#collapse{{$index}}" href>Replies</a>
+            </h4>
+          </div>
+          <div id="collapse{{$index}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              <form name="replyForm" ng-submit="replyForm.$valid && comm.submitReply()">
+                <textarea required placeholder="Enter your Reply" ng-model="comm.reply.comment_content"></textarea>
+                <button class="btn btn-primary" type="submit">Post Reply</button>
+              </form>
+            </div>
+            <div class="panel-footer">
+              <ul>
+                <li ng-repeat="reply in comment.replies">
+                  <p>
+                    <strong>{{reply.comment_author_name}}</strong>
+                    <strong>{{reply.comment_author_email}}</strong>
+                    {{reply.comment_content}}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
