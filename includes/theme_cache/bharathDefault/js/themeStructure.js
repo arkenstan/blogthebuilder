@@ -6,7 +6,6 @@ app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider.state('home',{
     url:'/home',
     templateUrl:'./theme/partials/main.tpl.html',
-    controller: 'mainCtrl as main'
   });
 
   $stateProvider.state('post',{
@@ -20,7 +19,7 @@ app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',
     templateUrl: './theme/partials/structure.tpl.html',
-    controller: 'mainCtrl as main'
+    controller: 'blogCtrl as blog'
   };
 });
 
@@ -63,5 +62,19 @@ app.directive('pageFooter',function(){
   return {
     restrict: 'E',
     templateUrl: './theme/partials/footer.tpl.html'
+  };
+});
+
+app.directive('commentForm',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/commentForm.tpl.html'
+  };
+});
+
+app.directive('replies',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/reply.tpl.html'
   };
 });

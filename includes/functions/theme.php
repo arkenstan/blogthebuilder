@@ -37,6 +37,7 @@ function setNewTheme($link, $themeID){
     unset($files[0]);
     unset($files[1]);
     foreach ($files as $key => $file) {
+      chmod("$current/$folder/$file",0777);
       unlink("$current/$folder/$file");
     }
   }
