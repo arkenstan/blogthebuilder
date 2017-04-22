@@ -7,11 +7,11 @@
         <i class="fa fa-comments-o fa-3x"></i>
       </div>
       <div class="billboard-right">
-        <h2>4,365</h2>
+        <h2>{{active.initialData.comment_count}}</h2>
         <h4>Comments</h4>
       </div>
       <div class="billboard-bottom">
-        <a href="#" class="billboard-more">
+        <a ui-sref="workspace.posts" class="billboard-more">
           <span class="text-left">View More</span>
           <i class="fa fa-chevron-right pull-right"></i>
         </a>
@@ -25,7 +25,7 @@
         <i class="fa fa-user-o fa-3x"></i>
       </div>
       <div class="billboard-right">
-        <h2>+30%</h2>
+        <h2>{{active.initialData.view_growth|growth}}</h2>
         <h4>Views</h4>
       </div>
       <div class="billboard-bottom">
@@ -43,7 +43,7 @@
         <i class="fa fa-globe fa-3x"></i>
       </div>
       <div class="billboard-right">
-        <h2>+66%</h2>
+        <h2>{{active.initialData.popularity_growth|growth}}</h2>
         <h4>Popularity</h4>
       </div>
       <div class="billboard-bottom">
@@ -62,11 +62,11 @@
         <i class="fa fa-newspaper-o fa-3x"></i>
       </div>
       <div class="billboard-right">
-        <h2>78</h2>
+        <h2>{{active.initialData.post_count}}</h2>
         <h4>Posts</h4>
       </div>
       <div class="billboard-bottom">
-        <a href="#" class="billboard-more">
+        <a ui-sref="workspace.posts" class="billboard-more">
           <span class="text-left">View More</span>
           <i class="fa fa-chevron-right pull-right"></i>
         </a>

@@ -1,5 +1,12 @@
 'use strict';
 
+app.filter('growth',function(){
+  return function(growthValue){
+    var growthV = "+"+growthValue+"%";
+    return growthV;
+  };
+});
+
 app.filter('postDate',function(){
 
   return function(postDate){
