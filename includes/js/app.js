@@ -222,7 +222,7 @@ $urlRouterProvider.otherwise('/login');
 });
 
 app.run(function($rootScope,$location,loginService,$window){
-  var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/account','/workspace/privacy','/workspace/appearance','/workspace/plugins','/workspace/post','/workspace/comments'];
+  var authenticatedRoutes=['/workspace','/workspace/activity','/workspace/trends','/workspace/newpost','/workspace/posts','/workspace/appearance/theme','/workspace/appearance/edit','/workspace/plugins','/workspace/blog','/workspace/account'];
   var unauthenticatedRoutes=['/login'];
   $rootScope.$on('$stateChangeStart', function(){
     var temp = loginService.isLogged();

@@ -7,7 +7,6 @@ app.controller('commentCtrl',function(commentFactory,$stateParams,$window){
 
   $temp.getComments = function(hash){
     commentFactory.getComments(hash).then(function(msg){
-      console.log(msg.data);
       $temp.comments = msg.data;
     });
   };
@@ -15,11 +14,11 @@ app.controller('commentCtrl',function(commentFactory,$stateParams,$window){
   $temp.makeReply = function(comment_hash){
     $temp.reply.comment_type = 'reply';
     $temp.reply.comment_parent = comment_hash;
-    $temp.reply.post_access = $temp.post.accessHash;
+    $temp.reply.post_access = $stateParams.postAccess;
     commentFactory.postComment($temp.reply).then(function(msg){
-      if(msg.data === '"Comment posted successfully"'){
+      if(msg.data === '"Successfully replied"'){
         $temp.reply = {};
-        $temp.getComments($temp.post.accessHash);
+        $temp.getComments($stateParams.postAccess);
       }
     });
   };

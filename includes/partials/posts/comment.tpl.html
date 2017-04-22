@@ -15,7 +15,7 @@
           </div>
           <div id="collapse{{$index}}" class="panel-collapse collapse">
             <div class="panel-body">
-              <form name="replyForm" ng-submit="replyForm.$valid && comm.submitReply()">
+              <form name="replyForm" ng-submit="replyForm.$valid && comm.makeReply(comment.accessHash)">
                 <textarea required placeholder="Enter your Reply" ng-model="comm.reply.comment_content"></textarea>
                 <button class="btn btn-primary" type="submit">Post Reply</button>
               </form>
