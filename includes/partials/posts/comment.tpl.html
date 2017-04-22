@@ -6,7 +6,8 @@
         <strong>{{comment.comment_author_email}}</strong>
         {{comment.comment_content}}
       </p>
-      <div class="panel-group">
+      <button class="btn btn-primary" ng-show="comment.comment_approved === 'notapproved'" ng-click="comm.approveComment(comment.accessHash)">Approve this comment</button>
+      <div class="panel-group" ng-hide="comment.comment_approved === 'notapproved'">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">

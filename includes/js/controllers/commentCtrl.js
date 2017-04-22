@@ -11,6 +11,14 @@ app.controller('commentCtrl',function(commentFactory,$stateParams,$window){
     });
   };
 
+  $temp.approveComment = function(hash){
+    commentFactory.approve(hash).then(function(msg){
+      if(msg.data === '"approved"'){
+        $temp.getComments($stateParams.postAccess);
+      }
+    });
+  };
+
   $temp.makeReply = function(comment_hash){
     $temp.reply.comment_type = 'reply';
     $temp.reply.comment_parent = comment_hash;

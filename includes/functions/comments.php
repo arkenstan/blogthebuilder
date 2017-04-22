@@ -3,7 +3,7 @@
 include 'init.php';
 
 function get_replies($link,$parent){
-  $fields = array('comment_author_name','comment_author_email','comment_content','comment_parent','post_access', 'comment_type','comment_date_gmt');
+  $fields = array('comment_author_name','comment_author_email','comment_approved','comment_content','comment_parent','post_access', 'comment_type','comment_date_gmt');
   $fields = implode(', ',$fields);
   $res = mysqli_query($link,"SELECT $fields FROM comments WHERE comment_parent = '$parent' AND comment_type='reply' ORDER BY comment_date_gmt DESC");
   $replies = array();
@@ -18,7 +18,7 @@ function get_replies($link,$parent){
 }
 
 function get_comments($link,$hash){
-  $fields = array('comment_author_name','comment_author_email','comment_content','comment_parent','post_access', 'comment_type','comment_date_gmt','accessHash');
+  $fields = array('comment_author_name','comment_author_email','comment_approved','comment_content','comment_parent','post_access', 'comment_type','comment_date_gmt','accessHash');
   $fields = implode(', ',$fields);
   $res = mysqli_query($link,"SELECT $fields FROM comments WHERE post_access = '$hash' AND comment_type='comment' ORDER BY comment_date_gmt DESC") or die(mysqli_error($link));
   $comments = array();
@@ -43,8 +43,15 @@ function post_reply($link, $data){
   return 'Successfully replied';
 }
 
+function approve_comment($link, $hash){
+  if(!mysqli_query($link,"UPDATE comments SET comment_approved='approved' WHERE accessHash = '$hash'")){
+    return 'Unable to update';
+  }else{
+    return 'approved';
+  }
+}
 
-$possible_urls = array('getComments','postComment');
+$possible_urls = array('getComments','postComment','approveComment');
 $value = 'An error has occured';
 
 if(isset($_GET['action']) && in_array($_GET['action'], $possible_urls)){
@@ -69,6 +76,11 @@ if(isset($_GET['action']) && in_array($_GET['action'], $possible_urls)){
         $reply['comment_date_gmt'] = date('Y-m-d H:i:s');
         $reply['accessHash'] = sha1("COMMENT".microtime());
         $value = post_reply($db_conx, $reply);
+      }
+      break;
+    case 'approveComment':
+      if(isset($_POST['accessHash']) && !empty($_POST['accessHash'])){
+        $value = approve_comment($db_conx, sanitize($db_conx,$_POST['accessHash']));
       }
       break;
 

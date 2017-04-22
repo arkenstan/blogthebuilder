@@ -12,6 +12,15 @@ app.factory('commentFactory',function($http){
       });
       return $promise;
     },
+    approve:function(hash){
+      var fd = new FormData();
+      fd.append('accessHash',hash);
+      var $promise = $http.post('./includes/functions/comments.php?action=approveComment',fd,{
+        transformRequest: angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    },
     postComment:function(values){
       var fd = new FormData();
       angular.forEach(values, function(value,key){
