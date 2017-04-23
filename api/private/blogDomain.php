@@ -46,7 +46,7 @@ function get_comments($link, $hash, $limit){
   $limit = (int)$limit != 0 ? "LIMIT $limit":"";
   $fields = array('comment_author_name','comment_author_email','comment_content','comment_parent','post_access', 'comment_type','comment_date_gmt','accessHash');
   $fields = implode(', ',$fields);
-  $res = mysqli_query($link,"SELECT $fields FROM comments WHERE post_access = '$hash' AND comment_type='comment' ORDER BY comment_date_gmt DESC $limit") or die(mysqli_error($link));
+  $res = mysqli_query($link,"SELECT $fields FROM comments WHERE post_access = '$hash' AND comment_approved='public' AND comment_type='comment' ORDER BY comment_date_gmt DESC $limit") or die(mysqli_error($link));
   $comments = array();
   while($row = mysqli_fetch_assoc($res)){
     $comment = array();
@@ -203,12 +203,11 @@ if(isset($_POST['privateAccess']) && $_POST['privateAccess'] == 'private_api_acc
           if(!isset($comment['comment_author_name'])){
             $comment['comment_author_name'] = 'Anonymous';
           }
-          $comment['comment_approved'] = ($settings['blog_comment_settings'] == 'public') ? 'public':'notapproved';
+          $comment['comment_approved'] = ($settings['blog_comment_moderation'] == 'never') ? 'public':'notapproved';
           $comment['comment_author_IP'] = getUserIP();
           $comment['accessHash'] = sha1("COMMENT".microtime());
           date_default_timezone_set('UTC');
           $comment['comment_date_gmt'] = date('Y-m-d H:i:s');
-//          $value = $comment;
           $value = post_comment($db_conx, $comment);
         }
         break;

@@ -2,7 +2,14 @@
 
 include 'init.php';
 
-if(isset($_GET['act']) && !empty($_GET['act'])){
+if(logged_in() == false){
+  exit('Unable to access');
+}
+
+$possibilities = 6;
+
+
+if(isset($_GET['act']) && !empty($_GET['act']) && (int)$_GET['act'] <= $possibilities){
   switch((int)$_GET['act']){
     case 1:
       $cate = '';

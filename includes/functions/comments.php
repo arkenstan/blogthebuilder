@@ -44,7 +44,7 @@ function post_reply($link, $data){
 }
 
 function approve_comment($link, $hash){
-  if(!mysqli_query($link,"UPDATE comments SET comment_approved='approved' WHERE accessHash = '$hash'")){
+  if(!mysqli_query($link,"UPDATE comments SET comment_approved='public' WHERE accessHash = '$hash'")){
     return 'Unable to update';
   }else{
     return 'approved';
@@ -80,6 +80,7 @@ if(isset($_GET['action']) && in_array($_GET['action'], $possible_urls)){
       break;
     case 'approveComment':
       if(isset($_POST['accessHash']) && !empty($_POST['accessHash'])){
+
         $value = approve_comment($db_conx, sanitize($db_conx,$_POST['accessHash']));
       }
       break;

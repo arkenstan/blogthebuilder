@@ -63,6 +63,20 @@ app.controller('publishedPostCtrl',function(postService,categoryService,$window)
     });
   };
 
+  $temp.deletePost = function(postID){
+    postService.deletethisPost(postID).then(function(msg){
+      $window.alert(msg.data);
+      $temp.getPosts();
+    });
+  };
+
+  $temp.revertToDraft = function(postID){
+    postService.draftPost(postID).then(function(msg){
+      $window.alert(msg.data);
+      $temp.getPosts();
+    });
+  };
+
 
   $temp.editorStatus = function(val){
     return $temp.editorStat === val;
@@ -100,6 +114,14 @@ app.controller('draftedPostCtrl',function(postService,categoryService,$window){
   $temp.htmlcontent = $temp.orightml;
   $temp.disabled = false;
   $temp.head={selected:null};
+
+  $temp.deletePost = function(postID){
+    postService.deletethisPost(postID).then(function(msg){
+      $window.alert(msg.data);
+      $temp.getPosts();
+    });
+  };
+
 
   $temp.updatePost = function(val){
     $temp.editing.post_status = ((val == 'publish') ? val:'draft');

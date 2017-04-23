@@ -13,6 +13,7 @@ app.controller('commentCtrl',function(commentFactory,$stateParams,$window){
 
   $temp.approveComment = function(hash){
     commentFactory.approve(hash).then(function(msg){
+      console.log(msg.data);
       if(msg.data === '"approved"'){
         $temp.getComments($stateParams.postAccess);
       }

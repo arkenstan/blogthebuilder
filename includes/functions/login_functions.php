@@ -18,6 +18,10 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
           $error .= "Password is wrong|";
         }else{
           $_SESSION['vader'] = uniqid("btb_$login-_");
+          date_default_timezone_set('UTC');
+          $time = date('y-m-d H:i:s');
+          $ip = getUserIP();
+          mysqli_query($db_conx, "INSERT INTO activity(activity_ip,activity_type,activity_to,activity_from,activity_time) VALUES('$ip','workspace','0','0','$time')");
         }
       }
 

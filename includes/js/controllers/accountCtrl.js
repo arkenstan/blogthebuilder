@@ -65,7 +65,6 @@ app.controller('blogSettingsCtrl',function(blogSettingService,$window){
   };
   $temp.updateBlogSettings = function(){
     blogSettingService.updateSettings($temp.blogSettingsData).then(function(msg){
-      console.log(msg.data);
       $temp.getBlogSettings();
     });
   };

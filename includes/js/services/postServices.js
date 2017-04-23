@@ -10,6 +10,24 @@ app.factory('postService', function($http,$window){
       var $promise = $http.post('./includes/functions/posts.php?act=2',post);
       return $promise;
     },
+    draftPost:function(id){
+      var fd = new FormData();
+      fd.append("post_id",id);
+      var $promise = $http.post('./includes/functions/posts.php?act=5',fd,{
+        transformRequest:angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    },
+    deletethisPost:function(id){
+      var fd = new FormData();
+      fd.append("post_id",id);
+      var $promise = $http.post('./includes/functions/posts.php?act=6',fd,{
+        transformRequest:angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    },
     get:function(cate){
       var fd = new FormData();
       fd.append('category',cate);

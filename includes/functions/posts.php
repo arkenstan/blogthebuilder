@@ -1,12 +1,20 @@
 <?php
 
 include 'init.php';
-if(isset($_GET['act']) && !empty($_GET['act'])){
+
+if(logged_in() == false){
+  exit('Unable to access');
+}
+
+$possibilities = 6;
+
+
+if(isset($_GET['act']) && !empty($_GET['act']) && (int)$_GET['act'] <= $possibilities){
   switch ((int)$_GET['act']) {
     case 1:
       $post_data = get_post_input($db_conx);
       if(postUrlExists($db_conx, $post_data['post_url']) == true){
-        echo 'E|PU|Post url already Exists Please';
+        echo 'Post url already Exists Please';
         break;
       }
       date_default_timezone_set('UTC');
@@ -17,7 +25,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       unset($post_data['post_url']);
       $post_data['post_user'] = $user_data['user_id'];
       if(makeCategory($db_conx, $post_data['post_category'],1) == false){
-        echo 'E|A|Failed to set Category. Please check your network connection';
+        echo 'Failed to set Category. Please check your network connection';
         break;
       }
       $post_data['accessHash'] = sha1("POST ".microtime());
@@ -25,15 +33,15 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       $values = '\'' . implode('\', \'', $post_data) . '\'';
 
       if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
-        echo 'E|A|Failed to connect to database';
+        echo 'Failed to connect to database';
       }else{
-        echo 'S|Post successfully Published';
+        echo 'Post successfully Published';
       }
       break;
     case 2:
       $post_data = get_post_input($db_conx);
       if(postUrlExists($db_conx, $post_data['post_url']) == true){
-        echo 'E|PU|Post url already Exists Please';
+        echo 'Post url already Exists Please';
         break;
       }
       date_default_timezone_set('UTC');
@@ -44,7 +52,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       unset($post_data['post_url']);
       $post_data['post_user'] = $user_data['user_id'];
       if(makeCategory($db_conx, $post_data['post_category'],0) == false){
-        echo 'E|A|Failed to set Category. Please check your network connection';
+        echo 'Failed to set Category. Please check your network connection';
         break;
       }
       $post_data['accessHash'] = sha1("POST ".microtime());
@@ -52,9 +60,9 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       $values = '\'' . implode('\', \'', $post_data) . '\'';
 
       if(!mysqli_query($db_conx, "INSERT into posts($fields) VALUES($values)")){
-        echo 'E|A|Failed to connect to database';
+        echo 'Failed to connect to database';
       }else{
-        echo 'S|Post Added to Draft';
+        echo 'Post Added to Draft';
       }
       break;
     case 3:
@@ -86,7 +94,7 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       $post = get_post_input($db_conx);
       $postID = $post['post_id'];
       if(makeCategory($db_conx,$post['post_category'],0) == false){
-        echo 'E|A|Unable to connect to Database 1';
+        echo 'Unable to connect to Database 1';
         break;
       }
       date_default_timezone_set('UTC');
@@ -100,9 +108,29 @@ if(isset($_GET['act']) && !empty($_GET['act'])){
       }
       $updates = implode(', ',$updates);
       if(!mysqli_query($db_conx, "UPDATE posts SET $updates WHERE post_id=$postID")){
-        echo 'E|A|Unable to Connect to Database';
+        echo 'Unable to Connect to Database';
       }else{
-        echo 'S|A|successfully updated post';
+        echo 'successfully updated post';
+      }
+      break;
+    case 5:
+      if(isset($_POST['post_id']) && !empty($_POST['post_id'])){
+        $id = (int)$_POST['post_id'];
+        if(!mysqli_query($db_conx, "UPDATE posts SET post_status = 'draft' WHERE post_id='$id'")){
+          echo 'Unable to update';
+        }else{
+          echo 'Post Added to draft';
+        }
+      }
+      break;
+    case 6:
+      if(isset($_POST['post_id']) && !empty($_POST['post_id'])){
+        $id = (int)$_POST['post_id'];
+        if(!mysqli_query($db_conx, "UPDATE posts SET post_status = 'delete' WHERE post_id='$id'")){
+          echo 'Unable to update';
+        }else{
+          echo 'Post Deleted';
+        }
       }
       break;
     default:

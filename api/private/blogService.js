@@ -12,15 +12,6 @@ app.factory('blogContent',function($http){
       });
       return $promise;
     },
-    getBlogData:function(){
-      var fd = new FormData();
-      fd.append('privateAccess','private_api_access');
-      var $promise = $http.post('./api/private/blogDomain.php?action=getBlogContent',fd,{
-        transformRequest: angular.identity,
-        headers:{'Content-type':undefined}
-      });
-      return $promise;
-    },
     postComment:function(values){
       var fd = new FormData();
       angular.forEach(values, function(value,key){
@@ -28,15 +19,6 @@ app.factory('blogContent',function($http){
       });
       fd.append('privateAccess','private_api_access');
       var $promise = $http.post('./api/private/blogDomain.php?action=postComment',fd,{
-        transformRequest: angular.identity,
-        headers:{'Content-type':undefined}
-      });
-      return $promise;
-    },
-    getSettings:function(){
-      var fd = new FormData();
-      fd.append('privateAccess','private_api_access');
-      var $promise = $http.post('./api/private/blogDomain.php?action=getBlogSettings',fd,{
         transformRequest: angular.identity,
         headers:{'Content-type':undefined}
       });

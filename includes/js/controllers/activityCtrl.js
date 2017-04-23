@@ -36,7 +36,6 @@ app.controller('activityCtrl',function(activityService){
 
   $temp.initialize = function(){
     activityService.getBootstrapData().then(function(msg){
-      console.log(msg.data);
       $temp.initialData = msg.data;
     });
   };

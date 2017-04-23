@@ -13,8 +13,8 @@
       <div class="panel-body">
         <form name="postReply" ng-submit="postReply.$valid && post.makeReply(comment.accessHash)">
 
-          <input type="email" ng-required="post.settings.blog_comment_moderation !== 'never'" ng-model="post.reply.comment_author_email" placeholder="Enter your Email" ng-show="post.settings.blog_comment_moderation !== 'never'" />
-          <input type="text" ng-required="post.settings.blog_comment_moderation !== 'never'" ng-model="post.reply.comment_author_name" placeholder="Enter your Name" ng-show="post.settings.blog_comment_moderation !== 'never'" />
+          <input type="email" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_email" placeholder="Enter your Email" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
+          <input type="text" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_name" placeholder="Enter your Name" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
           <br />
           <textarea required placeholder="Your Reply" ng-model="post.reply.comment_content"></textarea>
           <br />

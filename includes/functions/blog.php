@@ -1,8 +1,14 @@
 <?php
 
 include_once 'init.php';
+if(logged_in() == false){
+  exit('Unable to access');
+}
 
-if(isset($_GET['act']) && !empty($_GET['act'])){
+$possibilities = 6;
+
+
+if(isset($_GET['act']) && !empty($_GET['act']) && (int)$_GET['act']<=$possibilities){
   switch ((int)$_GET['act']) {
     case 1:
       $ret = '';

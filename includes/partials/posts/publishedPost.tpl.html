@@ -22,8 +22,8 @@
 
           <ul class="dropdown-menu pull-right">
               <li><a href="" ng-click="published.editPost(post)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</a></li>
-              <li><a href=""><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Revert to Draft</a></li>
-              <li><a href=""><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete</a></li>
+              <li><a href ng-click="published.revertToDraft(post.post_id)"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Revert to Draft</a></li>
+              <li><a href ng-click="published.deletePost(post.post_id)"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Delete</a></li>
           </ul>
 
         </div>

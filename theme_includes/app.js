@@ -8,6 +8,7 @@ app.controller('mainCtrl',function(blogContent,$location){
   $temp.posts = {};
   $temp.getBlogData = function(){
     blogContent.getBlogDataAll().then(function(msg){
+      console.log(msg.data);
       $temp.blogData = msg.data;
     });
   };
@@ -31,7 +32,6 @@ app.controller('mainCtrl',function(blogContent,$location){
 app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
   var $temp = this;
   $temp.post = {};
-  $temp.settings = {};
   $temp.comments = {};
   $temp.comment = {};
   $temp.reply = {};
@@ -75,13 +75,7 @@ app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
     });
   };
 
-  $temp.getBlogSettings = function(){
-    blogContent.getSettings().then(function(msg){
-      $temp.settings = msg.data;
-    });
-  };
 
   $temp.getPost($stateParams.postName);
-  $temp.getBlogSettings();
 
 });

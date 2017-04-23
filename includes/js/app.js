@@ -112,7 +112,8 @@ $urlRouterProvider.otherwise('/login');
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/plugin.tpl.html'
+        templateUrl:'./includes/partials/workarea/plugin.tpl.html',
+        controller:'pluginCtrl as plugins'
     }
   }
   });
