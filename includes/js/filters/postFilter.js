@@ -2,6 +2,7 @@
 
 app.filter('growth',function(){
   return function(growthValue){
+    growthValue = Math.ceil(growthValue);
     var growthV = "+"+growthValue+"%";
     return growthV;
   };

@@ -33,7 +33,7 @@ function get_activity_data($link, $type, $scale){
     $groupby = 'YEAR(activity_time)';
     $fetch = 'YEAR(activity_time)';
   }else if($scale == 'hour'){
-    $groupby = 'MINUTE(activity_time)';
+    $groupby = 'HOUR(activity_time)';
     $fetch = 'TIME(activity_time)';
   }
   $res = mysqli_query($link, "SELECT COUNT(activity_id) AS views,$fetch AS scale FROM activity WHERE activity_type='$type' GROUP BY $groupby");
