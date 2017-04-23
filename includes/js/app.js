@@ -28,7 +28,8 @@ $urlRouterProvider.otherwise('/login');
       },
       content:
       {
-        templateUrl:'./includes/partials/workarea/trend.tpl.html'
+        templateUrl:'./includes/partials/workarea/trend.tpl.html',
+        controller:'trendCtrl as trends'
       }
     }
   });

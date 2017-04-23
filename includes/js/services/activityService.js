@@ -20,3 +20,18 @@ app.factory('activityService', function($http){
 
   };
 });
+
+app.factory('trendService', function($http,$window){
+  return {
+    getTrendsData:function(limit){
+      var fd = new FormData();
+      fd.append("limit",limit);
+      var $promise = $http.post('./includes/functions/trends.php?action=getTrends',fd,{
+        transformRequest:angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    }
+
+  };
+});

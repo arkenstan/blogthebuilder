@@ -44,3 +44,23 @@ app.controller('activityCtrl',function(activityService){
   $temp.initialize();
 
 });
+
+app.controller('trendCtrl',function(trendService){
+  var $temp = this;
+
+  $temp.limit = 20;
+  $temp.trends = {};
+
+  $temp.getTrends = function(){
+    trendService.getTrendsData($temp.limit).then(function(msg){
+      $temp.trends = msg.data;
+    });
+  };
+  $temp.getTrends();
+
+  $temp.loadMore = function(){
+    $temp.limit += 20;
+    $temp.getTrends();
+  };
+
+});
