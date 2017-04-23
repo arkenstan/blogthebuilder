@@ -6,13 +6,13 @@
         <li ng-repeat="plugin in plugins.pluginList">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <h4>{{plugin.plugin_name}}<small> - {{plugin.plugin_creator}}</small></h4>
-            <md-switch ng-model="plugin.plugin_selected" aria-label="Yes or No" ng-true-value="'yes'" ng-false-value="'no'">
+            <md-switch class="md-primary" ng-model="plugin.plugin_selected" aria-label="Yes or No" ng-true-value="'yes'" ng-false-value="'no'">
             </md-switch>
           </div>
         </li>
       </ul>
     </fieldset>
-    <button class="btn btn-primary btn-md" style="margin-left:10px;" ng-show="pluginSelection.$dirty">Save Changes</button>
+    <button class="btn btn-primary btn-md setBtn" style="margin-left:10px;" ng-show="pluginSelection.$dirty">Save Changes</button>
   </form>
 
 </div>

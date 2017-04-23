@@ -1,6 +1,6 @@
 <div class="container col-lg-12 col-md-12 col-sm-12">
   <div class="row">
-    <div class="comment" ng-repeat="comment in comm.comments">
+    <div class="comment" ng-repeat="comment in comm.comments" style="margin:5px;">
       <p>
         <strong>{{comment.comment_author_name}}</strong>
         <strong>{{comment.comment_author_email}}</strong>
@@ -17,8 +17,12 @@
           <div id="collapse{{$index}}" class="panel-collapse collapse">
             <div class="panel-body">
               <form name="replyForm" ng-submit="replyForm.$valid && comm.makeReply(comment.accessHash)">
-                <textarea required placeholder="Enter your Reply" ng-model="comm.reply.comment_content"></textarea>
-                <button class="btn btn-primary" type="submit">Post Reply</button>
+                <div class="form-group">
+                  <textarea required class="form-control" placeholder="Enter your Reply" ng-model="comm.reply.comment_content"></textarea>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary" type="submit">Post Reply</button>
+                </div>
               </form>
             </div>
             <div class="panel-footer">
