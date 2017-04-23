@@ -49,24 +49,24 @@
 					<h4>Comment Settings</h4>
 					<h5>
 						<b>Who can comment :</b><br /><br />
-							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
-							<label class="btn btn-primary" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
+							<label class="btn btn-primary settingsBtn" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'public'">Public (Anonymous)</label>
+							<label class="btn btn-primary settingsBtn" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
 					</h5>
 					<h5>
 						<b>Comment Moderation:</b><br /><br />
-						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
-						<label class="btn btn-success" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
+						<label class="btn btn-success settingsBtn" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
+						<label class="btn btn-success settingsBtn" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
 					</h5>
 
 					<h5>
 						<b>Captcha</b>
-						<md-switch md-invert ng-model="bset.blogSettingsData.blog_allow_captcha" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						<md-switch md-invert class="md-primary" ng-model="bset.blogSettingsData.blog_allow_captcha" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
 						</md-switch>
 					</h5>
 
 					<h5>
 						<b>Email Notification</b>
-						<md-switch md-invert ng-model="bset.blogSettingsData.blog_email_notification" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
+						<md-switch md-invert class="md-primary" ng-model="bset.blogSettingsData.blog_email_notification" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
 						</md-switch>
 					</h5>
 
