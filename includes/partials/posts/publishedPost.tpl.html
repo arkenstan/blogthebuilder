@@ -1,7 +1,7 @@
 <div class="row toolbar-sub">
   <ul>
-    <li class="postOptions"><a href ng-click="published.viewing = 1"><span class="glyphicon glyphicon-th"></span></a> </li>
-    <li class="postOptions"><a href ng-click="published.viewing = 2"><span class="glyphicon glyphicon-th-list"></span></a> </li>
+    <li class="postOptions"><a href ng-click="published.viewing = 1"><span class="glyphicon glyphicon-th" title="Grid View"></span></a> </li>
+    <li class="postOptions"><a href ng-click="published.viewing = 2"><span class="glyphicon glyphicon-th-list" title="List View"></span></a> </li>
     <li class="postOptions"><a href ng-click="published.getPosts()">Refresh List</a></li>
   </ul>
 </div>
@@ -63,3 +63,10 @@
 <div class="row" ng-show="published.editorStatus(1)" id="textEditorContainer">
   <text-editor-published></text-editor-published>
 </div>
+
+
+<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover({animation:true});
+	});
+</script>

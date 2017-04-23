@@ -53,19 +53,19 @@
 							<label class="btn btn-primary settingsBtn" ng-model="bset.blogSettingsData.blog_comment_settings" uib-btn-radio="'private'">Public (with registration)</label>
 					</h5>
 					<h5>
-						<b>Comment Moderation:</b><br /><br />
+						<b>Comment Moderation:<i class="fa fa-question-circle-o" style="color:#2c8efe;margin-left:5px;cursor:pointer;" data-toggle="popover" data-content="Approve comments before posting" data-trigger="hover" data-placement="bottom"></i></b><br /><br />
 						<label class="btn btn-success settingsBtn" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'always'">Always</label>
 						<label class="btn btn-success settingsBtn" ng-model="bset.blogSettingsData.blog_comment_moderation" uib-btn-radio="'never'">Never</label>
 					</h5>
 
 					<h5>
-						<b>Captcha</b>
+						<b>Captcha<i class="fa fa-question-circle-o" style="color:#2c8efe;margin-left:5px;cursor:pointer;" data-toggle="popover" data-content="Enable captcha to prevent spam" data-trigger="hover" data-placement="bottom"></i></b>
 						<md-switch md-invert class="md-primary" ng-model="bset.blogSettingsData.blog_allow_captcha" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
 						</md-switch>
 					</h5>
 
 					<h5>
-						<b>Email Notification</b>
+						<b>Email Notification<i class="fa fa-question-circle-o" style="color:#2c8efe;margin-left:5px;cursor:pointer;" data-toggle="popover" data-content="Receive email for new comments" data-trigger="hover" data-placement="bottom"></i></b>
 						<md-switch md-invert class="md-primary" ng-model="bset.blogSettingsData.blog_email_notification" ng-true-value="'true'" ng-false-value="'false'" aria-label="Switch 1">
 						</md-switch>
 					</h5>
@@ -75,19 +75,12 @@
 
 			</div>
 		</div>
+	</div>
 	</form>
 	</div>
 
 <script>
 	$(document).ready(function(){
 		$('[data-toggle="popover"]').popover({animation:true});
-		$("#editName").click(function()
-		{
-			document.getElementById("blogName").disabled = false;
-		});
-		$("#editAdd").click(function()
-		{
-			document.getElementById("blogAddress").disabled = false;
-		});
 	});
 </script>
