@@ -8,36 +8,19 @@ app.controller("chartCtrl", function(activityService) {
     "type":"blogView",
     "scale":"day"
   };
+  $temp.chartData = {};
 
-  $temp.getChartData = function(type,scale){
-    activityService.getActivityChart(type,scale).then(function(msg){
-      console.log(msg.data);
-//      $temp.chartData = msg.data;
+  $temp.getChartData = function(type){
+    $temp.chartSettings.type = type;
+    activityService.getActivityChart($temp.chartSettings.type,$temp.chartSettings.scale).then(function(msg){
+      $temp.chartData = msg.data;
+      $temp.chartData.series = ['Series A'];
     });
   };
 
-  $temp.getChartData($temp.chartSettings.type, $temp.chartSettings.scale);
+  $temp.getChartData($temp.chartSettings.type);
 
-  $temp.chartData = {};
 
-  $temp.chartData.labels = ["January", "February", "March", "April", "May", "June", "Harami"];
-  $temp.chartData.series = ['Series A'];
-  $temp.chartData.data = [
-      [65, 59, 20, 81, 56, 90, 40]
-  ];
-  $temp.chartData.datasetOverride = [{
-      yAxisID: 'y-axis-1'
-  }];
-  $temp.chartData.options = {
-      scales: {
-          yAxes: [{
-              id: 'y-axis-1',
-              type: 'linear',
-              display: true,
-              position: 'left'
-          }]
-      }
-  };
   $temp.callFunction = function(){
     $temp.chartData.data = [
         [Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1)]

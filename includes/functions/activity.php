@@ -31,15 +31,18 @@ function get_activity_data($link, $type, $scale){
     $fetch = 'MONTHNAME(activity_time)';
   }else if($scale == 'year'){
     $groupby = 'YEAR(activity_time)';
+    $fetch = 'YEAR(activity_time)';
+  }else if($scale == 'hour'){
+    $groupby = 'MINUTE(activity_time)';
+    $fetch = 'TIME(activity_time)';
   }
   $res = mysqli_query($link, "SELECT COUNT(activity_id) AS views,$fetch AS scale FROM activity WHERE activity_type='$type' GROUP BY $groupby");
   $data_set = array();
+  $data_set['data'] = array();
+  $data_set['labels'] = array();
   while($row = mysqli_fetch_assoc($res)){
-    $data = array();
-    foreach ($row as $key => $value) {
-      $data[$key] = $value;
-    }
-    array_push($data_set,$data);
+    array_push($data_set['data'],(int)$row['views']);
+    array_push($data_set['labels'],$row['scale']);
   }
   return $data_set;
 }

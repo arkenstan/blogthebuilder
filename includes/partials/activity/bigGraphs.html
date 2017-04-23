@@ -12,13 +12,26 @@
 
           <div class="col-lg-8 col-md-8 col-sm-12">
 
-            <canvas id="line" class="chart chart-line" chart-data="chart.chartData.data" chart-labels="chart.chartData.labels" chart-series="chart.chartData.series" chart-options="chart.chartData.options" chart-dataset-override="chart.chartData.datasetOverride">
+            <canvas id="bar" class="chart chart-bar" chart-data="chart.chartData.data" chart-labels="chart.chartData.labels" chart-series="chart.chartData.series">
             </canvas>
 
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12">
-            <button class="btn btn-primary" ng-click="chart.callFunction()">Randomize</button>
+            <h3>Options</h3>
+            <md-input-container>
+              <label>Scale</label>
+              <md-select ng-model="chart.chartSettings.scale">
+                <md-option selected value="day">Day</md-option>
+                <md-option value="month">Month</md-option>
+                <md-option value="year">Year</md-option>
+                <md-option value="hour">Hour</md-option>
+              </md-select>
+            </md-input-container>
+            <h4>Activity</h4>
+            <md-button class="md-raised md-primary" ng-click="chart.getChartData('blogView')">Blog Views</md-button>
+            <md-button class="md-raised md-primary" ng-click="chart.getChartData('postView')">Post Views</md-button>
+            <md-button class="md-raised md-primary" ng-click="chart.getChartData('comment')">Comments</md-button>
           </div>
 
         </div>
