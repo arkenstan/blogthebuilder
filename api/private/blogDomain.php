@@ -96,13 +96,77 @@ function get_posts($link, $limit){
   return $posts;
 }
 
+function get_blog_settings_new($link){
+  $res = mysqli_query($link, "SELECT settings_name,settings_value FROM settings") or die(mysqli_error($link));
+  $settings = array();
+  while($row = mysqli_fetch_assoc($res)){
+    $settings[$row['settings_name']] = $row['settings_value'];
+  }
+  return $settings;
+}
 
-$possible_url = array('getBlogContent','getBlogPosts','getSpecificPost','getComments','postComment','getBlogSettings');
+function get_blog_content_new($link){
+  $res = mysqli_query($link, "SELECT template_cache_name,template_cache_value FROM template_cache") or die(mysqli_error($link));
+  $settings = array();
+  while($row = mysqli_fetch_assoc($res)){
+    $settings[$row['template_cache_name']] = $row['template_cache_value'];
+  }
+  if($settings['home_page_disabled'] == 'true'){
+    $disable = array('home_content','home_title');
+    foreach($disable as $key => $value){
+      unset($settings[$value]);
+    }
+  }
+  if($settings['about_page_disabled'] == 'true'){
+    $disable = array('about_content','about_title');
+    foreach($disable as $key => $value){
+      unset($settings[$value]);
+    }
+  }
+  return $settings;
+}
+
+function get_blog_plugins($link){
+  $fields = array('plugin_name','plugin_cache_location','plugin_creator','plugin_selected','plugin_access');
+  $fields = implode(', ',$fields);
+  $res = mysqli_query($link, "SELECT $fields FROM plugin_catalog");
+  $plugins = array();
+  while($row = mysqli_fetch_assoc($res)){
+    $plugin['name'] = $row['plugin_name'];
+    $plugin['cache'] = $row['plugin_cache_location'];
+    $plugin['creator'] = $row['plugin_creator'];
+    $plugin['active'] = $row['plugin_selected'];
+    $plugin['access'] = $row['plugin_access'];
+    $plugins[$row['plugin_cache_location']] = $plugin;
+  }
+  return $plugins;
+}
+
+function get_all_blog_content($link){
+  $blogData = array();
+  $content = get_blog_content_new($link);
+  $settings = get_blog_settings_new($link);
+  $plugins='No Plugins';
+  if($content['plugin_disabled'] == 'false'){
+    $plugins = get_blog_plugins($link);
+  }
+  $blogData['settings'] = $settings;
+  $blogData['plugins'] = $plugins;
+  $blogData['content'] = $content;
+  return $blogData;
+}
+
+
+$possible_url = array('getBlogContent','getBlogPosts','getSpecificPost','getComments','postComment','getBlogSettings','blogContent');
 $value = 'An error has occurred';
 
 if(isset($_POST['privateAccess']) && $_POST['privateAccess'] == 'private_api_access'){
   if(isset($_GET['action']) && in_array($_GET['action'], $possible_url)){
     switch ($_GET['action']) {
+      case 'blogContent':
+        $value = get_all_blog_content($db_conx);
+        break;
+
       case 'getBlogContent':
         $value = get_blog_content($db_conx);
         break;

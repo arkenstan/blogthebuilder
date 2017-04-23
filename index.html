@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="userApplication" ng-controller="mainCtrl as main">
+<html lang="en" ng-app="userApplication" ng-controller="mainCtrl as main" ng-init="main.getBlogData()">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CDN/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="CDN/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="plugins/style.css" />
     <!--link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"-->
 
     <!--[if lt IE 9]>
@@ -26,6 +27,8 @@
     <script src="api/private/blogService.js"></script>
     <script src="theme/js/themeStructure.js"></script>
     <script src="theme/js/generalFunctions.js"></script>
+    <script src="plugins/pluginCtrl.js"></script>
+    <script src="plugins/pluginDirective.js"></script>
   </head>
   <body>
     <theme-goes-here></theme-goes-here>

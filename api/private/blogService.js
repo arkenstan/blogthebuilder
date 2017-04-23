@@ -3,6 +3,15 @@
 app.factory('blogContent',function($http){
 
   return {
+    getBlogDataAll:function(){
+      var fd = new FormData();
+      fd.append('privateAccess','private_api_access');
+      var $promise = $http.post('./api/private/blogDomain.php?action=blogContent',fd,{
+        transformRequest: angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    },
     getBlogData:function(){
       var fd = new FormData();
       fd.append('privateAccess','private_api_access');
