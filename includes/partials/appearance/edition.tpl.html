@@ -1,10 +1,10 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 website-editor">
   <form name="blogSettings" ng-submit="blogSettings.$valid && edit.saveBlogSettings()">
-    <button class="btn btn-success" type="submit" ng-show="blogSettings.$dirty">Save Changes</button>
+    <button class="btn setBtn" type="submit" ng-show="blogSettings.$dirty">Save Changes</button>
 
     <div class="form-containers">
       <h2>
-        <md-switch ng-model="edit.blogData.home_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Home page disabled">
+        <md-switch class="md-primary" ng-model="edit.blogData.home_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Home page disabled">
           Home Page
         </md-switch>
       </h2>
@@ -22,7 +22,7 @@
 
     <div class="form-containers">
       <h2>
-        <md-switch ng-model="edit.blogData.about_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="About page disabled">
+        <md-switch class="md-primary" ng-model="edit.blogData.about_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="About page disabled">
           About us Page
         </md-switch>
       </h2>
@@ -41,7 +41,7 @@
 
     <div class="form-containers">
       <h2>
-        <md-switch ng-model="edit.blogData.contact_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Contact page disabled">
+        <md-switch class="md-primary" ng-model="edit.blogData.contact_page_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="Contact page disabled">
           Contact us Page
         </md-switch>
       </h2>
@@ -90,7 +90,7 @@
           </md-input-container>
         </div>
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-          <md-switch ng-model="edit.blogData.contact_on_sidebar" araia-label="On Sidebar" ng-true-value="'true'" ng-false-value="'false'">
+          <md-switch class="md-primary" ng-model="edit.blogData.contact_on_sidebar" araia-label="On Sidebar" ng-true-value="'true'" ng-false-value="'false'">
             Show Contact on sidebar(If available)
           </md-switch>
         </div>
@@ -117,7 +117,7 @@
 
     <div class="form-containers">
       <h2>
-        <md-switch ng-model="edit.blogData.plugins_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="home page disabled">
+        <md-switch class="md-primary" ng-model="edit.blogData.plugins_disabled" ng-true-value="'false'" ng-false-value="'true'" aria-label="home page disabled">
           Plugins
         </md-switch>
       </h2>

@@ -1,5 +1,4 @@
 <div class="timeline-start">
-  Time Line
     <ul class="timeline">
       <li ng-repeat="trend in trends.trends" ng-class="{'timeline-inverted':(($index+1)%2 === 0)}">
         <div class="timeline-badge" ng-class="{'warning':trend.TYPE==='Blog Viewed', 'info':trend.TYPE==='Post Viewed', 'success':trend.TYPE==='Comment'}">

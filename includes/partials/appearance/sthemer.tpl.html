@@ -12,11 +12,11 @@
 
         <div class="content">
           <h3>{{th.template_name}}</h3>
-          <h5><strong>Create By:</strong>&nbsp;{{th.template_creator}}</h5>
+          <h5><strong>Created By:</strong>&nbsp;{{th.template_creator}}</h5>
         </div>
 
         <div class="footer">
-          <button class="btn btn-primary btn-block" ng-click="theme.setActive(th.template_id)" ng-show="th.template_active === 'no'">Set as Active</button>
+          <button class="btn btn-primary btn-block" ng-click="theme.setActive(th.template_id)" ng-show="th.template_active === 'no'">Activate</button>
           <button class="btn btn-success btn-block" ng-show="th.template_active === 'yes'">Active</button>
         </div>
 

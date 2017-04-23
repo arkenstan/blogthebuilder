@@ -476,7 +476,7 @@ div#editor {
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
 }
 
-.input-group-addon, .setBtn
+.input-group-addon, .setBtn, .setBtn:hover, .setBtn:active, .setBtn:focus
 {
 	background-color:#2c8efe;
 	color:white;
@@ -657,7 +657,7 @@ input:checked + .slider:before
 	border-radius: 50%;
 }
 
-#langInput, #commentInput, #email
+#langInput, #commentInput, #email, #name
 {
   margin: 11px;
 }
@@ -1008,19 +1008,22 @@ stroke-width: 1.5;
 }
 /*End of Clock CSS*/
 
-
-/*  .postOptions>a{
-    background-color: #FFF;
-    font-weight: bold;
-    border-radius:100%;
-    border:2px solid #2c8efe;
-    margin:3px;
-    padding:11px 11px;
-    color: #2c8efe;
-  }
-
-.postOptions>a:hover{
-  border-color:#2c8efe;
+.settingsBtn, .settingsBtn:hover{
+  background-color: #fff !important;
+  color: #2c8efe !important;
+  border: 1px solid #2c8efe !important;
 }
+
+.settingsBtn.active{
+  background-color: #2c8efe !important;
+  color:#fff !important;
+  border: 1px solid #2c8efe !important;
+}
+
+  .postOptions>a{
+    font-weight: bold;
+    color: #2c8efe;
+    margin: 5px;
+  }
 
 /* END GENERAL CLASSES */
