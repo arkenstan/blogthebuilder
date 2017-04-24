@@ -1,5 +1,18 @@
-<h1>{{blog.content.contact_title}}</h1>
+<h1>{{main.blogData.content.contact_title}}</h1>
 
 <p>
-  {{blog.content.contact_content}}
+  {{main.blogData.content.contact_content}}
+  <span>
+    <h3>Email:</h3>
+    {{main.blogData.content.contact_content_email}}
+    <h3>Address:</h3>
+    {{main.blogData.content.contact_content_address}}
+    <br />
+    {{main.blogData.content.contact_content_city}},
+    {{main.blogData.content.contact_content_state}}
+    <br />
+    {{main.blogData.content.contact_content_country}}
+    <h3>Contact:</h3>
+    {{main.blogData.content.contact_content_number}}
+  </span>
 </p>
