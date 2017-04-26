@@ -480,6 +480,7 @@ div#editor {
 {
 	background-color:#2c8efe;
 	color:white;
+  border: 1px solid #2c8efe;
 }
 
 .form-control-placeholder {

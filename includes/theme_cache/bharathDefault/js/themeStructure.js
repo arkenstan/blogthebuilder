@@ -19,7 +19,6 @@ app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',
     templateUrl: './theme/partials/structure.tpl.html',
-    controller: 'blogCtrl as blog'
   };
 });
 
