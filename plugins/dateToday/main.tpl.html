@@ -1,5 +1,11 @@
 <div>
-  <div class="clockDisplay">
-    {{ tdc.now | date : "dd MM yyyy" }}
+  <div class="dateDisplay">
+    <div class="top">
+      <span>{{ tdc.now | date : "EEEE" }}</span>
+    </div>
+    <div class="date">
+      <span>{{ tdc.now | date : "dd" }}</span><br />
+      <span class="small-text">{{ tdc.now | date : "LLLL" }}</span>
+    </div>
   </div>
 </div>

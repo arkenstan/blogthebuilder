@@ -16,6 +16,10 @@ app.factory('activityService', function($http){
         headers:{'Content-type':undefined}
       });
       return $promise;
+    },
+    allActivity:function(){
+      var $promise = $http.post('./includes/functions/activity.php?action=allActivity');
+      return $promise;
     }
 
   };

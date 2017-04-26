@@ -59,15 +59,6 @@ function get_comments($link, $hash, $limit){
   return $comments;
 }
 
-function get_blog_content($link){
-  $blog_data = array();
-  $res = mysqli_query($link, "SELECT * FROM template_cache");
-  while($row = mysqli_fetch_assoc($res)){
-    $blog_data[$row['template_cache_name']] = $row['template_cache_value'];
-  }
-  make_it_count($link,'blogView','0','0');
-  return $blog_data;
-}
 
 function get_specific_post($link,$accessHash){
   $accessHash = sanitize($link, $accessHash);
@@ -153,16 +144,39 @@ function get_all_blog_content($link){
   $blogData['settings'] = $settings;
   $blogData['plugins'] = $plugins;
   $blogData['content'] = $content;
+  make_it_count($link,'blogView','0','0');
   return $blogData;
 }
 
+function search_for_posts($link, $qu){
+  $posts = array();
+  $fields = array('post_title','post_content','post_date_gmt','post_excerpt','post_category','post_tags','accessHash','post_name');
+  $fields = implode(',',$fields);
+  $res = mysqli_query($link, "SELECT $fields FROM posts WHERE post_status = 'publish' AND post_title LIKE '%$qu%' ORDER BY post_date_gmt LIMIT 10");
+  while($row = mysqli_fetch_assoc($res)){
+    $row['post_content'] = htmlspecialchars_decode($row['post_content']);
+    $post = array();
+    foreach ($row as $key => $value) {
+      $post[$key] = $value;
+    }
+    array_push($posts, $post);
+  }
+  return $posts;
+}
 
-$possible_url = array('getBlogContent','getBlogPosts','getSpecificPost','getComments','postComment','getBlogSettings','blogContent');
+
+$possible_url = array('getBlogContent','getBlogPosts','getSpecificPost','getComments','postComment','getBlogSettings','blogContent','searchPosts');
 $value = 'An error has occurred';
 
 if(isset($_POST['privateAccess']) && $_POST['privateAccess'] == 'private_api_access'){
   if(isset($_GET['action']) && in_array($_GET['action'], $possible_url)){
     switch ($_GET['action']) {
+      case 'searchPosts':
+        if(isset($_POST['searchq']) && !empty($_POST['searchq'])){
+          $q = sanitize($db_conx, $_POST['searchq']);
+          $value = search_for_posts($db_conx, $q);
+        }
+        break;
       case 'blogContent':
         $value = get_all_blog_content($db_conx);
         break;

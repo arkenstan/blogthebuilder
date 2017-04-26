@@ -9,23 +9,27 @@ app.controller("chartCtrl", function(activityService) {
     "scale":"day"
   };
   $temp.chartData = {};
+  $temp.chart2Data = {};
 
   $temp.getChartData = function(type){
     $temp.chartSettings.type = type;
     activityService.getActivityChart($temp.chartSettings.type,$temp.chartSettings.scale).then(function(msg){
       $temp.chartData = msg.data;
-      $temp.chartData.series = ['Series A'];
+      $temp.chartData.series = ['Activities'];
     });
   };
 
-  $temp.getChartData($temp.chartSettings.type);
-
-
-  $temp.callFunction = function(){
-    $temp.chartData.data = [
-        [Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1), Math.floor((Math.random()*100)+1)]
-    ];
+  $temp.backEndData = function(){
+    activityService.allActivity().then(function(msg){
+      console.log(msg.data);
+      $temp.chart2Data = msg.data;
+      $temp.chartData.series = ['Back End Activity'];
+    });
   };
+  $temp.getChartData($temp.chartSettings.type);
+  $temp.backEndData();
+
+
 });
 
 app.controller('activityCtrl',function(activityService){

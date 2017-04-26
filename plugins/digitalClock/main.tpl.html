@@ -1,5 +1,16 @@
 <div>
   <div class="clockDisplay">
-    {{ dcc.today | date : "h:mm:ss" }}
+    <div>
+      <span class="hour">{{ dcc.today | date : "HH" }}</span>
+      <div class="small-text">Hours</div>
+    </div>
+    <div>
+      <span class="hour">{{ dcc.today | date : "mm" }}</span>
+      <div class="small-text">Mins</div>
+    </div>
+    <div>
+      <span class="hour">{{ dcc.today | date : "ss" }}</span>
+      <div class="small-text">Secs</div>
+    </div>
   </div>
 </div>

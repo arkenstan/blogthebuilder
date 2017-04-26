@@ -1,0 +1,48 @@
+.clockDisplay{
+  padding:10px;
+  background: #00ECB9;
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+}
+  .clockDisplay > div{
+    padding: 5px;
+  	border-radius: 3px;
+  	background: #00BF96;
+  	display: inline-block;
+  }
+
+  .clockDisplay div > span{
+    padding: 10px;
+  	border-radius: 3px;
+  	background: #00816A;
+  	display: inline-block;
+  }
+  .clockDisplay .small-text{
+    padding-top: 5px;
+    font-size: 16px;
+  }
+
+
+.dateDisplay{
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin: 5px;
+}
+  .dateDisplay .top{
+    background: #e23838;
+    color: #FFF;
+    font-size: 16px;
+    padding: 10px 0;
+  }
+  .dateDisplay .date{
+    background-color: #FFF;
+    color: #000;
+    padding-top:20px;
+    font-size: 72px;
+  }
+  .dateDisplay .small-text{
+    font-size: 30px;
+    text-transform: uppercase;
+  }

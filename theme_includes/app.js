@@ -4,13 +4,24 @@ var app = angular.module('userApplication',['ui.bootstrap','ui.router','ngSaniti
 
 app.controller('mainCtrl',function(blogContent,$location){
   var $temp = this;
+  $temp.count = 1;
   $temp.blogData = {};
   $temp.posts = {};
+  $temp.searchResults = {};
   $temp.getBlogData = function(){
     blogContent.getBlogDataAll().then(function(msg){
-      console.log(msg.data);
       $temp.blogData = msg.data;
     });
+  };
+
+  $temp.searchForPost = function(val){
+    if(val === ''){
+      $temp.searchResults = {};
+    }else{
+      blogContent.searchBlog(val).then(function(msg){
+        $temp.searchResults = msg.data;
+      });
+    }
   };
 
   $temp.goToPost = function(name){
@@ -18,12 +29,14 @@ app.controller('mainCtrl',function(blogContent,$location){
   };
 
   $temp.getPosts = function(num){
+    $temp.count = num;
+    $temp.count = $temp.count <= 0 ? 1:$temp.count;
     blogContent.getBlogPosts(num).then(function(msg){
       $temp.posts = msg.data;
     });
   };
 
-  $temp.getPosts(2);
+  $temp.getPosts($temp.count);
 
 
 });

@@ -12,6 +12,16 @@ app.factory('blogContent',function($http){
       });
       return $promise;
     },
+    searchBlog:function(query){
+      var fd = new FormData();
+      fd.append('searchq',query);
+      fd.append('privateAccess','private_api_access');
+      var $promise = $http.post('./api/private/blogDomain.php?action=searchPosts',fd,{
+        transformRequest: angular.identity,
+        headers:{'Content-type':undefined}
+      });
+      return $promise;
+    },
     postComment:function(values){
       var fd = new FormData();
       angular.forEach(values, function(value,key){
