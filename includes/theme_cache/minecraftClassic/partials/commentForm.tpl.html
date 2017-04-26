@@ -1,0 +1,14 @@
+<form name="postComment" ng-submit="postComment.$valid && post.makeComment()">
+<div class="form-group">
+  <input class="form-control" type="email" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.comment.comment_author_email" placeholder="Enter your Email" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
+</div>
+<div class="form-group">
+  <input class="form-control" type="text" ng-required="mainblogData.settings.blog_comment_settings === 'private'" ng-model="post.comment.comment_author_name" placeholder="Enter your Name" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
+</div>
+<div class="form-group">
+  <textarea required class="form-control" placeholder="Your Comment" ng-model="post.comment.comment_content"></textarea>
+</div>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary btn-block" ng-disabled="postComment.$invalid">Comment</button>
+</div>
+</form>
