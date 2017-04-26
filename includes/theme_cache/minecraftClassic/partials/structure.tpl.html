@@ -1,2 +1,28 @@
-<h1>CLASSIC TEMPLATE</h1>
-<ui-view></ui-view>
+<div class="container-fluid back">
+  <div class="container">
+    <br />
+    <div class="row">
+      <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 col-sm-12 banner">
+        <h1 class="blog_title">
+          {{main.blogData.settings.blog_title}}
+          <br />
+          <small>{{main.blogData.settings.blog_tagline}}</small>
+        </h1>
+        <img src="./theme/resource/banner.png"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <navigation></navigation>
+    </div>
+
+    <div class="row">
+      <div class="col-md-7 col-md-7 col-lg-offset-1 col-md-offset-1 card-container">
+        <ui-view></ui-view>
+      </div>
+      <div class="col-md-3 col-md-3 sidebar">
+        <plugins></plugins>
+      </div>
+    </div>
+  </div>
+</div>

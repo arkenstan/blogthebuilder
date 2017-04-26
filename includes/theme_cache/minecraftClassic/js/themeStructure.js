@@ -5,8 +5,22 @@ app.config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider.state('home',{
     url:'/home',
-    templateUrl:'./theme/partials/main.tpl.html',
-    controller: 'mainCtrl as main'
+    templateUrl:'./theme/partials/home.tpl.html',
+  });
+
+  $stateProvider.state('about',{
+    url:'/about',
+    templateUrl:'./theme/partials/aboutus.tpl.html'
+  });
+
+  $stateProvider.state('contact',{
+    url:'/contact',
+    templateUrl:'./theme/partials/contact.tpl.html'
+  });
+
+  $stateProvider.state('blog',{
+    url:'/blog',
+    templateUrl:'./theme/partials/blog.tpl.html'
   });
 
   $stateProvider.state('post',{
@@ -19,9 +33,15 @@ app.config(function($stateProvider, $urlRouterProvider){
 app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/structure.tpl.html',
-    controller: 'mainCtrl as main'
+    templateUrl: './theme/partials/structure.tpl.html'
   };
+});
+
+app.directive('navigation',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/navigation.tpl.html'
+  }
 });
 
 app.directive('home',function(){
@@ -63,5 +83,19 @@ app.directive('pageFooter',function(){
   return {
     restrict: 'E',
     templateUrl: './theme/partials/footer.tpl.html'
+  };
+});
+
+app.directive('commentForm',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/commentForm.tpl.html'
+  };
+});
+
+app.directive('replies',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/reply.tpl.html'
   };
 });

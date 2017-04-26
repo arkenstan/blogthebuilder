@@ -1,5 +1,27 @@
-<h1>{{main.content.contact_title}}</h1>
-
-<p>
-  {{main.content.contact_content}}
-</p>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+      <div class="header">
+        <h3 ng-bind-html="main.blogData.content.contact_title"></h3>
+      </div>
+      <div class="body_card">
+        <p>
+          {{main.blogData.content.contact_content}}
+          <span>
+            <h3>Email:</h3>
+            {{main.blogData.content.contact_content_email}}
+            <h3>Address:</h3>
+            {{main.blogData.content.contact_content_address}}
+            <br />
+            {{main.blogData.content.contact_content_city}},
+            {{main.blogData.content.contact_content_state}}
+            <br />
+            {{main.blogData.content.contact_content_country}}
+            <h3>Contact:</h3>
+            {{main.blogData.content.contact_content_number}}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
