@@ -1,28 +1,18 @@
-<banner></banner>
-<templatenav></templatenav>
-<div class="col-lg-9 col-md-9 col-sm-9">
-  <div style="color:#000033;">
-    <h1>{{main.blogData.content.contact_title}}</h1>
-  </div>
+<h1>{{main.blogData.content.contact_title}}</h1>
 
 <p>
-  <h4>{{main.blogData.content.contact_content}}</h4>
-  <span class="contactus">
-    <h4><span class="fa fa-envelope" style="color:#000033;">
-      {{main.blogData.content.contact_content_email}}
-    </span></h4>
-    <h4><span class="fa fa-home" style="color:#000033;">
-      {{main.blogData.content.contact_content_address}}
+  {{main.blogData.content.contact_content}}
+  <span>
+    <h3>Email:</h3>
+    {{main.blogData.content.contact_content_email}}
+    <h3>Address:</h3>
+    {{main.blogData.content.contact_content_address}}
     <br />
     {{main.blogData.content.contact_content_city}},
     {{main.blogData.content.contact_content_state}}
     <br />
     {{main.blogData.content.contact_content_country}}
-    </span>
-    </h4>
-    <h4><span class="fa fa-phone" style="color:#000033;">
-      {{main.blogData.content.contact_content_number}}
-    </span></h4>
+    <h3>Contact:</h3>
+    {{main.blogData.content.contact_content_number}}
   </span>
 </p>
-</div>

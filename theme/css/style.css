@@ -1,42 +1,62 @@
-/*Navbar Styles*/
-.nav>li>a{
-  color:#000033 !important;
-  font-size:25px;
+/* OVERRIDES */
+
+.navbar{
+  margin-bottom: 0px !important;
 }
 
-.nav>li>a.active, .nav>li>a:hover, .nav>li>a:focus, .nav>li>a:active{
-  font-size:25px;
-  color:#fff !important;
-  background-color:#000033 !important;
+.navbar-default{
+  transition: all 0.5s;
 }
-
-/*Banner Styles*/
-.homePage{
-  background-color:#000033;
-  height:200px;
-  width:100%;
-  color:#fff;
-  text-align:center;
-  font-size:25px;
+.navbar-default.theme-navbar{
+  background-color: transparent;
+  border: none;
+}
+  .navbar-default.theme-navbar .navbar-nav>.active>a, .navbar-default.theme-navbar .navbar-nav>.active>a:focus, .navbar-default.theme-navbar .navbar-nav>.active>a:hover{
+    color: #FFF;
+    background-color: transparent;
+    border-bottom: 2px solid #FFF;
   }
 
-.homePage span{
-  display: block;
-}
+  .navbar-default.theme-navbar .navbar-nav>li>a:focus, .navbar-default.theme-navbar .navbar-nav>li>a:hover{
+    color: #908a88;
+  }
 
-/*Scrollbar Styles*/
-::-webkit-scrollbar {
-  width: 15px;
-background-color:white;
-}
+  .navbar-default.theme-navbar .navbar-brand{
+    color: #FFF;
+  }
+  .navbar-default.theme-navbar .navbar-nav>li>a{
+    color: #FFF;
+  }
 
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
-  border-radius: 10px;
-}
+/* END OVERRRIDES */
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+.shift{
+  background-color: #3e4c6b !important;
 }
-/**/
+.theme-wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Merriweather', serif;
+  background-color: #bc988c;
+}
+.banner{
+  position: relative;
+  background: #7c7c7c;
+  background-image: url("../resources/images/banner1.jpg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+  color: #FFF;
+  box-shadow:inset 0 0 10px #000;
+}
+  .banner h1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    line-height: 50px;
+  }

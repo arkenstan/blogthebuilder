@@ -13,13 +13,13 @@
       <div class="panel-body">
         <form name="postReply" ng-submit="postReply.$valid && post.makeReply(comment.accessHash)">
           <div class="form-group">
-            <input class="form-control" type="email" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_email" placeholder="Enter your Email" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
+            <input type="email" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_email" placeholder="Enter your Email" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_name" placeholder="Enter your Name" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
+            <input type="text" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_name" placeholder="Enter your Name" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
           </div>
           <div class="form-group">
-            <textarea required class="form-control" placeholder="Your Reply" ng-model="post.reply.comment_content"></textarea>
+            <textarea required placeholder="Your Reply" ng-model="post.reply.comment_content"></textarea>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary" ng-disabled="postReply.$invalid">Comment</button>
@@ -39,19 +39,4 @@
 
   </div>
 
-<div id="makereply{{$index}}" class="replyForm collapse">
-  <form name="postReply" ng-submit="postReply.$valid && post.makeReply(comment.accessHash)">
-    <fieldset class="form-group">
-      <input type="email" class="form-control" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_email" placeholder="Enter your Email" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
-    </fieldset>
-    <fieldset class="form-group">
-      <input type="text" class="form-control" ng-required="main.blogData.settings.blog_comment_settings === 'private'" ng-model="post.reply.comment_author_name" placeholder="Enter your Name" ng-show="main.blogData.settings.blog_comment_settings === 'private'" />
-    </fieldset>
-    <fieldset class="form-group">
-      <textarea class="form-control" required placeholder="Your Reply" ng-model="post.reply.comment_content"></textarea>
-    </fieldset>
-    <fieldset class="form-group">
-      <button type="submit" class="btn btn-primary btn-block" ng-disabled="postReply.$invalid">Comment</button>
-    </fieldset>
-  </form>
 </div>

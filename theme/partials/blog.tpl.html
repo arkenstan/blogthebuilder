@@ -1,14 +1,7 @@
-<banner></banner>
-<templatenav></templatenav>
-<div class="col-lg-9 col-md-9 col-sm-9">
-  <div style="color:#000033">
-    <h1>{{main.blogData.content.post_title}}</h1>
-  </div>
+<h1>{{main.blogData.content.post_title}}</h1>
 
-<div style="border:1px solid #000033;margin-bottom:10px;padding:20px;" ng-repeat="post in main.posts">
+<div style="border:1px solid #000; margin:10px;padding:20px;" ng-repeat="post in main.posts">
   <h1 ng-bind-html="post.post_title"></h1>
-  <hr style="border:1px solid #000033;"/>
-  <p ng-bind-html="post.post_excerpt || post.post_content"></p>
-  <button class="btn btn-primary" ng-click="main.goToPost(post.post_name)" style="background-color:#000033;color:#fff;border:1px solid #000033;">Read More</button>
-</div>
+  <p ng-bind-html="post.post_content"></p>
+  <button class="btn btn-primary" ng-click="main.goToPost(post.post_name)">Read More</button>
 </div>
