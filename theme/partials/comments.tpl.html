@@ -1,0 +1,12 @@
+<div id="comments" class="collapse">
+  <div class="comment" ng-repeat="comment in post.comments">
+    <h4>
+      {{comment.comment_author_name}}
+    </h4>
+    <p>
+      {{comment.comment_content}}
+    </p>
+    <replies></replies>
+  </div>
+
+</div>

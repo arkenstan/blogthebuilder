@@ -71,23 +71,20 @@ if(isset($_GET['act']) && !empty($_GET['act']) && (int)$_GET['act'] <= $possibil
         $res = mysqli_query($db_conx, "SELECT * FROM posts WHERE post_status = '$cate'");
         $num = mysqli_num_rows($res);
         $ret = '';
+        $posts = array(
+          'posts' => array()
+        );
         if($num != 0){
-          while($post = mysqli_fetch_assoc($res)){
-            $post['post_content'] = htmlspecialchars_decode($post['post_content']);
-  //          $post['post_date_gmt'] = new DateTime($post['post_date_gmt']);
-            $len = count($post);
-            $ret .= '{';
-            foreach ($post as $key => $value) {
-              $ret .= '"'.$key.'":"'.$value.'"';
-              if(--$len > 0) $ret .= ',';
+          while($row = mysqli_fetch_assoc($res)){
+            $post = array();
+            $row['post_content'] = htmlspecialchars_decode($row['post_content']);
+            foreach ($row as $key => $value) {
+              $post[$key] = $value;
             }
-            $ret .= '}';
-            if(--$num > 0) $ret .= ',';
+            array_push($posts['posts'],$post);
           }
-          $ret = '"posts":['.$ret.']';
         }
-        header('Content-type: application/json');
-        echo "{ $ret }";
+        echo json_encode($posts);
       }
       break;
     case 4:

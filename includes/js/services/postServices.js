@@ -79,11 +79,3 @@ app.factory('categoryService',function($http){
     }
   };
 });
-
-app.factory('mediaServices',function($http){
-  return {
-    get:function(){},
-    upload:function(){},
-    delete:function(){}
-  };
-});

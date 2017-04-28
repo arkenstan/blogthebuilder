@@ -1,8 +1,8 @@
 'use strict';
 app.filter('postDate',function(){
 
-  return function(postDate){
-    var dt = postDate.split(" ");
+  return function(dd){
+    var dt = dd.split(" ");
     return dt[0];
   };
 

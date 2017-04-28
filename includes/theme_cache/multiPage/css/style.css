@@ -1,3 +1,89 @@
 .nav>li>a.active{
   color:#fff;
 }
+
+
+/*Scrollbar Styles*/
+::-webkit-scrollbar {
+  width: 15px;
+background-color:white;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+/*Plugin Styles*/
+.clockDisplay{
+  padding:10px;
+  background: #000;
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+}
+  .clockDisplay > div{
+    padding: 5px;
+  	border-radius: 3px;
+  	background: #fff;
+  	display: inline-block;
+  }
+
+  .clockDisplay div > span{
+    padding: 10px;
+  	border-radius: 3px;
+  	background: #fff;
+  	display: inline-block;
+    color:#2c8efe;
+  }
+  .clockDisplay .small-text{
+    padding-top: 5px;
+    font-size: 16px;
+    color:#000;
+  }
+
+
+  .dateDisplay{
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 5px;
+    max-width:50%;
+  }
+    .dateDisplay .top{
+      background: #000;
+      color: #FFF;
+      font-size: 16px;
+      padding: 10px 0;
+      text-align:center;
+    }
+    .dateDisplay .date{
+      background-color: #FFF;
+      color: #000;
+      padding-top:20px;
+      font-size: 72px;
+      text-align:center;
+    }
+    .dateDisplay .small-text{
+      font-size: 30px;
+      text-transform: uppercase;
+      color:#000;
+    }
+
+
+@media (min-width:300px) and (max-width:768px){
+  .dateDisplay{
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dateDisplay{
+    max-width: 85%;
+  }
+}

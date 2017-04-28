@@ -52,6 +52,7 @@ app.controller('postCtrl', function(blogContent,$stateParams,$window,$location){
   $temp.getComments = function(hash){
     blogContent.getCommentsOnPost(hash).then(function(msg){
       $temp.comments = msg.data;
+      console.log($temp.comments);
     });
   };
 

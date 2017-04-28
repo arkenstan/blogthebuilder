@@ -6,12 +6,14 @@ app.controller('postAddCtrl',function(postService,categoryService,$window){
 
   $temp.publishPost = function(){
     postService.publish($temp.postData).then(function(response){
+      console.log(response.data);
       $window.alert(response.data);
     });
   };
 
   $temp.draftPost = function(){
     postService.draft($temp.postData).then(function(response){
+      console.log(response.data);
       $window.alert(response.data);
     });
   };
@@ -45,12 +47,7 @@ app.controller('publishedPostCtrl',function(postService,categoryService,$window)
   $temp.updatePost = function(val){
     $temp.editing.post_status = ((val == 'publish') ? val:'draft');
     postService.updatePublish($temp.editing).then(function(msg){
-      var res = msg.data.split('|');
-      if(res[0] == 'S'){
-        $temp.editing = {};
-        $temp.editorSetStatus(0);
-      }
-      $window.alert(res[2]);
+      $window.alert(msg.data);
     });
   };
 
@@ -95,6 +92,7 @@ app.controller('publishedPostCtrl',function(postService,categoryService,$window)
   $temp.postList = {};
   $temp.getPosts = function(){
     postService.get('publish').then(function(list){
+      console.log(list);
       $temp.postList = list.data;
     });
   };
@@ -126,12 +124,7 @@ app.controller('draftedPostCtrl',function(postService,categoryService,$window){
   $temp.updatePost = function(val){
     $temp.editing.post_status = ((val == 'publish') ? val:'draft');
     postService.updatePublish($temp.editing).then(function(msg){
-      var res = msg.data.split('|');
-      if(res[0] == 'S'){
-        $temp.editing = {};
-        $temp.editorSetStatus(0);
-      }
-      $window.alert(res[2]);
+      console.log(msg.data);
     });
   };
 

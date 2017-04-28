@@ -99,3 +99,10 @@ app.directive('replies',function(){
     templateUrl: './theme/partials/reply.tpl.html'
   };
 });
+
+app.directive('footer', function(){
+  return {
+    restrict:'E',
+    templateUrl: './theme/partials/footer.tpl.html'
+  };
+});

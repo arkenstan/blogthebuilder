@@ -1,18 +1,23 @@
-<h1>{{main.blogData.content.contact_title}}</h1>
+<navbar></navbar>
+<banner-contact></banner-contact>
 
-<p>
-  {{main.blogData.content.contact_content}}
-  <span>
-    <h3>Email:</h3>
-    {{main.blogData.content.contact_content_email}}
-    <h3>Address:</h3>
-    {{main.blogData.content.contact_content_address}}
-    <br />
-    {{main.blogData.content.contact_content_city}},
-    {{main.blogData.content.contact_content_state}}
-    <br />
-    {{main.blogData.content.contact_content_country}}
-    <h3>Contact:</h3>
-    {{main.blogData.content.contact_content_number}}
-  </span>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <h3 ng-show="main.blogData.content.contact_content_email != ''">Email</h3>
+            <p>
+                {{main.blogData.content.contact_content_email}}
+            </p>
+            <h3 ng-show="main.blogData.content.contact_content_number != ''">Contact Number</h3>
+            <p>
+                {{main.blogData.content.contact_content_number}}
+            </p>
+            <h3>Address</h3>
+            <p>
+                {{main.blogData.content.contact_content_address}}<br />
+                {{main.blogData.content.contact_content_city}},{{main.blogData.content.contact_content_state}}<br />
+                {{main.blogData.content.contact_content_country}}
+            </p>
+        </div>
+    </div>
+</div>

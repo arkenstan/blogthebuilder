@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include 'connection.php';
+include '../../connect.php';
 include 'generals.php';
 
 if(logged_in() == true){

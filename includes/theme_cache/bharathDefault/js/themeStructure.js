@@ -5,7 +5,17 @@ app.config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider.state('home',{
     url:'/home',
-    templateUrl:'./theme/partials/main.tpl.html',
+    templateUrl:'./theme/partials/home.tpl.html',
+  });
+
+  $stateProvider.state('about',{
+    url:'/about',
+    templateUrl:'./theme/partials/about.tpl.html',
+  });
+
+  $stateProvider.state('contact',{
+    url:'/contact',
+    templateUrl:'./theme/partials/contact.tpl.html',
   });
 
   $stateProvider.state('post',{
@@ -18,9 +28,16 @@ app.config(function($stateProvider, $urlRouterProvider){
 app.directive('themeGoesHere',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/structure.tpl.html',
+    templateUrl: './theme/partials/main.tpl.html'
   };
 });
+
+app.directive('navbar',function(){
+  return {
+    return: 'E',
+    templateUrl: './theme/partials/navigation.tpl.html'
+  };
+})
 
 app.directive('home',function(){
   return {
@@ -29,51 +46,55 @@ app.directive('home',function(){
   };
 });
 
-app.directive('aboutus',function(){
+app.directive('bannerHome',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/aboutus.tpl.html'
+    templateUrl: './theme/partials/banner-home.tpl.html'
   };
 });
-
-app.directive('contact',function(){
+app.directive('bannerAbout',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/contact.tpl.html'
+    templateUrl: './theme/partials/banner-about.tpl.html'
   };
 });
-
-app.directive('blog',function(){
+app.directive('bannerContact',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/blog.tpl.html'
+    templateUrl: './theme/partials/banner-contact.tpl.html'
   };
 });
-
-app.directive('plugins',function(){
+app.directive('bannerPost',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/plugins.tpl.html'
-  };
-});
-
-app.directive('pageFooter',function(){
-  return {
-    restrict: 'E',
-    templateUrl: './theme/partials/footer.tpl.html'
+    templateUrl: './theme/partials/banner-post.tpl.html'
   };
 });
 
 app.directive('commentForm',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/commentForm.tpl.html'
+    templateUrl: './theme/partials/comment-form.tpl.html'
+  };
+});
+
+app.directive('comments',function(){
+  return {
+    restrict: 'E',
+    templateUrl: './theme/partials/comments.tpl.html'
   };
 });
 
 app.directive('replies',function(){
   return {
     restrict: 'E',
-    templateUrl: './theme/partials/reply.tpl.html'
+    templateUrl: './theme/partials/replies.tpl.html'
+  };
+});
+
+app.directive('footer',function(){
+  return {
+    restrict:'E',
+    templateUrl: './theme/partials/footer.tpl.html'
   };
 });

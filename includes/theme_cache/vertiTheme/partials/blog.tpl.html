@@ -1,5 +1,6 @@
 <banner></banner>
 <templatenav></templatenav>
+<div ng-init="main.getPosts(2)">
 <div class="col-lg-9 col-md-9 col-sm-9">
   <div style="color:#000033">
     <h1>{{main.blogData.content.post_title}}</h1>
@@ -10,5 +11,11 @@
   <hr style="border:1px solid #000033;"/>
   <p ng-bind-html="post.post_excerpt || post.post_content"></p>
   <button class="btn btn-primary" ng-click="main.goToPost(post.post_name)" style="background-color:#000033;color:#fff;border:1px solid #000033;">Read More</button>
+</div>
+
+<div>
+  <button class="btn" ng-click="main.getPosts(main.count+5)" style="color:#fff;background-color:#000033;border:1px solid #000033;float:right;">More Posts</button>
+</div>
+
 </div>
 </div>

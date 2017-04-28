@@ -1,4 +1,5 @@
 <templatenav></templatenav>
+<div ng-init="main.getPosts(2)">
 <div class="col-lg-12 col-sm-12">
 <h1>{{main.blogData.content.post_title}}</h1>
 
@@ -6,5 +7,11 @@
   <h1 ng-bind-html="post.post_title"></h1>
   <p ng-bind-html="post.post_content"></p>
   <button class="btn btn-primary" ng-click="main.goToPost(post.post_name)">Read More</button>
+</div>
+
+<div>
+  <button class="btn" ng-click="main.getPosts(main.count+5)" style="color:#fff;background-color:#000;margin:10px;border:1px solid #000;float:right;">More Posts</button>
+</div>
+
 </div>
 </div>

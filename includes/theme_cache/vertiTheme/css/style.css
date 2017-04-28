@@ -39,4 +39,58 @@ background-color:white;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
-/**/
+
+/*Plugin Styles*/
+.clockDisplay{
+  padding:10px;
+  background: #000033;
+  display: inline-block;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 5px;
+}
+  .clockDisplay > div{
+    padding: 5px;
+  	border-radius: 3px;
+  	background: #fff;
+  	display: inline-block;
+  }
+
+  .clockDisplay div > span{
+    padding: 10px;
+  	border-radius: 3px;
+  	background: #fff;
+  	display: inline-block;
+    color:#000033;
+  }
+  .clockDisplay .small-text{
+    padding-top: 5px;
+    font-size: 16px;
+    color:#000033;
+  }
+
+
+  .dateDisplay{
+    border-radius: 5px;
+    border: 1px solid #000033;
+    margin: 5px;
+  }
+    .dateDisplay .top{
+      background: #000033;
+      color: #FFF;
+      font-size: 16px;
+      padding: 10px 0;
+      text-align:center;
+    }
+    .dateDisplay .date{
+      background-color: #FFF;
+      color: #000033;
+      padding-top:20px;
+      font-size: 72px;
+      text-align:center;
+    }
+    .dateDisplay .small-text{
+      font-size: 30px;
+      text-transform: uppercase;
+      color:#000033;
+    }
