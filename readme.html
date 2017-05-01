@@ -4,30 +4,78 @@
     <link rel="stylesheet" type="text/css" href="CDN/bootstrap/css/bootstrap.min.css" />
     <script src="CDN/jquery.min.js"></script>
     <script src="CDN/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+      .container{
+        text-align: justify;
+        font-size: 16px;
+      }
+      .instructions{
+        font-size: 16px;
+      }
+        .instructions li{
+          margin-top: 5px;
+        }
+    </style>
   </head>
 
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-md-offset-1 col-lg-offset-1" style="border-top:1px solid #4b6f90; margin-top:36px">
           <center>
             <h1>Blog The Builder</h1>
           </center>
-          <br />
-          <h3>About</h3>
+          <hr class="divider"/>
           <p>
             Welcome, To Blogthebuilder readme file. Here you can find answers to most of your queries<br />
           </p>
-          <h3>Installation</h3>
+          <hr class="divider"/>
+          <h3>Installation <strong>(for Webserver)</strong></h3>
           <p>
-            If you are reading this readme file means you have downloaded the <strong>Blog The Builder</strong>
-            package and extracted it or uploaded it to your web server for installation please follow this simple step guide :
-            <ul>
-              <li>In extracted package you will find file connect.php please open it in an text editor and update credentials for HOSTNAME, USERNAME, PASSWORD, DATABASE according to  your web server</li>
-              <li>Upload the modified file (connect.php) back to your web server</li>
-              <li><a href="installation.php">Please Click this link to procede</a></li>
+            <ul class="instructions">
+              <li>
+                Extract the Package
+              </li>
+              <li>
+                Create a Database with any name using your cPanel or Database
+              </li>
+              <li>
+                Open connect.php file in the extracted package(with your text editor)
+              </li>
+              <li>
+                Replace your database credentials in HOSTNAME, USERNAME, PASSWORD, DATABASE
+              </li>
+              <li>
+                Upload package to your public_html folder on webserver
+              </li>
+              <li>
+                Now open installation.php (yourwebsite.com/installation.php) and your are good to go.
+              </li>
             </ul>
-            Welcome, To Blogthebuilder readme file. Here you can find answers to most of your queries<br />
+          </p>
+          <hr class="divider"/>
+          <h3>Installation <strong>(for Localhost)</strong></h3>
+          <p>
+            <ul class="instructions">
+              <li>
+                Extract the Package
+              </li>
+              <li>
+                Copy and Paste extracted package in your localhost folder (htdocs or www)
+              </li>
+              <li>
+                Create a Database with any name
+              </li>
+              <li>
+                Open connect.php file from the extracted package(with your text editor)
+              </li>
+              <li>
+                Replace your database credentials in HOSTNAME, USERNAME, PASSWORD, DATABASE
+              </li>
+              <li>
+                Now open installation.php with localhost and your are good to go.
+              </li>
+            </ul>
           </p>
         </div>
       </div>

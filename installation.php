@@ -4,7 +4,7 @@ session_start();
 include 'connect.php';
 
 if(mysqli_query($db_conx, "SELECT * FROM users")){
-	header("Location:/");
+	header("Location:/index.html");
 }
 
 function display_error($error){
@@ -398,7 +398,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'install'){
 		//installation Script
 
 		create_table($db_conx,$data,$blog_name);
-		header('Location:/');
+		header('Location:index.html');
 	}
 
 }
